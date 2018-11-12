@@ -1,4 +1,4 @@
-package SoftwareProcess.Shobshop.Orders;
+package SoftwareProcess.Shobshop.Model;
 
 import javax.persistence.Entity;
 import javax.validation.constraints.NotNull;
