@@ -1,4 +1,4 @@
-package swprocessgroup1.SHOBSHOP;
+package SoftwareProcess.Shobshop;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
