@@ -2,7 +2,9 @@ package SoftwareProcess.Shobshop.Model;
 
 import java.sql.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import javax.persistence.Table;
 
 import org.apache.catalina.User;
@@ -11,11 +13,17 @@ import org.apache.catalina.User;
 @Table(name = "order")
 public class OrderModel {
 
-
+	@Id
+	@Column(name = "OderId")
     private int orderId;
-    
-    private Date date;
-    private int totalPrice;
+	
+	@Column(name = "Date")
+	private Date date;
+	
+	@Column(name = "TotalPrice")
+	private int totalPrice;
+	
+	@Column(name = "UserId")
     private UserModel userId;
 
 	public int getOrderid()
