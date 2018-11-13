@@ -4,17 +4,28 @@ import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import org.apache.catalina.User;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
 @Table(name = "order")
 public class OrderModel {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name = "OderId")
+	
     private int orderId;
 	
 	@Column(name = "Date")
@@ -23,7 +34,10 @@ public class OrderModel {
 	@Column(name = "TotalPrice")
 	private int totalPrice;
 	
-	@Column(name = "UserId")
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+   // @OnDelete(action = OnDeleteAction.CASCADE)
+    //@JsonIgnore
     private UserModel userId;
 
 	public int getOrderid()

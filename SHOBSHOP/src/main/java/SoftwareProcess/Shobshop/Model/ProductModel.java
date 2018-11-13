@@ -11,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 /**
  *
@@ -21,29 +22,28 @@ import javax.persistence.Table;
 public class ProductModel {
     
     @Id
-    @Column(name="ProductId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int productId;
    
-    @Column(name="ProductName")
+    @NotBlank
     private String productName;
     
-    @Column(name="ProductDetail")
+    @NotBlank
     private String productDetail;
     
-    @Column(name="PictureUrl")
+    @NotBlank
     private String productPicture;
     
-    @Column(name="QuantityInStock")
+    @NotBlank
     private int quantity;
     
-    @Column(name="Category_CategoryID")
+    @NotBlank
     private int category;
     
-    @Column(name="Shop_ShopID")
+    @NotBlank
     private int shopId;
     
-    @Column(name="ProductPrice")
+    @NotBlank
     private int productPrice;
 
     public ProductModel() {
