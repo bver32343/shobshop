@@ -5,13 +5,14 @@
  */
 package SoftwareProcess.Shobshop.Repository;
 
-import SoftwareProcess.Shobshop.Model.OrderDetailModel;
+import SoftwareProcess.Shobshop.Model.UserModel;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
  * @author saknarong
  */
-public interface OrderDetailRepository extends JpaRepository<OrderDetailModel, Integer>{
+public interface UserRepository extends JpaRepository<UserModel, Integer>{
     
 }

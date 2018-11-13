@@ -5,28 +5,27 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "user")
 public class UserModel{
     @Id
-    @Column(name = "UserId")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
 
-
-
-    @Column(name = "FirstName")
+    @NotBlank
     private String firstName;
 
-    @Column(name = "LastName")
+    @NotBlank
     private String lastName;
 
-    @Column(name = "E-mail")
+    @NotBlank
     private String email;
 
-    @Column(name = "PhoneNumber")
+    @NotBlank
     private int phoneNumber;
 
 
