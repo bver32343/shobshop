@@ -17,7 +17,7 @@ public class OrderDetailModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int orderDetail;
+    private int orderDetailId;
 
     @NotBlank
     private int quantity;
@@ -33,12 +33,12 @@ public class OrderDetailModel {
 
 	public int getOrderdetail()
 	{
-		return this.orderDetail;
+		return this.orderDetailId;
 	}
 
 	public void setOrderdetail(int orderDetail)
 	{
-		this.orderDetail = orderDetail;
+		this.orderDetailId = orderDetailId;
 	}
 
 	public int getQuantity()
