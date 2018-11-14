@@ -44,5 +44,16 @@ h1{
     color : rgb(255, 124, 124);
 }
 
+.detail{
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+}
+ .detail img{
+    margin: 30px;
+}
+ .detail h2{
+    font-size: 1em;
+    margin: 30px;
+}
 
 
