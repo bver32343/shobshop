@@ -29,7 +29,7 @@
         <div class="topic mt-5">
             <div class="row">
                 <div class="col">
-                    <h1>หน้าแรก > <span>สั่งซื้อสินค้า</span></h1>
+                    <a style="font-size: 20px">หน้าแรก > <span>สั่งซื้อสินค้า</span></a>
                     <hr>
                 </div>
             </div>
@@ -100,6 +100,12 @@
                                     <input type="text" class="form-control" id="formGroupName" placeholder="">
                                 </div>
                             </div>
+                            <div class="col-7 ml-4">
+                                <div class="form-group">
+                                    <label for="address">E-mail</label>
+                                    <input type="text" class="form-control" id="formGroupName" placeholder="">
+                                </div>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -111,16 +117,22 @@
                 <div class="col-4">
                     <img src="pic/2.png" alt="รูปสินค้า" width="200px" height="200px">
                 </div>
-                <div class="col-4">
+                <div class="col-6">
                     <h2>ชุดเดรสยาวสีขาว</h2>
                     <h2>โดย dressdressShop</h2>
+                    <h2 class="price">20,000 THB</h2>
                 </div>
-                <div class="col-4">
-                    <div class="qty mt-5">
-                        <span class="minus bg-dark">-</span>
-                        <input type="number" class="count" name="qty" value="1">
-                        <span class="plus bg-dark">+</span>
-                    </div>
+               <div class="col-2">
+                   <div class="row">
+                        <img src="pic/delete.png" alt="ลบสินค้า" width="20px" height="20px">
+                   </div>
+                   <div class="row mt-5">
+                        <div class="qty mt-5">
+                            <span class="minus bg-dark">-</span>
+                            <input type="number" class="count" name="qty" value="1">
+                            <span class="plus bg-dark">+</span>
+                        </div>
+                   </div>
                 </div>
             </div>
         </div>
@@ -162,50 +174,31 @@
 
         <hr>
 
-        <div class="payment mt-5 mb-4">
-            <h2>วิธีการชำระเงิน</h2>
+        <h2 class="mt-5">วิธีการชำระเงิน</h2>
+        <div class="detail mt-4 mb-4">
             <div class="row">
-                <div class="col">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="optradio">
-                            <div class="row">
-                                <div class="col-6">
-                                    <img src="pic/credit-card.png" alt="รูปสินค้า" width="100px" height="100px">
-                                </div>
-                                <div class="col-6 d-flex align-items-center">
-                                    <h2>บัตรเดบิต/เครดิต</h2>
-                                </div>
-                            </div>
-                        </label>
-                    </div>
+                <div class="col-2">
+                    <img src="pic/credit-card.png" alt="รูปสินค้า" width="100px" height="100px">
                 </div>
-                <div class="col mr-3">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="optradio">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <img src="pic/online-payment.png" alt="รูปสินค้า" width="100px" height="100px">
-                                    </div>
-                                    <div class="col-6 d-flex align-items-center">
-                                        <h2>Internet Banking</h2>
-                                    </div>
-                                </div>
-                        </label>
-                    </div>
+                <div class="col-10 d-flex align-items-center">
+                    <h2>บัตรเดบิต/เครดิต</h2>
                 </div>
             </div>
         </div>
 
-        <div class="card mt-4">
+        <h2>บัตรเดบิต/เครดิตของฉัน</h2>
+        <div class="card mt-4 mb-5">
             <div class="row">
                 <div class="col-2">
                     <img src="pic/visa.png" alt="visa" width="90px" height="60px">
                 </div>
-                <div class="col-8 align-items-center">
-                    <h2>น.ส. สินีนาฏ จั่นxxxx</h2>
-                    <h2>โดย dressdressShop</h2>
+                <div class="col-8 d-flex align-items-center">
+                    <div class="row">
+                        <div class="col-12">
+                            <h2>น.ส. สินีนาฏ จั่นxxxx</h2>
+                            <h2>4732-52xx-xxxx-xxxx</h2>
+                        </div>
+                    </div>
                 </div>
                 <div class="col-2 d-flex align-items-center">
                    <div class="delete-card">
@@ -214,6 +207,27 @@
                 </div>
             </div>
         </div>
+
+        <hr>
+
+        <div class="summary">
+            <div class="row">
+                <div class="col-4">
+
+                </div>
+                <div class="col-4">
+
+                </div>
+                <div class="col-4">
+                    <h2>รวมการสั่งซื้อ <span>69,790 THB</span></h2> 
+                    <h2>จัดส่ง <span>300 THB</span></h2> 
+                    <hr>
+                    <h2>รวม <span>70,090 THB</span></h2> 
+                    <button class="btn btn-outline-danger mt-5 mb-5" type="submit" style="float:right">สั่งซื้อสินค้า</button> 
+                </div>
+            </div>
+        </div>
+
 
         
 

@@ -36,15 +36,11 @@ body{
     box-shadow: 0 0 0 0.2rem rgb(255, 195, 195);
 }
 
-h1{
-    font-size: 1.5em; 
-}
-
 h2{
     font-size: 1em; 
 }
 
-.topic h1 span{
+.topic a span{
     color : rgb(255, 124, 124);
 }
 
@@ -59,13 +55,26 @@ h2{
  .detail img{
     margin: 30px;
 }
+
+.detail .col-2 img{
+    opacity: 0.5;
+}
+
  .detail h2{
     font-size: 1em;
     margin: 30px;
 }
 
+.detail .price{
+    color : rgb(255, 124, 124);
+}
+
+.bg-dark {
+    background-color: rgb(255, 124, 124)!important;
+}
+
 .qty .count {
-    color: #000;
+    color: gray;
     display: inline-block;
     vertical-align: top;
     font-size: 25px;
@@ -145,3 +154,11 @@ input:disabled{
     border-radius: .25rem;
 }
 
+.card{
+    padding-bottom: 15px;
+}
+
+.summary span{
+    float: right;
+    color : rgb(255, 124, 124);
+}
