@@ -20,7 +20,7 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
-@Table(name ="order")
+@Table(name ="orders")
 public class OrderModel {
 
 	@Id
