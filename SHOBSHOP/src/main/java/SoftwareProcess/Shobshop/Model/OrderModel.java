@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -19,26 +20,25 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
-@Table(name = "order")
+@Table(name ="order")
 public class OrderModel {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name = "OderId")
-	
     private int orderId;
 	
-	@Column(name = "Date")
+	@NotBlank
 	private Date date;
 	
-	@Column(name = "TotalPrice")
+	@NotBlank
 	private int totalPrice;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
+	@JoinColumn(name = "user_id", nullable = false)
+	private UserModel userId;
    // @OnDelete(action = OnDeleteAction.CASCADE)
     //@JsonIgnore
-    private UserModel userId;
+
 
 	public int getOrderid()
 	{
