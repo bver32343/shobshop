@@ -36,6 +36,7 @@ public class ProductController {
         return "index";
     }
     
+    //test
     @GetMapping("/texts")
     public ResponseEntity<List<ProductModel>> getAllProduct(){
         List<ProductModel> texts = productService.getAllText();
