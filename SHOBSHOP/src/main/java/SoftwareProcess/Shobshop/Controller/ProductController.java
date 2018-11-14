@@ -36,17 +36,11 @@ public class ProductController {
         return "index";
     }
     
-    //test
     @GetMapping("/texts")
     public ResponseEntity<List<ProductModel>> getAllProduct(){
         List<ProductModel> texts = productService.getAllText();
         return new ResponseEntity<List<ProductModel>>(texts, HttpStatus.OK);
     }
     
-    @GetMapping("/productdetail/{id}")
-    public ResponseEntity<ProductModel> getProductDetailById(@PathVariable("id") int id){
-        ProductModel infoProductDetail = productService.getById(id);
-        return new ResponseEntity<ProductModel>(infoProductDetail, HttpStatus.OK);
-    }
     
 }

@@ -26,7 +26,7 @@ public class UserModel{
     private String email;
 
     @NotBlank
-    private int phoneNumber;
+    private String phoneNumber;
 
 
     public UserModel(){
@@ -73,12 +73,12 @@ public class UserModel{
 		this.email = email;
 	}
 
-	public int getPhonenumber()
+	public String getPhonenumber()
 	{
 		return this.phoneNumber;
 	}
 
-	public void setPhonenumber(int phoneNumber)
+	public void setPhonenumber(String phoneNumber)
 	{
 		this.phoneNumber = phoneNumber;
 	}

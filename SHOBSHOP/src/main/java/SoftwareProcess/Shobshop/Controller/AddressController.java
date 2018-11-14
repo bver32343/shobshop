@@ -6,9 +6,8 @@ import org.springframework.stereotype.Controller;
 import SoftwareProcess.Shobshop.Service.AddressService;
 
 @Controller
-public class AddressController {
-
-    @Autowired
-    AddressService addressService;
+public class AddressController{
+@Autowired
+AddressService addressService;
 
 }

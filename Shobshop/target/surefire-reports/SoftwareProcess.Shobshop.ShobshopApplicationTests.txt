@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: SoftwareProcess.Shobshop.ShobshopApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.567 s - in SoftwareProcess.Shobshop.ShobshopApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 21.068 s - in SoftwareProcess.Shobshop.ShobshopApplicationTests

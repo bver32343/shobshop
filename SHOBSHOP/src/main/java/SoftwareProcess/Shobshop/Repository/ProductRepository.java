@@ -13,5 +13,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author saknarong
  */
 public interface ProductRepository extends JpaRepository<ProductModel, Integer>{
-    public ProductModel findByProductId(int productId);
+    
 }
