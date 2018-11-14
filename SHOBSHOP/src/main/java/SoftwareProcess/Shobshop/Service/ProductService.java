@@ -31,4 +31,9 @@ public class ProductService {
     public List<ProductModel> getAllText(){
         return productRepository.findAll();
     }
+
+    public ProductModel getById(int productId){
+        return productRepository.findByProductId(productId);
+    }
+
 }
