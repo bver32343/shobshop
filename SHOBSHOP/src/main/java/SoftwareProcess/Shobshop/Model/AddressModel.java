@@ -35,7 +35,7 @@ public class AddressModel {
     @NotBlank
     private String city;
 
-    @NotBlank
+    
     private int postCode;
 
     @NotBlank
@@ -45,12 +45,12 @@ public class AddressModel {
     @JoinColumn(name = "user_id", nullable = false)
     private UserModel userId;
 
-	public int getAddressid()
+	public int getAddressId()
 	{
 		return this.addressId;
 	}
 
-	public void setAddressid(int addressId)
+	public void setAddressId(int addressId)
 	{
 		this.addressId = addressId;
 	}
@@ -135,12 +135,12 @@ public class AddressModel {
 		this.country = country;
 	}
 
-	public UserModel getUserid()
+	public UserModel getUserId()
 	{
 		return this.userId;
 	}
 
-	public void setUserid(UserModel userId)
+	public void setUserId(UserModel userId)
 	{
 		this.userId = userId;
 	}
