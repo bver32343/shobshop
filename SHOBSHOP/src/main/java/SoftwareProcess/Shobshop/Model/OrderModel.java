@@ -31,7 +31,10 @@ public class OrderModel {
 	private Date date;
 	
 	@NotBlank
-	private int totalPrice;
+	private Double totalPrice;
+
+	@NotBlank
+	private int typeOfShipping;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "user_id", nullable = false)
@@ -39,6 +42,15 @@ public class OrderModel {
    // @OnDelete(action = OnDeleteAction.CASCADE)
     //@JsonIgnore
 
+	public int getTypeOfShipping()
+	{
+		return this.typeOfShipping;
+	}
+
+	public void setTypeOfShipping(int typeOfShipping)
+	{
+		this.typeOfShipping = typeOfShipping;
+	}
 
 	public int getOrderid()
 	{
@@ -55,17 +67,17 @@ public class OrderModel {
 		return this.date;
 	}
 
-	public void setDate(Date date)
+	public void setDate(java.util.Date date2)
 	{
-		this.date = date;
+		this.date = (@NotBlank Date) date2;
 	}
 
-	public int getTotalprice()
+	public Double getTotalprice()
 	{
 		return this.totalPrice;
 	}
 
-	public void setTotalprice(int totalPrice)
+	public void setTotalprice(Double totalPrice)
 	{
 		this.totalPrice = totalPrice;
 	}
