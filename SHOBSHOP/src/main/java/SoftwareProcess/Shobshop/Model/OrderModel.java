@@ -28,13 +28,13 @@ public class OrderModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderId;
 	
-	@NotBlank
+	//@NotBlank
 	private LocalDate date;
 	
-	@NotBlank
+	//@NotBlank
 	private Double totalPrice;
 
-	@NotBlank
+	//@NotBlank
 	private int typeOfShipping;
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -53,12 +53,12 @@ public class OrderModel {
 		this.typeOfShipping = typeOfShipping;
 	}
 
-	public int getOrderid()
+	public int getOrderId()
 	{
 		return this.orderId;
 	}
 
-	public void setOrderid(int orderId)
+	public void setOrderId(int orderId)
 	{
 		this.orderId = orderId;
 	}
@@ -83,12 +83,12 @@ public class OrderModel {
 		this.totalPrice = totalPrice;
 	}
 
-	public UserModel getUserid()
+	public UserModel getUserId()
 	{
 		return this.userId;
 	}
 
-	public void setUserid(UserModel userId)
+	public void setUserId(UserModel userId)
 	{
 		this.userId = userId;
 	}

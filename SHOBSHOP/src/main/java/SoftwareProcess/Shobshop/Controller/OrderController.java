@@ -48,6 +48,7 @@ public class OrderController{
         String lastname = request.getParameter("lastname");
         String email = request.getParameter("email");
         String phonenumber = request.getParameter("phonenumber");
+        System.out.println("get success user");
 
         String alley = request.getParameter("alley");
         String city = request.getParameter("city");
@@ -57,10 +58,12 @@ public class OrderController{
         String postCode = request.getParameter("postCode");
         String road = request.getParameter("road");
         String subDistrict = request.getParameter("subDistrict");
+        System.out.println("save success address");
 
         String typeOfShipping = request.getParameter("typeOfShipping");
         String totalPrice = request.getParameter("totalPrice");
         String quantity = request.getParameter("quantity");	
+        System.out.println("save success order");
         
 
         UserModel userModel = new UserModel();
@@ -69,6 +72,7 @@ public class OrderController{
         userModel.setLastname(lastname);
         userModel.setPhonenumber(phonenumber);
         userService.save(userModel);
+        System.out.println("save success user");
 
         AddressModel addressModel = new AddressModel();
         addressModel.setAlley(alley);
@@ -79,15 +83,17 @@ public class OrderController{
         addressModel.setPostcode(Integer.parseInt(postCode));
         addressModel.setRoad(road);
         addressModel.setSubdistrict(subDistrict);
-        addressModel.setUserid(userModel);
+        addressModel.setUserId(userModel);
         addressService.save(addressModel);
+        System.out.println("save success address");
 
         OrderModel orderModel = new OrderModel();
         orderModel.setTotalprice(Double.parseDouble(totalPrice));
         orderModel.setTypeOfShipping(Integer.parseInt(typeOfShipping));
-        orderModel.setUserid(userModel);
+        orderModel.setUserId(userModel);
         orderModel.setDate(java.time.LocalDate.now());
         orderService.save(orderModel);
+        System.out.println("save success order");
 
         int productId = 1;
         ProductModel productModel = new ProductModel();
@@ -95,13 +101,14 @@ public class OrderController{
         OrderDetailModel orderDetailModel = new OrderDetailModel();
         orderDetailModel.setQuantity(Integer.parseInt(quantity));
         orderDetailModel.setProductId(productModel);
-        orderDetailModel.setOrderid(orderModel);
+        orderDetailModel.setOrderId(orderModel);
         orderDetailService.save(orderDetailModel);
+        System.out.println("save success orderdetail");
 
-        System.out.println("user: id"+userModel.getUserid()+" "+email+" "+ phonenumber+" "+firstname+" "+ lastname);
-        System.out.println("address: id "+userModel.getUserid()+" "+alley+" "+ city+" "+country+" "+ district+" "+ homeNo+" "+road+" "+ subDistrict);
-        System.out.println("order: id "+userModel.getUserid()+" total price: "+totalPrice+" type ship : "+ typeOfShipping+" "+java.time.LocalDate.now()+" quantity : ");
-        System.out.println("orderdetail: quantity "+" order id:  "+ orderModel.getOrderid());
+        System.out.println("user: id"+userModel.getUserId()+" "+email+" "+ phonenumber+" "+firstname+" "+ lastname);
+        System.out.println("address: id "+userModel.getUserId()+" "+alley+" "+ city+" "+country+" "+ district+" "+ homeNo+" "+road+" "+ subDistrict);
+        System.out.println("order: id "+userModel.getUserId()+" total price: "+totalPrice+" type ship : "+ typeOfShipping+" "+java.time.LocalDate.now()+" quantity : ");
+        System.out.println("orderdetail: quantity "+" order id:  "+ orderModel.getOrderId());
         
         return "testsave";
     }

@@ -19,7 +19,7 @@ public class OrderDetailModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderDetailId;
 
-    @NotBlank
+    //@NotBlank
     private int quantity;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -66,7 +66,7 @@ public class OrderDetailModel {
 		return this.orderId;
 	}
 
-	public void setOrderid(OrderModel orderId)
+	public void setOrderId(OrderModel orderId)
 	{
 		this.orderId = orderId;
 	}
