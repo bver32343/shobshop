@@ -16,8 +16,7 @@
         </a>
         <div class="container">
             <form class="form-inline">
-                <input class="form-control mr-4" id="input-search" type="search" placeholder="ค้นหาสินค้าหรือร้านค้า" aria-label="Search"
-                    style=" width: 900px">
+                <input class="form-control mr-4" id="search" type="search" placeholder="ค้นหาสินค้าหรือร้านค้า" aria-label="Search">
                 <button class="btn btn-outline-danger" id="btn-search" type="submit">ค้นหา</button>
             </form>
         </div>
@@ -33,12 +32,12 @@
                 <div class="col-2">
                     <div class="product-box" style="width: 160px ; height: 250px;">
                         <a href="#" id="product-name-link">
-                            <img id="product-pic" th:src="${'/images/' + product.productPicture}" alt="productPicture" width="140px" height="170px">
+                            <!--<img id="product-pic" th:src="${'/images/' + product.productPicture}" alt="productPicture" width="140px" height="170px">
                             <p id="productname" th:text="${product.productName}">productname</p>
                         </a>
                         <p id="price" th:text="${product.productPrice} + ' THB'">
                             <b>ราคา THB</b>
-                        </p>
+                        </p>-->
                     </div>
                 </div>
             </div>
