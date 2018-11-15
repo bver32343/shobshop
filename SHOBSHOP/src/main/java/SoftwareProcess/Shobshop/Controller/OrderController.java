@@ -14,19 +14,33 @@ import org.springframework.web.bind.annotation.PostMapping;
 import SoftwareProcess.Shobshop.Model.AddressModel;
 import SoftwareProcess.Shobshop.Model.OrderDetailModel;
 import SoftwareProcess.Shobshop.Model.OrderModel;
+import SoftwareProcess.Shobshop.Model.ProductModel;
 import SoftwareProcess.Shobshop.Model.UserModel;
+import SoftwareProcess.Shobshop.Service.AddressService;
+import SoftwareProcess.Shobshop.Service.OrderDetailService;
 import SoftwareProcess.Shobshop.Service.OrderService;
+import SoftwareProcess.Shobshop.Service.UserService;
 
 @Controller
 public class OrderController{
     @Autowired
-    OrderService OrderService;
-    @GetMapping("/test2")
-    public String ConfirmOrtestder(){
-        return "test";
+    OrderService orderService;
+
+    @Autowired
+    OrderDetailService orderDetailService;
+
+    @Autowired
+    AddressService addressService;
+
+    @Autowired
+    UserService userService;
+
+    @GetMapping("/confirmorder")
+    public String ConfirmOrdertestder(){
+        return "shopping";
     }
 
-    @PostMapping("/testsave")
+    @GetMapping("/testsave")
     public String bill(ModelMap modelmap,
             HttpServletRequest request){
         
@@ -43,47 +57,52 @@ public class OrderController{
         String postCode = request.getParameter("postCode");
         String road = request.getParameter("road");
         String subDistrict = request.getParameter("subDistrict");
-       // String useridAddress = request.getParameter("email");
 
-       String typeOfShipping = request.getParameter("typeOfShipping");
-       String totalPrice = request.getParameter("totalPrice");
-
-       String quantity = request.getParameter("quantity");	
-       
+        String typeOfShipping = request.getParameter("typeOfShipping");
+        String totalPrice = request.getParameter("totalPrice");
+        String quantity = request.getParameter("quantity");	
+        
 
         UserModel userModel = new UserModel();
         userModel.setEmail(email);
         userModel.setFirstname(firstname);
         userModel.setLastname(lastname);
         userModel.setPhonenumber(phonenumber);
+        userService.save(userModel);
 
         AddressModel addressModel = new AddressModel();
-        addressModel.setAlley("alley");
-        addressModel.setCity("city");
-        addressModel.setCountry("country");
-        addressModel.setDistrict("district");
-        addressModel.setHomeno("homeNo");
-        addressModel.setPostcode(111111);
-        addressModel.setRoad("road");
-        addressModel.setSubdistrict("subDistrict");
+        addressModel.setAlley(alley);
+        addressModel.setCity(city);
+        addressModel.setCountry(country);
+        addressModel.setDistrict(district);
+        addressModel.setHomeno(homeNo);
+        addressModel.setPostcode(Integer.parseInt(postCode));
+        addressModel.setRoad(road);
+        addressModel.setSubdistrict(subDistrict);
         addressModel.setUserid(userModel);
+        addressService.save(addressModel);
 
         OrderModel orderModel = new OrderModel();
-        Date date = new Date();
         orderModel.setTotalprice(Double.parseDouble(totalPrice));
         orderModel.setTypeOfShipping(Integer.parseInt(typeOfShipping));
         orderModel.setUserid(userModel);
-        orderModel.setDate(date);
-        
-        int id = 1;
+        orderModel.setDate(java.time.LocalDate.now());
+        orderService.save(orderModel);
+
+        int productId = 1;
+        ProductModel productModel = new ProductModel();
+        productModel.setProductId(productId);
         OrderDetailModel orderDetailModel = new OrderDetailModel();
         orderDetailModel.setQuantity(Integer.parseInt(quantity));
-       // orderDetailModel.setProductid();
+        orderDetailModel.setProductId(productModel);
         orderDetailModel.setOrderid(orderModel);
+        orderDetailService.save(orderDetailModel);
 
-
-
-        System.out.println("order: "+email+" "+ phonenumber+" "+firstname+" "+ lastname);
+        System.out.println("user: id"+userModel.getUserid()+" "+email+" "+ phonenumber+" "+firstname+" "+ lastname);
+        System.out.println("address: id "+userModel.getUserid()+" "+alley+" "+ city+" "+country+" "+ district+" "+ homeNo+" "+road+" "+ subDistrict);
+        System.out.println("order: id "+userModel.getUserid()+" total price: "+totalPrice+" type ship : "+ typeOfShipping+" "+java.time.LocalDate.now()+" quantity : ");
+        System.out.println("orderdetail: quantity "+" order id:  "+ orderModel.getOrderid());
+        
         return "testsave";
     }
 }

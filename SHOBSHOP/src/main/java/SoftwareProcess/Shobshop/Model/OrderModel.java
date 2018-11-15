@@ -1,6 +1,7 @@
 package SoftwareProcess.Shobshop.Model;
 
 import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -28,7 +29,7 @@ public class OrderModel {
     private int orderId;
 	
 	@NotBlank
-	private Date date;
+	private LocalDate date;
 	
 	@NotBlank
 	private Double totalPrice;
@@ -62,14 +63,14 @@ public class OrderModel {
 		this.orderId = orderId;
 	}
 
-	public Date getDate()
+	public LocalDate getDate()
 	{
 		return this.date;
 	}
 
-	public void setDate(java.util.Date date2)
+	public void setDate(LocalDate localDate)
 	{
-		this.date = (@NotBlank Date) date2;
+		this.date = localDate;
 	}
 
 	public Double getTotalprice()

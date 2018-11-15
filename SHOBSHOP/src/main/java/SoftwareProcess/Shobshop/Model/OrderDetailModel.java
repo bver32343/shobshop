@@ -31,12 +31,12 @@ public class OrderDetailModel {
     private OrderModel orderId;
 
 
-	public int getOrderdetail()
+	public int getOrderdetailId()
 	{
 		return this.orderDetailId;
 	}
 
-	public void setOrderdetail(int orderDetail)
+	public void setOrderdetailId(int orderDetailId)
 	{
 		this.orderDetailId = orderDetailId;
 	}
@@ -51,12 +51,12 @@ public class OrderDetailModel {
 		this.quantity = quantity;
 	}
 
-	public ProductModel getProductid()
+	public ProductModel getProductId()
 	{
 		return this.productId;
 	}
 
-	public void setProductid(ProductModel productId)
+	public void setProductId(ProductModel productId)
 	{
 		this.productId = productId;
 	}
