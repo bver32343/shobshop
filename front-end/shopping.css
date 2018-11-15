@@ -73,6 +73,12 @@ h2{
     background-color: rgb(255, 124, 124)!important;
 }
 
+.qty .form-control{
+    width: 60px;
+    text-align: center;
+}
+
+/*
 .qty .count {
     color: gray;
     display: inline-block;
@@ -113,7 +119,8 @@ h2{
 }
 .plus:hover{
     background-color: #717fe0 !important;
-}
+}*/
+
 /*Prevent text selection*/
 span{
     -webkit-user-select: none;

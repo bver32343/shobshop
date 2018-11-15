@@ -133,11 +133,18 @@
                    <div class="row">
                         <img src="pic/delete.png" alt="ลบสินค้า" width="20px" height="20px">
                    </div>
-                   <div class="row mt-5">
-                        <div class="qty mt-5">
-                            <span class="minus bg-dark">-</span>
-                            <input type="number" class="count" name="quantity" value="1">
-                            <span class="plus bg-dark">+</span>
+                   <div class="row mt-5 d-flex align-items-end">
+                        <div class="qty">
+                            <!-- <span class="minus bg-dark">-</span> -->
+                            
+                            <form class="form-inline">
+                                <div class="row mr-5">
+                                    <span class="mr-2 mt-2">จำนวน</span>
+                                    <input class="form-control" type="number" placeholder="1">
+                                    <span class="ml-2 mt-2">ชิ้น</span>
+                                </div>
+                             </form>
+                            <!-- <span class="plus bg-dark">+</span> -->
                         </div>
                    </div>
                 </div>
@@ -230,8 +237,8 @@
                     <h2>จัดส่ง <span id="sumDelivery">300 THB</span></h2> 
                     <hr>
                     <h2>รวม <span id="sumPriceAndDelivery">70,090 THB</span></h2> 
-                
-                    <button class="btn btn-outline-danger mt-5 mb-5" type="submit" style="float:right" name="submitOrder">สั่งซื้อสินค้า</button> 
+                    <input type="hidden" value="20000" name="totalPrice">
+                    <button class="btn btn-outline-danger mt-5 mb-5" type="submit" style="float:right">สั่งซื้อสินค้า</button> 
                 </div>
             </div>
         </div>
@@ -248,7 +255,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script>
+    <!-- <script>
         $(document).ready(function(){
             $('.count').prop('disabled', true);
             $(document).on('click','.plus',function(){
@@ -261,6 +268,6 @@
                     }
                 });
         });
-    </script>
+    </script> -->
   </body>
 </html>
