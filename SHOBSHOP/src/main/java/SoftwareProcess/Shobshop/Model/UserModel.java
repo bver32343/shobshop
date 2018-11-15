@@ -33,12 +33,12 @@ public class UserModel{
 
     }
 
-	public int getUserid()
+	public int getUserId()
 	{
 		return this.userId;
 	}
 
-	public void setUserid(int userId)
+	public void setUserId(int userId)
 	{
 		this.userId = userId;
 	}
