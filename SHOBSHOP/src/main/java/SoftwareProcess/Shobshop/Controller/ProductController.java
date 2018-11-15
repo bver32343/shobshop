@@ -42,5 +42,9 @@ public class ProductController {
         return new ResponseEntity<List<ProductModel>>(texts, HttpStatus.OK);
     }
     
-    
+    @GetMapping("/productdetail/{id}")
+    public ResponseEntity<ProductModel> getProductDetailById(@PathVariable("id") int id){
+        ProductModel infoProductDetail = productService.getById(id);
+        return new ResponseEntity<ProductModel>(infoProductDetail, HttpStatus.OK);
+    }
 }
