@@ -14,4 +14,7 @@ AddressRepository AddressRepository;
     public AddressModel save(AddressModel address){
         return AddressRepository.save(address);
     }
+    public AddressModel getById(int addressId){
+        return AddressRepository.findByAddressId(addressId);
+    }
 }
