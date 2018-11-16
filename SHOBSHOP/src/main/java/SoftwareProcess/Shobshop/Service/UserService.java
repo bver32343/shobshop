@@ -14,5 +14,7 @@ public class UserService{
         return UserRepository.save(users);
 
     }
-
+    public UserModel getById(int userId){
+        return UserRepository.findByUserId(userId);
+    }
 }
