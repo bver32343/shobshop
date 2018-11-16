@@ -19,6 +19,7 @@ import SoftwareProcess.Shobshop.Model.UserModel;
 import SoftwareProcess.Shobshop.Service.AddressService;
 import SoftwareProcess.Shobshop.Service.OrderDetailService;
 import SoftwareProcess.Shobshop.Service.OrderService;
+import SoftwareProcess.Shobshop.Service.ProductService;
 import SoftwareProcess.Shobshop.Service.UserService;
 
 @Controller
@@ -35,10 +36,27 @@ public class OrderController{
     @Autowired
     UserService userService;
 
+    @Autowired
+    ProductService productService;
+
+    @GetMapping("/summary")
+    public String kartoontest(){
+        return "Summary";
+    }
+
     @GetMapping("/confirmorder")
-    public String ConfirmOrdertestder(){
+    public String ConfirmOrdertestder(
+        HttpServletRequest request,
+        ModelMap modelMap){
+     //   String productIdParam = request.getParameter("productId");
+      //  int productId = Integer.parseInt(productIdParam);
+        //ProductModel productModel = new ProductModel();
+        //productModel.setProductId(1);
+        modelMap.addAttribute("product",productService.getById(1));
         return "shopping";
     }
+
+ 
 
     @GetMapping("/testsave")
     public String bill(ModelMap modelmap,
@@ -110,6 +128,6 @@ public class OrderController{
         System.out.println("order: id "+userModel.getUserId()+" total price: "+totalPrice+" type ship : "+ typeOfShipping+" "+java.time.LocalDate.now()+" quantity : ");
         System.out.println("orderdetail: quantity "+" order id:  "+ orderModel.getOrderId());
         
-        return "testsave";
+        return "Summary";
     }
 }
