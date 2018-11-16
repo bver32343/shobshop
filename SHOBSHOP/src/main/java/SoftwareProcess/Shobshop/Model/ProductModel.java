@@ -20,29 +20,32 @@ import javax.validation.constraints.NotBlank;
 @Entity
 @Table(name = "product")
 public class ProductModel {
-    
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int productId;
-   
+
     @NotBlank
     private String productName;
-    
+
     @NotBlank
     private String productDetail;
-    
+
     @NotBlank
     private String productPicture;
-    
+
+    @NotBlank
+    private String productURL;
+
     @NotBlank
     private int quantity;
-    
+
     @NotBlank
     private int category;
-    
+
     @NotBlank
     private int shopId;
-    
+
     @NotBlank
     private int productPrice;
 
@@ -113,8 +116,12 @@ public class ProductModel {
         this.productPrice = productPrice;
     }
 
+    public String getProductURL() {
+        return productURL;
+    }
 
-    
-    
-          
+    public void setProductURL(String productURL) {
+        this.productURL = productURL;
+    }
+
 }
