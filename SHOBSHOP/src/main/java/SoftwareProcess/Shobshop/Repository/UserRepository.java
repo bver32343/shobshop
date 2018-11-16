@@ -14,5 +14,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author saknarong
  */
 public interface UserRepository extends JpaRepository<UserModel, Integer>{
-    
+    public UserModel findByUserId(int userId);
 }
