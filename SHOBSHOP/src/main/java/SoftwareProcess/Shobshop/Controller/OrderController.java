@@ -123,6 +123,14 @@ public class OrderController{
         orderDetailService.save(orderDetailModel);
         System.out.println("save success orderdetail");
 
+        modelmap.addAttribute("product",productService.getById(1));
+        modelmap.addAttribute("user",userService.getById(userModel.getUserId()));
+        modelmap.addAttribute("address",addressService.getById(addressModel.getAddressId()));
+        modelmap.addAttribute("order",orderService.getById(orderModel.getOrderId()));
+        modelmap.addAttribute("orderDetail",orderDetailService.getById(orderDetailModel.getOrderdetailId()));
+
+        System.out.println("ID USER: "+userModel.getUserId()+" ADDRESS ID: "+addressModel.getAddressId()+" ORDER ID : "+orderModel.getOrderId()+" ORDER DETAIL ID : "+orderDetailModel.getOrderdetailId());
+
         System.out.println("user: id"+userModel.getUserId()+" "+email+" "+ phonenumber+" "+firstname+" "+ lastname);
         System.out.println("address: id "+userModel.getUserId()+" "+alley+" "+ city+" "+country+" "+ district+" "+ homeNo+" "+road+" "+ subDistrict);
         System.out.println("order: id "+userModel.getUserId()+" total price: "+totalPrice+" type ship : "+ typeOfShipping+" "+java.time.LocalDate.now()+" quantity : ");
