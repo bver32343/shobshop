@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <form name="checkoutForm" method="GET" th:action="@{/testOmiseInProgress}">
+            <input type="hidden" name="description" value="Product order ฿100.25" />
+            <script type="text/javascript" src="https://cdn.omise.co/card.js"
+                    data-key="pkey_test_5dxu0b1vxc7ui06csew"
+                    data-image="PATH_TO_LOGO_IMAGE"
+                    data-frame-label="Merchant site name"
+                    data-button-label="Pay now"
+                    data-submit-label="Submit"
+                    data-amount="10025"
+                    data-currency="thb"
+                    >
+            </script>
+            <!--the script will render <input type="hidden" name="omiseToken"> for you automatically-->
+        </form>
+    </body>
+</html>
