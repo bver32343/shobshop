@@ -54,7 +54,9 @@ body{
 
     .product-box{
         align-items: center;
-        
+        border: 1px solid;
+    
+    box-shadow: 5px 10px 8px rgb(221, 221, 221);
         background-color: #FFF;
         border: 1px solid;
         border-color: #D6D6D6;
