@@ -13,5 +13,8 @@ public class OrderDetailService{
     public OrderDetailModel save(OrderDetailModel orderdetail){
         return OrderDetailRepository.save(orderdetail);
     }
+    public OrderDetailModel getById(int orderDetailId){
+        return OrderDetailRepository.findByOrderDetailId(orderDetailId);
+    }
 
 }

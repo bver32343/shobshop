@@ -8,13 +8,12 @@
     <link th:href="@{/css/styles.css}" type="text/css" rel="stylesheet" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
-<!---ขอร้องอย่าpushซ้อนกันเลย---->
 </head>
 
 <body>
     <nav class="navbar navbar-light bg-light justify-content-between">
         <a class="navbar-brand ml-5" href="#">
-            <img src="../static/img/shobshop.png" alt="shobshop" width="60px" height="60px">
+            <img th:src="@{/img/shobshop.png}" alt="shobshop" width="60px" height="60px">
         </a>
         <div class="container">
             <form class="form-inline">
@@ -32,7 +31,7 @@
         <div class="product-main-box">
             <div class="row">
                 <div class="col-2" th:each="product : ${allProducts}">
-                    <div class="product-box" style="width: 160px ; height: 270px;">
+                    <div class="product-box" style="width: 160px ; height: 270px; margin-top: 20px">
                         <a href="#" id="product-name-link">
                          <img id="product-pic" src="https://drive.google.com/uc?id=1OGMmD1IeG3MiLAp62DQVLzIEFYBfP2gB" alt="productPicture" width="140px" height="170px">
                             <p id="productname" th:text="${product.productName}">productname</p>
