@@ -9,13 +9,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="shopping.css">
+    <link rel="stylesheet" th:href="@{/css/shopping.css}"/>
 
     <title>SHOBSHOP</title>
   </head>
   <body>
     <nav class="navbar navbar-light bg-light justify-content-between">
-        <a class="navbar-brand ml-5" href="#"><img src="pic/1" alt="shobshop" width="60px" height="60px"></a>   
+        <a class="navbar-brand ml-5" href="#"><img th:src="@{/img/1}" alt="shobshop" width="60px" height="60px"></a>   
         <div class="container"> 
             <form class="form-inline">
                 <input class="form-control mr-4" type="search" placeholder="ค้นหาสินค้าหรือร้านค้า" aria-label="Search">
@@ -44,73 +44,73 @@
                             <div class="col-7 ml-4">
                                 <div class="form-group">
                                     <label for="name">ชื่อ</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="firstname">
+                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="firstname" required>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="form-group">
                                     <label for="name">นามสกุล</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="lastname">
+                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="lastname" required>
                                 </div>
                             </div>
                             <div class="col-7 ml-4">
                                 <div class="form-group">
                                     <label for="address">บ้านเลขที่</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="homeNo">
+                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="homeNo" required>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="form-group">
                                     <label for="address">ซอย</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="alley">
+                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="alley" required>
                                 </div>
                             </div>
                             <div class="col-7 ml-4">
                                 <div class="form-group">
                                     <label for="address">ถนน</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="road">
+                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="road" required> 
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="form-group">
                                     <label for="address">เขต</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="district">
+                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="district" required>
                                 </div>
                             </div>
                             <div class="col-7 ml-4">
                                 <div class="form-group">
                                     <label for="address">แขวง</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="subDistrict">
+                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="subDistrict" required>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="form-group">
                                     <label for="address">จังหวัด</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="city">
+                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="city" required>
                                 </div>
                             </div>
                             <div class="col-7 ml-4">
                                 <div class="form-group">
                                     <label for="address">รหัสไปรษณีย์</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="postCode">
+                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="postCode" required>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="form-group">
                                     <label for="address">ประเทศ</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="country">
+                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="country" required>
                                 </div>
                             </div>
                             <div class="col-7 ml-4">
                                 <div class="form-group">
                                     <label for="address">เบอร์โทรศัพท์</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="phonenumber">
+                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="phonenumber" required>
                                 </div>
                             </div>
                             <div class="col-4">
                                 <div class="form-group">
                                     <label for="address">E-mail</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="email">
+                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="email" required>
                                 </div>
                             </div>
                         </div>
@@ -122,12 +122,12 @@
         <div class="detail mt-4">
             <div class="row">
                 <div class="col-4">
-                    <img src="pic/2.png" alt="รูปสินค้า" width="200px" height="200px" id="productImage">
+                    <img th:src="@{/img/2.png}" alt="รูปสินค้า" width="200px" height="200px" id="productImage">
                 </div>
                 <div class="col-6">
-                    <h2 id="productName" th:text="${product.productName}">ชุดเดสสสส</h2>
+                    <h2 id="productName">ชุดเดรสยาวสีขาว</h2>
                     <h2 id="shopName">โดย dressdressShop</h2>
-                    <h2 class="price" id="price" th:text="${product.productPrice}">20,000 THB</h2>
+                    <h2 class="price" id="price">20,000 THB</h2>
                 </div>
                <div class="col-2">
                    <div class="row">
@@ -140,10 +140,10 @@
                             <div class="form-inline">
                                 <div class="row mr-5">
                                     <span class="mr-2 mt-2">จำนวน</span>
-                                    <input class="form-control" type="number" name="quantity" placeholder="1">
+                                    <input class="form-control" type="number" name="quantity" required >
                                     <span class="ml-2 mt-2">ชิ้น</span>
                                 </div>
-                             </div>
+                            </div>
                             <!-- <span class="plus bg-dark">+</span> -->
                         </div>
                    </div>
@@ -159,7 +159,7 @@
                             <input type="radio" class="form-check-input" name="typeOfShipping" value="1">
                             <div class="row">
                                 <div class="col-6">
-                                    <img src="pic/cargo-truck.png" alt="จัดส่ง" width="100px" height="100px">
+                                    <img th:src="@{/img/cargo-truck.png}" alt="จัดส่ง" width="100px" height="100px">
                                 </div>
                                 <div class="col-6 d-flex align-items-center">
                                     <h2>ThaiPost - EMS <br> 50 THB / 3-4 วัน</h2>
@@ -174,7 +174,7 @@
                             <input type="radio" class="form-check-input" name="typeOfShipping" value="2">
                                 <div class="row">
                                     <div class="col-6">
-                                        <img src="pic/cargo-truck.png" alt="จัดส่ง" width="100px" height="100px">
+                                        <img th:src="@{/img/cargo-truck.png}" alt="จัดส่ง" width="100px" height="100px">
                                     </div>
                                     <div class="col-6 d-flex align-items-center">
                                         <h2>Kerry <br> 50 THB / 3-4 วัน</h2>
@@ -192,7 +192,7 @@
         <div class="detail mt-4 mb-4">
             <div class="row">
                 <div class="col-2">
-                    <img src="pic/credit-card.png" alt="cardImage" width="100px" height="100px">
+                    <img th:src="@{/img/credit-card.png}" alt="cardImage" width="100px" height="100px">
                 </div>
                 <div class="col-10 d-flex align-items-center">
                     <h2>บัตรเดบิต/เครดิต</h2>
@@ -204,7 +204,7 @@
         <div class="card mt-4 mb-5">
             <div class="row">
                 <div class="col-2">
-                    <img src="pic/visa.png" alt="visa" width="90px" height="60px">
+                    <img th:src="@{/img/visa.png}" alt="visa" width="90px" height="60px">
                 </div>
                 <div class="col-8 d-flex align-items-center">
                     <div class="row">
@@ -236,9 +236,8 @@
                     <h2>รวมการสั่งซื้อ <span id="totalPrice">69,790 THB</span></h2> 
                     <h2>จัดส่ง <span id="sumDelivery">300 THB</span></h2> 
                     <hr>
-                    <input type="hidden" value="70090" name="totalPrice">
                     <h2>รวม <span id="sumPriceAndDelivery">70,090 THB</span></h2> 
-                    
+                    <input type="hidden" value="20000" name="totalPrice">
                     <button class="btn btn-outline-danger mt-5 mb-5" type="submit" style="float:right">สั่งซื้อสินค้า</button> 
                 </div>
             </div>
