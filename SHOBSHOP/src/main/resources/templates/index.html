@@ -33,7 +33,6 @@
                 <div class="col-2" th:each="product : ${allProducts}">
                     <div class="product-box" style="width: 160px ; height: 270px; margin-top: 20px">
                         <a th:href="${'/productDetail/'+product.productId}" id="product-name-link">
-                         <img id="product-pic" th:src="${'/img/' + product.productPicture +'.png'}" alt="productPicture" width="140px" height="170px">
                             <p id="productname" th:text="${product.productName}">productname</p>
                         </a>
                         <p id="price" th:text="${product.productPrice} + ' THB'" style="font-weight: bold">
