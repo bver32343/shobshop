@@ -1,3 +1,4 @@
+<html xmlns:th="https://www.thymeleaf.org">
 <!doctype html>
 <html lang="en">
 
@@ -28,7 +29,7 @@
 <body>
 
     <nav class="navbar navbar-light bg-light justify-content-between">
-        <a class="navbar-brand ml-5" href="#"><img src="shobshop.png" alt="shobshop" width="60px" height="60px"></a>
+        <a class="navbar-brand ml-5" href="#"><img src="th:src="@{/img/shobshop.png}" alt="shobshop" width="60px" height="60px"></a>
         <div class="container">
             <form class="form-inline">
                 <input class="form-control mr-4" type="search" placeholder="ค้นหาสินค้าหรือร้านค้า" aria-label="Search">
@@ -92,4 +93,5 @@
 
 </body>
 
+</html>
 </html>
