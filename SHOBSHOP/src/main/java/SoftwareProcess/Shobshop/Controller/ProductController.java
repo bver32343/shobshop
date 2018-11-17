@@ -34,19 +34,28 @@ public class ProductController {
     
     @GetMapping("/index")
     public String getAllProduct(ModelMap model){
-        model.addAttribute("allProducts",productService.getAllProducts());
+        List<ProductModel> allProducts = productService.getAllProducts();
+        model.addAttribute("allProducts",allProducts);
         return "index";
     }
     
     @GetMapping("/texts")
     public ResponseEntity<List<ProductModel>> getAllProduct(){
         List<ProductModel> texts = productService.getAllText();
-        return new ResponseEntity<List<ProductModel>>(texts, HttpStatus.OK);
+        return new ResponseEntity<>(texts, HttpStatus.OK);
     }
     
     @GetMapping("/productDetail/{id}")
     public String getProductDetailById(@PathVariable("id") int id ,Model model){
-        model.addAttribute("productDetail", productService.getById(id));
+        ProductModel productId = productService.getById(id);
+        model.addAttribute("productDetail", productId);
         return "ProductDetail";
+    }
+    
+    @GetMapping("/search")
+    public String searchProductByName(@RequestParam("search") String name,Model model){
+        List<ProductModel> searchProduct = productService.searchByName(name);
+        model.addAttribute("output", searchProduct);
+        return "search";
     }
 }
