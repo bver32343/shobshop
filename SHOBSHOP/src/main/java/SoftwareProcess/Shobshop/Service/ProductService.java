@@ -16,23 +16,28 @@ import org.springframework.stereotype.Service;
  *
  * @author saknarong
  */
-
 @Service
 public class ProductService {
-   @Autowired
-   ProductRepository productRepository;
-   
-   public List<ProductModel> getAllProducts(){
-       List<ProductModel> allProduct = new ArrayList();
-       allProduct = productRepository.findAll();
-       return allProduct;
-   }
-   
-    public List<ProductModel> getAllText(){
+
+    @Autowired
+    ProductRepository productRepository;
+
+    public List<ProductModel> getAllProducts() {
+        List<ProductModel> allProduct = new ArrayList();
+        allProduct = productRepository.findAll();
+        return allProduct;
+    }
+
+    public List<ProductModel> getAllText() {
         return productRepository.findAll();
     }
-    
-      public ProductModel getById(int productId){
+
+    public ProductModel getById(int productId) {
         return productRepository.findByProductId(productId);
     }
+    
+    public List<ProductModel> searchByName(String productName){
+        return productRepository.findByProductNameContaining(productName);
+    }
+
 }
