@@ -23,7 +23,7 @@
     <link th:href="@{/css/productDetail.css}" type="text/css" rel="stylesheet">
 
 
-    <title>SHOBSHOP</title>
+    <title>SHOBSHOP - Detail</title>
 </head>
 
 <body>
@@ -56,17 +56,17 @@
                 <div class="col">
 
                     <div class="thumbnail">
-                        <img src="/img/2.png" alt="vatanika" width="500px" height="500px">
+                        <img th:src="${productDetail.productURL}" alt="productPicture" width="500px" height="500px">
                     </div>
 
                 </div>
                 <div class="col" id="blockDetail">
 
-                    <h1 th:text="${productDetail.productName}"></h1>
+                    <h1 th:text="${productDetail.productName}">productName</h1>
                     <h1 style="margin-top: 15px"><span th:text="${productDetail.productPrice} + ' THB'">price</span></h1>
-                    <p class="p1">โดย <span class="c1" th:text="${productDetail.shopId}">Shop</span></p>
+                    <p class="p1">โดย <span class="c1" th:text="${productDetail.shopId}">ShopName</span></p>
                     <br>
-                    <p style="margin-bottom: 10px" th:text="${productDetail.productDetail}">detail</p>
+                    <p style="margin-bottom: 10px" th:text="${productDetail.productDetail}">productDetail</p>
 
                     <br>
 
