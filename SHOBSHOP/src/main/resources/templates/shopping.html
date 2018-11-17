@@ -1,270 +1,356 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-    <!-- CSS -->
-    <link rel="stylesheet" th:href="@{/css/shopping.css}"/>
+        <!-- CSS -->
+        <link rel="stylesheet" th:href="@{/css/shopping.css}"/>
+        <style>
+            .creditCard-popUp {
+                display: none;
+                position: fixed;
+                bottom: 0;
+                right: 15px;
+                border: 3px solid #f1f1f1;
+                z-index: 9;
+            }
+        </style>
+        <title>SHOBSHOP</title>
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-light justify-content-between">
+            <a class="navbar-brand ml-5" href="#"><img th:src="@{/img/shobshop.png}" alt="shobshop" width="60px" height="60px"></a>   
 
-    <title>SHOBSHOP</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-light bg-light justify-content-between">
-        <a class="navbar-brand ml-5" href="#"><img th:src="@{/img/shobshop.png}" alt="shobshop" width="60px" height="60px"></a>   
+        </nav>
 
-    </nav>
+        <div class="container">
 
-    <div class="container">
-
-        <div class="topic mt-5">
-            <div class="row">
-                <div class="col">
-                    <a style="font-size: 20px">หน้าแรก > <span>สั่งซื้อสินค้า</span></a>
-                    <hr>
-                </div>
-            </div>
-        </div>
-
-    <form th:action="@{/summary}" method ="GET">
-        <div class="name-and-address mt-3">
-            <div class="row">
-                <div class="col">
-                    
-                        <div class="row">
-                            <div class="col-7 ml-4">
-                                <div class="form-group">
-                                    <label for="name">ชื่อ</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="firstname" required>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="form-group">
-                                    <label for="name">นามสกุล</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="lastname" required>
-                                </div>
-                            </div>
-                            <div class="col-7 ml-4">
-                                <div class="form-group">
-                                    <label for="address">บ้านเลขที่</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="homeNo" required>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="form-group">
-                                    <label for="address">ซอย</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="alley" required>
-                                </div>
-                            </div>
-                            <div class="col-7 ml-4">
-                                <div class="form-group">
-                                    <label for="address">ถนน</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="road" required> 
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="form-group">
-                                    <label for="address">เขต/อำเภอ</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="district" required>
-                                </div>
-                            </div>
-                            <div class="col-7 ml-4">
-                                <div class="form-group">
-                                    <label for="address">แขวง/ตำบล</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="subDistrict" required>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="form-group">
-                                    <label for="address">จังหวัด</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="city" required>
-                                </div>
-                            </div>
-                            <div class="col-7 ml-4">
-                                <div class="form-group">
-                                    <label for="address">รหัสไปรษณีย์</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="postCode" required>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="form-group">
-                                    <label for="address">ประเทศ</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="country" required>
-                                </div>
-                            </div>
-                            <div class="col-7 ml-4">
-                                <div class="form-group">
-                                    <label for="address">เบอร์โทรศัพท์</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="phonenumber" required>
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="form-group">
-                                    <label for="address">E-mail</label>
-                                    <input type="text" class="form-control" id="formGroupName" placeholder="" name="email" required>
-                                </div>
-                            </div>
-                        </div>
-                    
-                </div>
-            </div>
-        </div>
-
-        <input type="hidden" th:value="${product.productId}" name="productId">
-
-        <div class="detail mt-4">
-            <div class="row">
-                <div class="col-4">
-                    <img th:src="${product.productURL}" alt="รูปสินค้า" width="200px" height="200px" id="productImage">
-                </div>
-                <div class="col-6">
-                    <h2 id="productName" th:text="${product.productName}">ชุดเดรสยาวสีขาว</h2>
-                    <h2 id="shopName">โดย dressdressShop</h2>
-                    <h2 class="price" id="price" th:text="${product.productPrice}+' THB'">20,000 THB</h2>
-                </div>
-               <div class="col-2">
-                   <div class="row">
-                        <!-- <img th:src="@{/img/delete.png}" alt="ลบสินค้า" width="20px" height="20px"> -->
-                   </div>
-                   <div class="row mt-5 d-flex align-items-end">
-                        <div class="qty">
-                            <!-- <span class="minus bg-dark">-</span> -->
-                            
-                            <div class="form-inline">
-                                <div class="row mr-5">
-                                    <span class="mr-2 mt-2">จำนวน</span>
-                                    <input class="form-control" type="number" value="1" name="quantity" required>
-                                    <span class="ml-2 mt-2">ชิ้น</span>
-                                </div>
-                            </div>
-                            <!-- <span class="plus bg-dark">+</span> -->
-                        </div>
-                   </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="delivery mt-4 mb-5">
-            <div class="row">
-                <div class="col">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="typeOfShipping" value="1">
-                            <div class="row">
-                                <div class="col-6">
-                                    <img th:src="@{/img/cargo-truck.png}" alt="จัดส่ง" width="100px" height="100px">
-                                </div>
-                                <div class="col-6 d-flex align-items-center">
-                                    <h2>ThaiPost - EMS <br> 50 THB / 3-4 วัน</h2>
-                                </div>
-                            </div>
-                        </label>
-                    </div>
-                </div>
-                <div class="col mr-3">
-                    <div class="form-check">
-                        <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="typeOfShipping" value="2">
-                                <div class="row">
-                                    <div class="col-6">
-                                        <img th:src="@{/img/cargo-truck.png}" alt="จัดส่ง" width="100px" height="100px">
-                                    </div>
-                                    <div class="col-6 d-flex align-items-center">
-                                        <h2>Kerry <br> 50 THB / 3-4 วัน</h2>
-                                    </div>
-                                </div>
-                        </label>
+            <div class="topic mt-5">
+                <div class="row">
+                    <div class="col">
+                        <a style="font-size: 20px">หน้าแรก > <span>สั่งซื้อสินค้า</span></a>
+                        <hr>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <hr>
-
-        <h2 class="mt-5">วิธีการชำระเงิน</h2>
-        <div class="detail mt-4 mb-4">
-            <div class="row">
-                <div class="col-2">
-                    <img th:src="@{/img/credit-card.png}" alt="cardImage" width="100px" height="100px">
-                </div>
-                <div class="col-10 d-flex align-items-center">
-                    <h2>บัตรเดบิต/เครดิต</h2>
-                </div>
-            </div>
-        </div>
-
-        <h2>บัตรเดบิต/เครดิตของฉัน</h2>
-        <div class="card mt-4 mb-5">
-            <div class="row">
-                <div class="col-2">
-                    <img th:src="@{/img/visa.png}" alt="visa" width="90px" height="60px">
-                </div>
-                <div class="col-8 d-flex align-items-center">
+            <form id="order" th:action="@{/summary}" method ="GET">
+                <input type="hidden" id="omiseTokenId" name="omiseToken" value="omiseToken" />
+                <div class="name-and-address mt-3">
                     <div class="row">
-                        <div class="col-12">
-                            <h2 id="nameCard">น.ส. สินีนาฏ จั่นxxxx</h2>
-                            <h2 id="numberCard">4732-52xx-xxxx-xxxx</h2>
+                        <div class="col">
+
+                            <div class="row">
+                                <div class="col-7 ml-4">
+                                    <div class="form-group">
+                                        <label for="name">ชื่อ</label>
+                                        <input type="text" class="form-control" id="formGroupName" placeholder="" name="firstname" required>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="name">นามสกุล</label>
+                                        <input type="text" class="form-control" id="formGroupName" placeholder="" name="lastname" required>
+                                    </div>
+                                </div>
+                                <div class="col-7 ml-4">
+                                    <div class="form-group">
+                                        <label for="address">บ้านเลขที่</label>
+                                        <input type="text" class="form-control" id="formGroupName" placeholder="" name="homeNo" required>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="address">ซอย</label>
+                                        <input type="text" class="form-control" id="formGroupName" placeholder="" name="alley" required>
+                                    </div>
+                                </div>
+                                <div class="col-7 ml-4">
+                                    <div class="form-group">
+                                        <label for="address">ถนน</label>
+                                        <input type="text" class="form-control" id="formGroupName" placeholder="" name="road" required> 
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="address">เขต/อำเภอ</label>
+                                        <input type="text" class="form-control" id="formGroupName" placeholder="" name="district" required>
+                                    </div>
+                                </div>
+                                <div class="col-7 ml-4">
+                                    <div class="form-group">
+                                        <label for="address">แขวง/ตำบล</label>
+                                        <input type="text" class="form-control" id="formGroupName" placeholder="" name="subDistrict" required>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="address">จังหวัด</label>
+                                        <input type="text" class="form-control" id="formGroupName" placeholder="" name="city" required>
+                                    </div>
+                                </div>
+                                <div class="col-7 ml-4">
+                                    <div class="form-group">
+                                        <label for="address">รหัสไปรษณีย์</label>
+                                        <input type="text" class="form-control" id="formGroupName" placeholder="" name="postCode" required>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="address">ประเทศ</label>
+                                        <input type="text" class="form-control" id="formGroupName" placeholder="" name="country" required>
+                                    </div>
+                                </div>
+                                <div class="col-7 ml-4">
+                                    <div class="form-group">
+                                        <label for="address">เบอร์โทรศัพท์</label>
+                                        <input type="text" class="form-control" id="formGroupName" placeholder="" name="phonenumber" required>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="form-group">
+                                        <label for="address">E-mail</label>
+                                        <input type="text" class="form-control" id="formGroupName" placeholder="" name="email" required>
+                                    </div>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
-                <div class="col-2 d-flex align-items-center">
-                   <!-- <div class="delete-card">
-                        <button class="btn btn-outline-danger" type="button" name="deleteCard">ลบบัตร</button> 
-                   </div> -->
+
+                <div class="detail mt-4">
+                    <div class="row">
+                        <div class="col-4">
+                            <img th:src="${product.productURL}" alt="รูปสินค้า" width="200px" height="200px" id="productImage">
+                        </div>
+                        <div class="col-6">
+                            <h2 id="productName" th:text="${product.productName}">ชุดเดรสยาวสีขาว</h2>
+                            <h2 id="shopName">โดย dressdressShop</h2>
+                            <h2 class="price" id="price" th:text="${product.productPrice}+' THB'">20,000 THB</h2>
+                        </div>
+                        <div class="col-2">
+                            <div class="row">
+                                <!-- <img th:src="@{/img/delete.png}" alt="ลบสินค้า" width="20px" height="20px"> -->
+                            </div>
+                            <div class="row mt-5 d-flex align-items-end">
+                                <div class="qty">
+                                    <!-- <span class="minus bg-dark">-</span> -->
+
+                                    <div class="form-inline">
+                                        <div class="row mr-5">
+                                            <span class="mr-2 mt-2">จำนวน</span>
+                                            <input class="form-control" type="number" value="1" name="quantity" required>
+                                            <span class="ml-2 mt-2">ชิ้น</span>
+                                        </div>
+                                    </div>
+                                    <!-- <span class="plus bg-dark">+</span> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="delivery mt-4 mb-5">
+                    <div class="row">
+                        <div class="col">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="typeOfShipping" value="1">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <img th:src="@{/img/cargo-truck.png}" alt="จัดส่ง" width="100px" height="100px">
+                                        </div>
+                                        <div class="col-6 d-flex align-items-center">
+                                            <h2>ThaiPost - EMS <br> 50 THB / 3-4 วัน</h2>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col mr-3">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="typeOfShipping" value="2">
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <img th:src="@{/img/cargo-truck.png}" alt="จัดส่ง" width="100px" height="100px">
+                                        </div>
+                                        <div class="col-6 d-flex align-items-center">
+                                            <h2>Kerry <br> 50 THB / 3-4 วัน</h2>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <h2 class="mt-5">วิธีการชำระเงิน</h2>
+                <div class="detail mt-4 mb-4">
+                    <div class="row" onclick="openCreditInput()">  
+                        <div class="col-2">
+                            <img th:src="@{/img/credit-card.png}" alt="cardImage" width="100px" height="100px">
+                        </div>
+                        <div class="col-10 d-flex align-items-center">
+                            <h2>บัตรเดบิต/เครดิต</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>บัตรเดบิต/เครดิตของฉัน</h2>
+                <div class="card mt-4 mb-5">
+                    <div class="row">
+                        <div class="col-2">
+                            <img th:src="@{/img/visa.png}" alt="visa" width="90px" height="60px">
+                        </div>
+                        <div class="col-8 d-flex align-items-center">
+                            <div class="row">
+                                <div class="col-12">
+                                    <h2 id="nameCard">น.ส. สินีนาฏ จั่นxxxx</h2>
+                                    <h2 id="numberCard">4732-52xx-xxxx-xxxx</h2>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-2 d-flex align-items-center">
+                            <!-- <div class="delete-card">
+                                 <button class="btn btn-outline-danger" type="button" name="deleteCard">ลบบัตร</button> 
+                            </div> -->
+                        </div>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="summary">
+                    <div class="row">
+                        <div class="col-4">
+
+                        </div>
+                        <div class="col-4">
+
+                        </div>
+                        <div class="col-4">
+                            <h2>รวมการสั่งซื้อ <span id="totalPrice" th:value="${product.productPrice}">69,790 THB</span></h2> 
+                            <h2>จัดส่ง <span id="sumDelivery">50 THB</span></h2> 
+                            <hr>
+                            <h2>รวม <span id="sumPriceAndDelivery">70,090 THB</span></h2> 
+                            <input type="hidden" value="20000" name="totalPrice">
+                            <button class="btn btn-outline-danger mt-5 mb-5" type="submit" style="float:right">สั่งซื้อสินค้า</button> 
+                        </div>
+                    </div>
+                </div>
+
+            </form>
+
+            <!-- [Start] credit card popup-->
+            <div class="creditCard-popUp" id="creditCard-popUp-id">
+
+                <form id="checkout-form" class="checkout-form" method="GET">
+                    <div class="form-group">
+                        <label>Card Number</label>
+                        <input type="text" data-name="cardNumber" class="form-control" placeholder="••••••••••••••••" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Name on card</label>
+                        <input type="text" data-name="nameOnCard" class="form-control" placeholder="Full Name" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>Expiry date</label>
+                        <div class="row">
+                            <input type="text" data-name="expiryMonth" class="form-control" placeholder="01" />/<input type="text" data-name="expiryYear" class="form-control" placeholder="18" />
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Security code</label>
+                        <input type="text" data-name="securityCode" class="form-control" placeholder="123" />
+                    </div>
+
+                    <div class="form-group">
+                        <button class="btn btn-primary">Checkout</button>
+                        <button class="btn btn-primary" onclick="closeCreditInput()">Close</button>
+                    </div>
+
+                </form>
             </div>
+            <!-- [End] credit card popup-->
+
+
+
         </div>
 
-        <hr>
-
-        <div class="summary">
-            <div class="row">
-                <div class="col-4">
-
-                </div>
-                <div class="col-4">
-
-                </div>
-                <div class="col-4">
-                    <h2>รวมการสั่งซื้อ <span id="totalPrice" th:text="${product.productPrice}+' THB'">69,790 THB</span></h2> 
-                    <h2>จัดส่ง <span id="sumDelivery">50 THB</span></h2> 
-                    <hr>
-                    <h2>รวม <span id="sumPriceAndDelivery">70,090 THB</span></h2> 
-                    <input type="hidden" value="20000" name="totalPrice">
-                    <button class="btn btn-outline-danger mt-5 mb-5" type="submit" style="float:right">สั่งซื้อสินค้า</button> 
-                </div>
-            </div>
-        </div>
-    </form>
-
-        
-
-    </div>
 
 
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <!-- <script>
-        $(document).ready(function(){
-            $('.count').prop('disabled', true);
-            $(document).on('click','.plus',function(){
-                $('.count').val(parseInt($('.count').val()) + 1 );
-            });
-            $(document).on('click','.minus',function(){
-                $('.count').val(parseInt($('.count').val()) - 1 );
-                    if ($('.count').val() == 0) {
-                        $('.count').val(1);
-                    }
-                });
-        });
-    </script> -->
-  </body>
+        <!-- [Start] Credit card script -->
+        <script src="https://cdn.omise.co/omise.js.gz"></script>
+        <script>
+                            (function () {
+                                'use strict';
+                                Omise.setPublicKey('pkey_test_5dxu0b1vxc7ui06csew');
+                                var checkoutForm = document.getElementById('checkout-form')
+                                checkoutForm.addEventListener('submit', submitHandler, false);
+                                // Submit handler for checkout form.
+                                function submitHandler(event) {
+                                    event.preventDefault();
+
+                                    /*
+                                     NOTE: Using `data-name` to prevent sending credit card information fields to the backend server via HTTP Post
+                                     (according to the security best practice https://www.omise.co/security-best-practices#never-send-card-data-through-your-servers).
+                                     */
+                                    var cardInformation = {
+                                        name: document.querySelector('[data-name="nameOnCard"]').value,
+                                        number: document.querySelector('[data-name="cardNumber"]').value,
+                                        expiration_month: document.querySelector('[data-name="expiryMonth"]').value,
+                                        expiration_year: document.querySelector('[data-name="expiryYear"]').value,
+                                        security_code: document.querySelector('[data-name="securityCode"]').value
+                                    };
+
+                                    Omise.createToken('card', cardInformation, function (statusCode, response) {
+                                        if (statusCode === 200) {
+                                            // Success: send back the TOKEN_ID to your server. The TOKEN_ID can be
+                                            // found in `response.id`.
+                                            order.omiseToken.value = response.id;
+                                            document.getElementById("creditCard-popUp-id").style.display = "none";
+                                        } else {
+                                            // Error: display an error message. Note that `response.message` contains
+                                            // a preformatted error message. Also note that `response.code` will be
+                                            // "invalid_card" in case of validation error on the card.
+                                        }
+                                    });
+                                }
+
+                            })();
+        </script>
+        <!-- [End] Credit card script -->
+
+        <!-- [Start] credit card input popup -->
+        <script>
+            function openCreditInput() {
+                document.getElementById("creditCard-popUp-id").style.display = "block";
+            }
+
+            function closeCreditInput() {
+                document.getElementById("creditCard-popUp-id").style.display = "none";
+            }
+        </script>
+        <!-- [End] credit card input popup -->
+
+
+    </body>
 </html>
