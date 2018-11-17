@@ -84,6 +84,8 @@ public class OrderController{
         String totalPrice = request.getParameter("totalPrice");
         String quantity = request.getParameter("quantity");	
         System.out.println("save success order");
+
+        String productId = request.getParameter("productId");
         
 
         UserModel userModel = new UserModel();
@@ -115,9 +117,10 @@ public class OrderController{
         orderService.save(orderModel);
         System.out.println("save success order");
 
-        int productId = 1;
+        int productId = Integer.parseInt(productId);
         ProductModel productModel = new ProductModel();
         productModel.setProductId(productId);
+
         OrderDetailModel orderDetailModel = new OrderDetailModel();
         orderDetailModel.setQuantity(Integer.parseInt(quantity));
         orderDetailModel.setProductId(productModel);
@@ -125,7 +128,7 @@ public class OrderController{
         orderDetailService.save(orderDetailModel);
         System.out.println("save success orderdetail");
 
-        modelmap.addAttribute("product",productService.getById(1));
+        modelmap.addAttribute("product",productService.getById(productModel.getProductId()));
         modelmap.addAttribute("user",userService.getById(userModel.getUserId()));
         modelmap.addAttribute("address",addressService.getById(addressModel.getAddressId()));
         modelmap.addAttribute("order",orderService.getById(orderModel.getOrderId()));
