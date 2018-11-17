@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import SoftwareProcess.Shobshop.Model.AddressModel;
@@ -39,12 +40,7 @@ public class OrderController{
     @Autowired
     ProductService productService;
 
-    @GetMapping("/summary")
-    public String kartoontest(){
-        return "Summary";
-    }
-
-    @GetMapping("/confirmorder")
+    @GetMapping("/confirmorder")//for test
     public String ConfirmOrdertestder(
         HttpServletRequest request,
         ModelMap modelMap){
@@ -56,9 +52,15 @@ public class OrderController{
         return "shopping";
     }
 
+
+    @GetMapping("confirmorder/{id}")
+    public String ConfirmOrder(@PathVariable("id") int id,ModelMap modelMap){
+        modelMap.addAttribute("product",productService.getById(id));
+        return "shopping";
+    }
  
 
-    @GetMapping("/testsave")
+    @GetMapping("/summary")
     public String bill(ModelMap modelmap,
             HttpServletRequest request){
         

@@ -30,7 +30,7 @@
             </div>
         </div>
 
-    <form th:action="@{/testsave}" method ="GET">
+    <form th:action="@{/summary}" method ="GET">
         <div class="name-and-address mt-3">
             <div class="row">
                 <div class="col">
@@ -117,7 +117,7 @@
         <div class="detail mt-4">
             <div class="row">
                 <div class="col-4">
-                    <img th:src="@{'/img/'+product.productPicture}" alt="รูปสินค้า" width="200px" height="200px" id="productImage">
+                    <img th:src="${product.productURL}" alt="รูปสินค้า" width="200px" height="200px" id="productImage">
                 </div>
                 <div class="col-6">
                     <h2 id="productName" th:text="${product.productName}">ชุดเดรสยาวสีขาว</h2>
