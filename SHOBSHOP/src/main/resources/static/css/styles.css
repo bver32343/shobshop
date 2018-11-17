@@ -55,8 +55,7 @@ body{
     .product-box{
         align-items: center;
         border: 1px solid;
-    
-    box-shadow: 5px 10px 8px rgb(221, 221, 221);
+        box-shadow: 5px 10px 8px rgb(221, 221, 221);
         background-color: #FFF;
         border: 1px solid;
         border-color: #D6D6D6;
@@ -69,6 +68,8 @@ body{
     
     #product-pic{
         padding: 9px;
+        width: 156px;
+        height: 170px;
     }
     #productname{
         font-size: 16px;
@@ -77,6 +78,7 @@ body{
         margin-right: 10px;
         text-align: right;
         font-style: inherit;
+        margin-top: -2px;
     }
     #price{
         font-size: 16px;
@@ -87,6 +89,7 @@ body{
     }
     .text-home{
         margin-top: 20px;
+        font-weight: bold;
     }
     .line{
         margin-top: -30px; 
@@ -96,3 +99,7 @@ body{
     #product-name-link:hover{
         text-decoration: none;
        }
+    
+    .footer{
+        height: 100px;;
+    }

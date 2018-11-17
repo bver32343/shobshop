@@ -1,55 +1,54 @@
 <html xmlns:th="https://www.thymeleaf.org">
 
-    <head>
-        <meta charset="UTF-8">
-        <title>ShobShop - Home</title>
-        <!--<link rel="stylesheet" href="../static/styles.css">
+<head>
+    <meta charset="UTF-8">
+    <title>ShobShop - Home</title>
+    <!--<link rel="stylesheet" href="../static/styles.css">
         <link href="../static/css/styles.css" th:href="@{/styles.css}" rel="stylesheet" />-->
-        <link th:href="@{/css/styles.css}" type="text/css" rel="stylesheet" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-              crossorigin="anonymous">
-    </head>
+    <link th:href="@{/css/styles.css}" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
 
-    <body>
-        <nav class="navbar navbar-light bg-light justify-content-between">
-            <a class="navbar-brand ml-5" href="#">
-                <img th:src="@{/img/shobshop.png}" alt="shobshop" width="60px" height="60px">
-            </a>
-            <div class="container">
-                <form class="form-inline">
-                    <input class="form-control mr-4" id="search" type="search" placeholder="ค้นหาสินค้าหรือร้านค้า" aria-label="Search">
-                    <button class="btn btn-outline-danger" id="btn-search" type="submit">ค้นหา</button>
-                </form>
-            </div>
-        </nav>
-
+<body>
+    <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand ml-5" href="#">
+            <img th:src="@{/img/shobshop.png}" alt="shobshop" width="60px" height="60px">
+        </a>
         <div class="container">
-            <p class="text-home" style="margin-top: 20px;font-size: 15px; color: #FF735D">สินค้าทั้งหมด</p>
-            <br>
-            <hr class="line" style="margin-top: -30px; color: darkgray;"></hr>
+            <form class="form-inline">
+                <input class="form-control mr-4" id="search" type="search" placeholder="ค้นหาสินค้าหรือร้านค้า" aria-label="Search">
+                <button class="btn btn-outline-danger" id="btn-search" type="submit">ค้นหา</button>
+            </form>
+        </div>
+    </nav>
 
-            <div class="product-main-box">
-                <div class="row">
-                    <div class="col-2" th:each="product : ${allProducts}">
-                        <div class="product-box" style="width: 160px ; height: 270px; margin-top: 20px">
-                            <a th:href="${'/productDetail/'+product.productId}" id="product-name-link">
-                                <img id="product-pic" th:src="${product.productURL}" alt="productPicture" width="140px" height="170px">
-                                <p id="productname" th:text="${product.productName}">productname</p>
-                            </a>
-                            <p id="price" th:text="${product.productPrice} + ' THB'" style="font-weight: bold">
-                                <b>ราคา THB</b>
-                            </p>
-                        </div>
+    <div class="container">
+        <p class="text-home" style="margin-top: 20px;font-size: 15px; color: #FF735D">สินค้าทั้งหมด</p>
+        <br>
+        <hr class="line" style="margin-top: -30px; color: darkgray;"></hr>
+
+        <div class="product-main-box">
+            <div class="row">
+                <div class="col-2" th:each="product : ${allProducts}">
+                    <div class="product-box" style="width: 160px ; height: 270px; margin-top: 20px">
+                        <a th:href="${'/productDetail/'+product.productId}" id="product-name-link">
+                            <img id="product-pic" th:src="${product.productURL}" alt="productPicture">
+                            <p id="productname" th:text="${product.productName}">productname</p>
+                        </a>
+                        <p id="price" th:text="${product.productPrice} + ' THB'" style="font-weight: bold">
+                            <b>ราคา THB</b>
+                        </p>
                     </div>
                 </div>
             </div>
-
-
-
-
-
         </div>
 
-    </body>
+    </div>
+    <div class="footer">
+
+    </div>
+
+</body>
 
 </html>
