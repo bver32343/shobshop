@@ -31,9 +31,15 @@ public class ProductController {
     @Autowired
     ProductService productService;
     
-    
-    @GetMapping("/index")
+    @GetMapping("/")
     public String getAllProduct(ModelMap model){
+        List<ProductModel> allProducts = productService.getAllProducts();
+        model.addAttribute("allProducts",allProducts);
+        return "index";
+    }
+
+    @GetMapping("/index")
+    public String getAllProductIndex(ModelMap model){
         List<ProductModel> allProducts = productService.getAllProducts();
         model.addAttribute("allProducts",allProducts);
         return "index";
