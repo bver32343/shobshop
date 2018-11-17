@@ -58,8 +58,8 @@ body{
         box-shadow: 5px 10px 8px rgb(221, 221, 221);
         background-color: #FFF;
         border: 1px solid;
-        border-color: #D6D6D6;
-        
+        border-color: #d6d6d6;
+
     }
 
     a:link{
@@ -67,9 +67,12 @@ body{
     }
     
     #product-pic{
-        padding: 9px;
-        width: 156px;
+        display: table;
+        margin: 0 auto;
+        width: 140px;
         height: 170px;
+        margin-top: 10px;
+        margin-bottom: 10px;
     }
     #productname{
         font-size: 16px;
@@ -83,9 +86,10 @@ body{
     #price{
         font-size: 16px;
         color: #FF735D;
-        margin: -8px;
-        margin-right: 10px;
-        text-align: right;
+        position: absolute;
+        margin-bottom: 10px;
+        bottom:0;
+        right: 25px;
     }
     .text-home{
         margin-top: 20px;
@@ -93,7 +97,7 @@ body{
     }
     .line{
         margin-top: -30px; 
-        color: darkgray;
+        color: rgb(182, 128, 128);
     }
 
     #product-name-link:hover{

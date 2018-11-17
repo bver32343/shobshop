@@ -31,7 +31,7 @@
         <div class="product-main-box">
             <div class="row">
                 <div class="col-2" th:each="product : ${allProducts}">
-                    <div class="product-box" style="width: 160px ; height: 270px; margin-top: 20px">
+                    <div class="product-box" style="width: 160px ; height: 300px; margin-top: 20px">
                         <a th:href="${'/productDetail/'+product.productId}" id="product-name-link">
                             <img id="product-pic" th:src="${product.productURL}" alt="productPicture">
                             <p id="productname" th:text="${product.productName}">productname</p>
