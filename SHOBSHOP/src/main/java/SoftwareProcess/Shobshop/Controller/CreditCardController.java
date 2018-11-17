@@ -29,12 +29,12 @@ public class CreditCardController {
 
     @GetMapping("/testOmiseInProgress")
     public String testOmiseInProgress(HttpServletRequest request) throws ClientException, IOException, OmiseException {
-        String amountWithWord = request.getParameter("description");
+//        String amountWithWord = request.getParameter("description");
         String customerToken = request.getParameter("omiseToken");
-        int indexOfBathSign = amountWithWord.indexOf("฿");
-        String amountInStringType = amountWithWord.substring(indexOfBathSign + 1, amountWithWord.length());
-        Double amountInDoubleType = Double.parseDouble(amountInStringType) * 100;
-        Long amountInLongType = amountInDoubleType.longValue();
+//        int indexOfBathSign = amountWithWord.indexOf("฿");
+//        String amountInStringType = amountWithWord.substring(indexOfBathSign + 1, amountWithWord.length());
+//        Double amountInDoubleType = Double.parseDouble(amountInStringType) * 100;
+//        Long amountInLongType = amountInDoubleType.longValue();
 
         Client shobShopAccount = new Client("pkey_test_5dxu0b1vxc7ui06csew", "skey_test_5dxu0b1w7j96qyz5447");
         Charge charge = shobShopAccount.charges().create(new Charge.Create()
