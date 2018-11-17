@@ -23,11 +23,11 @@
   </head>
   <body>
     <nav class="navbar navbar-light bg-light justify-content-between">
-      <a class="navbar-brand ml-5" href="#"
+      <a class="navbar-brand ml-5" href="index.html"
         ><img th:src="@{/img/shobshop.png}" alt="shobshop" width="60px" height="60px"
       /></a>
       <div class="container">
-        <form class="form-inline">
+        <!-- <form class="form-inline">
           <input
             class="form-control mr-4"
             type="search"
@@ -35,7 +35,7 @@
             aria-label="Search"
           />
           <button class="btn btn-outline-danger" type="submit">ค้นหา</button>
-        </form>
+        </form> -->
       </div>
     </nav>
 
@@ -44,7 +44,7 @@
         <div class="row">
           <div class="col">
             <a href="index.html">หน้าแรก ></a>
-            <a href="productDetail.html"> สั่งซื้อสินค้า ></a
+            <a href="ProductDetail.html"> สั่งซื้อสินค้า ></a
             ><span> สรุปการสั่งซื้อ</span>
             <hr />
           </div>
@@ -55,8 +55,8 @@
         <div class="row">
           <div class="col-3">
             <img
-            th:src="@{/img/2.png}"
-              alt="รูปสินค้า"
+            th:src="${product.productURL}"
+            alt="productPicture"
               width="200px"
               height="230px"
             />
@@ -64,16 +64,17 @@
 
           <div class="col">
             <br />
-            <h4>ชุดเดรสยาวสีขาว</h4>
+            <h4 th:text="${product.productName}"></h4>
             <p class="by">โดย dressdressShop</p>
             <br />
             <br />
             <br />
             <br />
             <br />
-            <p class="quantity">
-              จำนวน 1 ชิ้น
-              <span class="price">&nbsp;&nbsp;&nbsp;20,000 บาท</span>
+            จำนวน&nbsp;&nbsp;&nbsp; 
+            <p class="quantity" th:text="${orderDetail.quantity}" >
+                &nbsp;&nbsp;&nbsp; ชิ้น
+              <span class="price" th:text="${productDetail.productPrice} + ' THB'"></span>
             </p>
           </div>
         </div>
@@ -89,7 +90,7 @@
       </div>
       <div class="information1">
         <div class="buyer">
-          <p>
+          <p th:text="${user.firstname}">
             สินีนาฏ จั่นมุกดา 52/4 ม.4 ถนนรัตนาธิเบศร์ ตำบลไทรม้า อำเภอเมือง
             จังหวัดนนทบุรี 11000
           </p>

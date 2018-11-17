@@ -48,7 +48,7 @@ a:link {
 
 /* visited link */
 a:visited {
-  color: rgb(255, 124, 124);
+  color: gray;
 }
 
 /* mouse over link */
@@ -58,7 +58,7 @@ a:hover {
 
 /* selected link */
 a:active {
-  color: rgb(255, 124, 124);
+  color: gray;
 }
 
 .topic span {
@@ -169,24 +169,3 @@ a:active {
   font-size: 20px;
   vertical-align: middle;
   }
-
-/* .backToHome:hover {
-  color: #fff;
-  background-color: rgb(255, 124, 124);
-  border-color: rgb(255, 124, 124);
-}
-
-.backToHome:not(:disabled):not(.disabled):active,
-.show > .backToHome.dropdown-toggle {
-  color: #fff;
-  background-color: rgb(255, 124, 124);
-  border-color: rgb(255, 124, 124);
-}
-
-.backToHome:focus {
-  box-shadow: 0 0 0 0.2rem rgb(255, 195, 195);
-}
-
-.backToHome::after {
-  box-shadow: 0 0 0 0.2rem rgb(255, 195, 195);
-} */
