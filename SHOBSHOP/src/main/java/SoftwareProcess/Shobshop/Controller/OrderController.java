@@ -85,7 +85,7 @@ public class OrderController{
         String quantity = request.getParameter("quantity");	
         System.out.println("save success order");
 
-        String productId = request.getParameter("productId");
+        String productIdParam = request.getParameter("productId");
         
 
         UserModel userModel = new UserModel();
@@ -117,7 +117,7 @@ public class OrderController{
         orderService.save(orderModel);
         System.out.println("save success order");
 
-        int productId = Integer.parseInt(productId);
+        int productId = Integer.parseInt(productIdParam);
         ProductModel productModel = new ProductModel();
         productModel.setProductId(productId);
 
