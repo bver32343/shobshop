@@ -55,12 +55,12 @@ public class AddressModel {
 		this.addressId = addressId;
 	}
 
-	public String getHomeno()
+	public String getHomeNo()
 	{
 		return this.homeNo;
 	}
 
-	public void setHomeno(String homeNo)
+	public void setHomeNo(String homeNo)
 	{
 		this.homeNo = homeNo;
 	}
