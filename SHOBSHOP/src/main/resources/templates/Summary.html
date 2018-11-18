@@ -17,25 +17,31 @@
     />
 
     <!-- CSS -->
-    <link rel="stylesheet" type="text/css" th:href="@{/css/summary.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/css/summary.css}" />
 
     <title>SHOBSHOP</title>
   </head>
   <body>
     <nav class="navbar navbar-light bg-light justify-content-between">
       <a class="navbar-brand ml-5" href="index.html"
-        ><img th:src="@{/img/shobshop.png}" alt="shobshop" width="60px" height="60px"
+        ><img
+          th:src="@{/img/shobshop.png}"
+          alt="shobshop"
+          width="60px"
+          height="60px"
       /></a>
       <div class="container">
-        <!-- <form class="form-inline">
-          <input
-            class="form-control mr-4"
-            type="search"
-            placeholder="ค้นหาสินค้าหรือร้านค้า"
-            aria-label="Search"
-          />
-          <button class="btn btn-outline-danger" type="submit">ค้นหา</button>
-        </form> -->
+        <!--
+          <form class="form-inline">
+            <input
+              class="form-control mr-4"
+              type="search"
+              placeholder="ค้นหาสินค้าหรือร้านค้า"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-danger" type="submit">ค้นหา</button>
+          </form>
+        -->
       </div>
     </nav>
 
@@ -55,8 +61,8 @@
         <div class="row">
           <div class="col-3">
             <img
-            th:src="${product.productURL}"
-            alt="productPicture"
+              th:src="${product.productURL}"
+              alt="productPicture"
               width="200px"
               height="230px"
             />
@@ -71,33 +77,33 @@
             <br />
             <br />
             <br />
-            จำนวน&nbsp;&nbsp;&nbsp; 
-            <p class="quantity" th:text="${orderDetail.quantity}" >
-                &nbsp;&nbsp;&nbsp; ชิ้น
-              <span class="price" th:text="${productDetail.productPrice} + ' THB'"></span>
+            <p
+              class="quantity"
+              th:text="'จำนวน     '+${orderDetail.quantity}+'     ชิ้น'"
+            >
+              <span
+                class="price"
+                th:text="${product.productPrice} + ' THB'"
+              ></span>
             </p>
           </div>
         </div>
       </div>
       <br />
-      <!-- ข้อมูลผู้รับ -->
-      <div class="headBuyer">
+
+      <!-- <div class="headBuyer">
         <img
-        th:src="@{/img/user.png}"
+          th:src="@{/img/user.png}"
           width="30px"
           height="30px"
         />&nbsp;&nbsp;ข้อมูลผู้รับ<br /><br />
       </div>
       <div class="information1">
         <div class="buyer">
-          <p th:text="${user.firstname}">
-            สินีนาฏ จั่นมุกดา 52/4 ม.4 ถนนรัตนาธิเบศร์ ตำบลไทรม้า อำเภอเมือง
-            จังหวัดนนทบุรี 11000
-          </p>
+          <p th:text="${user.firstname}+' '+${user.lastname}"></p>
         </div>
       </div>
       <br />
-      <!-- ข้อมูลการจัดส่ง -->
       <div class="headShipping">
         <img
           th:src="@{/img/cargo-truck.png}"
@@ -107,16 +113,14 @@
       </div>
       <div class="information2">
         <div class="shipping">
-          <p>
-            ชื่อร้านค้า<br />
-            เลขที่การจัดส่ง<br />
-            จัดส่งแบบ<br />
-          </p>
+          <p th:text="'จัดส่งแบบ'+' '+' '+${order.typeOfShipping}"></p>
+          ชื่อร้านค้า<br />
+          เลขที่การจัดส่ง<br />
         </div>
       </div>
-      <br />
-      <!-- รายละเอียดการสั่งซื้อ -->
-      <div class="headDetail">
+      <br /> --> 
+
+      <!-- <div class="headDetail">
         <img
           th:src="@{/img/detail.png}"
           width="30px"
@@ -131,9 +135,36 @@
           </p>
         </div>
       </div>
+      <br /> -->
+
+      <div class="headDetail">
+        <img
+          th:src="@{/img/detail.png}"
+          width="30px"
+          height="30px"
+        />&nbsp;&nbsp;รายละเอียดการสั่งซื้อ<br /><br />
+      </div>
+      <div class="information3">
+        <div class="detail">
+            <p th:text="'ชื่อผู้สั่งซื้อ :'+' '+' '+${user.firstname}+' '+${user.lastname}"></p>
+            <p th:text="'E-mail :'+' '+${user.email}"></p>
+            <p th:text="'Tel :'+' '+${user.phonenumber}"></p>
+            <p th:text="'ที่อยู่ : '+'บ้านเลขที่ '+'ซอย '+${address.alley}+' ถนน '+${address.road}
+            +' '+${address.district}+' แขวง '+${address.city}+' รหัส '+${address.country}"></p>
+            <p th:text="'วันที่สั่งซื้อ : '+${order.date}"></p>
+            <p th:text="'รูปแบบการจัดส่ง : '+${order.typeOfShipping}"></p>
+            <p th:text="'ค่าการจัดส่ง : 50 บาท'"></p>
+            <p th:text="'ราคาสินค้า : '+${product.productPrice}"></p>
+            <!-- <p th:text="'ราคารวม :'+${order.totalPrice}+${50}"></p> -->
+            <p th:text="'วิธีการชำระเงิน : บัตรเครดิต/เดบิต'"></p>
+          </div>
+          
+        </div>
+      </div>
       <br />
+
       <!-- รายละเอียดการชำระเงิน -->
-      <div class="headPayment">
+      <!-- <div class="headPayment">
         <img
           th:src="@{/img/credit-card.png}"
           width="30px"
@@ -142,14 +173,22 @@
       </div>
       <div class="information4">
         <div class="payment">
-          <p>รวมราคาสินค้า <br />
+          <p>
+            รวมราคาสินค้า <br />
             ค่าจัดส่ง <br />
             ช่องทางการชำระเงิน <br />
-            สรุปราคาการสั่งซื้อ<br /></p>
+            สรุปราคาการสั่งซื้อ<br />
+          </p>
         </div>
       </div>
-    </div><br>
-    <center><a href="index.html"><button class="home" type="submit">กลับสู่หน้าหลัก</button></a></center><br>
+    </div> -->
+    <br />
+    <center>
+      <a href="index.html"
+        ><button class="home" type="submit">กลับสู่หน้าหลัก</button></a
+      >
+    </center>
+    <br />
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script
