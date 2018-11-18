@@ -109,7 +109,7 @@ public class OrderController{
         addressModel.setCity(city);
         addressModel.setCountry(country);
         addressModel.setDistrict(district);
-        addressModel.setHomeno(homeNo);
+        addressModel.setHomeNo(homeNo);
         addressModel.setPostCode(Integer.parseInt(postCode));
         addressModel.setRoad(road);
         addressModel.setSubDistrict(subDistrict);
