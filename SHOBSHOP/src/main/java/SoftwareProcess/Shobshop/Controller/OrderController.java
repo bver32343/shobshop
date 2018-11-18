@@ -17,6 +17,7 @@ import SoftwareProcess.Shobshop.Model.CreditCardModel;
 import SoftwareProcess.Shobshop.Model.OrderDetailModel;
 import SoftwareProcess.Shobshop.Model.OrderModel;
 import SoftwareProcess.Shobshop.Model.ProductModel;
+import SoftwareProcess.Shobshop.Model.TypeofshippingModel;
 import SoftwareProcess.Shobshop.Model.UserModel;
 import SoftwareProcess.Shobshop.Service.AddressService;
 import SoftwareProcess.Shobshop.Service.CreditCardService;
@@ -88,7 +89,7 @@ public class OrderController{
         String subDistrict = request.getParameter("subDistrict");
         System.out.println("save success address");
 
-        String typeOfShipping = request.getParameter("typeOfShipping");
+        String typeOfShippingId = request.getParameter("typeOfShipping");
         String totalPrice = request.getParameter("totalPrice");
         String quantity = request.getParameter("quantity");	
         System.out.println("save success order");
@@ -117,9 +118,11 @@ public class OrderController{
         addressService.save(addressModel);
         System.out.println("save success address");
 
+        TypeofshippingModel tosp = new TypeofshippingModel();
+        tosp.setTypeOfShippingId(Integer.parseInt(typeOfShippingId));
         OrderModel orderModel = new OrderModel();
         orderModel.setTotalprice(Double.parseDouble(totalPrice));
-        orderModel.setTypeOfShipping(Integer.parseInt(typeOfShipping));
+        orderModel.setTypeOfShippingId(tosp);
         orderModel.setUserId(userModel);
         orderModel.setDate(java.time.LocalDate.now());
         orderService.save(orderModel);
@@ -156,7 +159,7 @@ public class OrderController{
 
         System.out.println("user: id"+userModel.getUserId()+" "+email+" "+ phonenumber+" "+firstname+" "+ lastname);
         System.out.println("address: id "+userModel.getUserId()+" "+alley+" "+ city+" "+country+" "+ district+" "+ homeNo+" "+road+" "+ subDistrict);
-        System.out.println("order: id "+userModel.getUserId()+" total price: "+totalPrice+" type ship : "+ typeOfShipping+" "+java.time.LocalDate.now()+" quantity : ");
+        System.out.println("order: id "+userModel.getUserId()+" total price: "+totalPrice+" type ship : "+ typeOfShippingId+" "+java.time.LocalDate.now()+" quantity : ");
         System.out.println("orderdetail: quantity "+" order id:  "+ orderModel.getOrderId());
         
         return "Summary";
