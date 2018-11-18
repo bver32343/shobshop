@@ -78,15 +78,13 @@ h2{
     text-align: center;
 }
 
-span{
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
+.form-check .form-check-input {
+    position: absolute;
+    margin-top: 4.5rem;
+    margin-left: -1rem;
+    width: 50px;
 }
-input{  
-    border: 0;
-    width: 2%;
-}
+
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
     -webkit-appearance: none;

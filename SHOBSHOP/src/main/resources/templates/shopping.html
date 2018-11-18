@@ -24,7 +24,7 @@
     </head>
     <body>
         <nav class="navbar navbar-light bg-light justify-content-between">
-            <a class="navbar-brand ml-5" href="#"><img th:src="@{/img/shobshop.png}" alt="shobshop" width="60px" height="60px"></a>   
+            <a class="navbar-brand ml-5" href="/index"><img th:src="@{/img/shobshop.png}" alt="shobshop" width="60px" height="60px"></a>   
 
         </nav>
 
@@ -163,7 +163,7 @@
                         <div class="col">
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="typeOfShipping" value="1">
+                                    <input type="radio" class="form-check-input" name="typeOfShipping" value="1" checked>
                                     <div class="row">
                                         <div class="col-6">
                                             <img th:src="@{/img/cargo-truck.png}" alt="จัดส่ง" width="100px" height="100px">
@@ -196,7 +196,7 @@
                 <hr>
 
                 <h2 class="mt-5">วิธีการชำระเงิน</h2>
-                <div class="detail mt-4 mb-4">
+                <div class="detail mt-4 mb-4" style="cursor:pointer">
                     <div class="row" onclick="openCreditInput()">  
                         <div class="col-2">
                             <img th:src="@{/img/credit-card.png}" alt="cardImage" width="100px" height="100px">
