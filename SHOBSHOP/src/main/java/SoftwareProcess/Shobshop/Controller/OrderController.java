@@ -117,9 +117,9 @@ public class OrderController{
         orderService.save(orderModel);
         System.out.println("save success order");
 
-        int productId = Integer.parseInt(productIdParam);
+        int product_id = Integer.parseInt(productId);
         ProductModel productModel = new ProductModel();
-        productModel.setProductId(productId);
+        productModel.setProductId(product_id);
 
         OrderDetailModel orderDetailModel = new OrderDetailModel();
         orderDetailModel.setQuantity(Integer.parseInt(quantity));
