@@ -95,12 +95,12 @@ public class AddressModel {
 		this.district = district;
 	}
 
-	public String getSubdistrict()
+	public String getSubDistrict()
 	{
 		return this.subDistrict;
 	}
 
-	public void setSubdistrict(String subDistrict)
+	public void setSubDistrict(String subDistrict)
 	{
 		this.subDistrict = subDistrict;
 	}
@@ -115,12 +115,12 @@ public class AddressModel {
 		this.city = city;
 	}
 
-	public int getPostcode()
+	public int getPostCode()
 	{
 		return this.postCode;
 	}
 
-	public void setPostcode(int postCode)
+	public void setPostCode(int postCode)
 	{
 		this.postCode = postCode;
 	}
