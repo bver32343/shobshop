@@ -110,9 +110,9 @@ public class OrderController{
         addressModel.setCountry(country);
         addressModel.setDistrict(district);
         addressModel.setHomeno(homeNo);
-        addressModel.setPostcode(Integer.parseInt(postCode));
+        addressModel.setPostCode(Integer.parseInt(postCode));
         addressModel.setRoad(road);
-        addressModel.setSubdistrict(subDistrict);
+        addressModel.setSubDistrict(subDistrict);
         addressModel.setUserId(userModel);
         addressService.save(addressModel);
         System.out.println("save success address");
