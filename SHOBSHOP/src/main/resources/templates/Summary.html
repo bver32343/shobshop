@@ -149,8 +149,8 @@
             <p th:text="'ชื่อผู้สั่งซื้อ :'+' '+' '+${user.firstname}+' '+${user.lastname}"></p>
             <p th:text="'E-mail :'+' '+${user.email}"></p>
             <p th:text="'Tel :'+' '+${user.phonenumber}"></p>
-            <p th:text="'ที่อยู่ : '+'บ้านเลขที่ '+'ซอย '+${address.alley}+' ถนน '+${address.road}
-            +' '+${address.district}+' แขวง '+${address.city}+' รหัส '+${address.country}"></p>
+            <p th:text="'ที่อยู่ : '+'บ้านเลขที่ '+${address.homeNo}+' '+'ซอย '+${address.alley}+' ถนน '+${address.road}
+            +' '+${address.district}+' '+${address.subDistrict}+' '+${address.city}+' '+${address.country}+' '+${address.postCode}"></p>
             <p th:text="'วันที่สั่งซื้อ : '+${order.date}"></p>
             <p th:text="'รูปแบบการจัดส่ง : '+${order.typeOfShipping}"></p>
             <p th:text="'ค่าการจัดส่ง : 50 บาท'"></p>
