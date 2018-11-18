@@ -34,8 +34,10 @@ public class OrderModel {
 	//@NotBlank
 	private Double totalPrice;
 
-	//@NotBlank
-	private int typeOfShipping;
+	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "type_of_shipping_id", nullable = false)
+    private TypeofshippingModel typeOfShippingId;
+
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
 	@JoinColumn(name = "user_id", nullable = false)
@@ -43,16 +45,17 @@ public class OrderModel {
    // @OnDelete(action = OnDeleteAction.CASCADE)
     //@JsonIgnore
 
-	public int getTypeOfShipping()
+
+
+	public TypeofshippingModel getTypeOfShippingId()
 	{
-		return this.typeOfShipping;
+		return this.typeOfShippingId;
 	}
 
-	public void setTypeOfShipping(int typeOfShipping)
+	public void setTypeOfShippingId(TypeofshippingModel typeOfShippingId)
 	{
-		this.typeOfShipping = typeOfShipping;
+		this.typeOfShippingId = typeOfShippingId;
 	}
-
 	public int getOrderId()
 	{
 		return this.orderId;
