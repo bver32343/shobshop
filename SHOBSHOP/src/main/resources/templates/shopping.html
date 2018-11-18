@@ -240,10 +240,10 @@
 
                         </div>
                         <div class="col-4">
-                            <h2>รวมการสั่งซื้อ <span id="totalPrice" th:value="${product.productPrice}">69,790 THB</span></h2> 
+                            <h2>รวมการสั่งซื้อ <span id="totalPrice" th:text="${product.productPrice}+' THB'">69,790 THB</span></h2> 
                             <h2>จัดส่ง <span id="sumDelivery">50 THB</span></h2> 
                             <hr>
-                            <h2>รวม <span id="sumPriceAndDelivery">70,090 THB</span></h2> 
+                            <h2>รวม <span id="sumPriceAndDelivery" th:text="${product.productPrice}+${50}+' THB'">70,090 THB</span></h2> 
                             <input type="hidden" value="1" name="totalPrice">
                             <input type="hidden" th:value="${product.productId}" name="productId">
                             <button class="btn btn-outline-danger mt-5 mb-5" type="submit" style="float:right">สั่งซื้อสินค้า</button> 
@@ -270,7 +270,7 @@
                     <div class="form-group">
                         <label>Expiry date</label>
                         <div class="row">
-                            <input type="text" data-name="expiryMonth" class="form-control" placeholder="01" />/<input type="text" data-name="expiryYear" class="form-control" placeholder="18" />
+                            <input type="text" data-name="expiryMonth" class="form mr-3" placeholder="01"/>/<input type="text" data-name="expiryYear" class="form" placeholder="18" />
                         </div>
                     </div>
 
@@ -280,8 +280,8 @@
                     </div>
 
                     <div class="form-group">
-                        <button class="btn btn-primary">Checkout</button>
-                        <button class="btn btn-primary" onclick="closeCreditInput()">Close</button>
+                        <button class="btn btn-outline-danger">Checkout</button>
+                        <button class="btn btn-outline-danger" onclick="closeCreditInput()">Close</button>
                     </div>
                 </form>
             </div>
