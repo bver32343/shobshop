@@ -13,15 +13,20 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import SoftwareProcess.Shobshop.Model.AddressModel;
+import SoftwareProcess.Shobshop.Model.CreditCardModel;
 import SoftwareProcess.Shobshop.Model.OrderDetailModel;
 import SoftwareProcess.Shobshop.Model.OrderModel;
 import SoftwareProcess.Shobshop.Model.ProductModel;
 import SoftwareProcess.Shobshop.Model.UserModel;
 import SoftwareProcess.Shobshop.Service.AddressService;
+import SoftwareProcess.Shobshop.Service.CreditCardService;
 import SoftwareProcess.Shobshop.Service.OrderDetailService;
 import SoftwareProcess.Shobshop.Service.OrderService;
 import SoftwareProcess.Shobshop.Service.ProductService;
 import SoftwareProcess.Shobshop.Service.UserService;
+import co.omise.ClientException;
+import co.omise.models.OmiseException;
+import java.io.IOException;
 
 @Controller
 public class OrderController{
@@ -39,6 +44,9 @@ public class OrderController{
 
     @Autowired
     ProductService productService;
+    
+    @Autowired
+    CreditCardService creditCardService;
 
     @GetMapping("/confirmorder")//for test
     public String ConfirmOrdertestder(
@@ -62,7 +70,7 @@ public class OrderController{
 
     @GetMapping("/summary")
     public String bill(ModelMap modelmap,
-            HttpServletRequest request){
+            HttpServletRequest request) throws ClientException, IOException, OmiseException{
         
         String firstname = request.getParameter("firstname");
         String lastname = request.getParameter("lastname");
@@ -127,6 +135,16 @@ public class OrderController{
         orderDetailModel.setOrderId(orderModel);
         orderDetailService.save(orderDetailModel);
         System.out.println("save success orderdetail");
+        
+        CreditCardModel creditCardModel = new CreditCardModel();
+        creditCardModel.setCreditCardName(request.getParameter("creditCardName"));
+        //System.out.println(request.getParameter("creditCardName"));
+        creditCardModel.setCreditCardNumber(request.getParameter("creditCardNumber"));
+        //System.out.println(request.getParameter("creditCardNumber"));
+        creditCardModel.setUserId(userModel);
+        creditCardService.creditCardPayment(request.getParameter("omiseToken"),request.getParameter("totalPrice"));
+        creditCardService.save(creditCardModel);
+        System.out.println("credit naja");
 
         modelmap.addAttribute("product",productService.getById(productModel.getProductId()));
         modelmap.addAttribute("user",userService.getById(userModel.getUserId()));
