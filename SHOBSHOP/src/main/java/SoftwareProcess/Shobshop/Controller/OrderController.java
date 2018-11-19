@@ -73,10 +73,9 @@ public class OrderController{
     public String ConfirmOrder(@PathVariable("id") int id,ModelMap modelMap){
         ProductModel productModel = new ProductModel();
         productModel.setProductId(id);
-        List<ShippingModel> allShipping = shippingService.getByProductId(productModel);
-        
+        List<ShippingModel> allShipping = shippingService.getByProductId(productModel);        
         modelMap.addAttribute("allShipping",allShipping);
-//        ProductModel productModel = productService.getById(id);
+
         modelMap.addAttribute("product",productService.getById(id));
         return "shopping";
     }
