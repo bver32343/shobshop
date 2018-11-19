@@ -247,39 +247,44 @@
             <!-- [Start] credit card popup-->
             <div class="creditCard-popUp" id="creditCard-popUp-id">
 
-                <form id="checkout-form" class="checkout-form" method="GET">
+                <form id="checkout-form" class="checkout-form" method="GET" onSubmit="JavaScript:return fncSubmit();">
                     <div class="form-group">
                         <label>Card Number</label>
-                        <input type="text" data-name="cardNumber" id="cardNumber" value="" class="form-control" placeholder="••••••••••••••••" />
+                        <input type="text" data-name="cardNumber" id="cardNumber" name="cardNumber" value="" class="form-control" placeholder="••••••••••••••••" />
                     </div>
 
                     <div class="form-group">
                         <label>Name on card</label>
-                        <input type="text" data-name="nameOnCard" id="nameOnCard" value="" class="form-control" placeholder="Full Name" />
+                        <input type="text" data-name="nameOnCard" id="nameOnCard" name="nameOnCard" value="" class="form-control" placeholder="Full Name" />
                     </div>
 
                     <div class="form-group">
                         <label>Expiry date</label>
                         <div class="row">
-                            <input type="text" data-name="expiryMonth" class="form mr-3" placeholder="01" />/<input type="text" data-name="expiryYear" class="form" placeholder="18" />
+                            <input type="text" data-name="expiryMonth" id="expiryMonth" name="expiryMonth" class="form mr-3" placeholder="01" />/<input type="text" data-name="expiryYear" id="expiryYear" name="expiryYear" class="form" placeholder="18" />
                         </div>
                     </div>
 
                     <div class="form-group">
                         <label>Security code</label>
-                        <input type="text" data-name="securityCode" class="form-control" placeholder="123"  />
+                        <input type="text" data-name="securityCode" id="securityCode" name="securityCode" class="form-control" placeholder="123" />
                     </div>
 
                     <div class="form-group">
-                        <button class="btn btn-outline-danger" onclick="closeCreditInput(),openSuccessText()" >Checkout</button>
-                        <button class="btn btn-outline-danger" onclick="closeCreditInput()">Close</button>
+                        <button class="btn btn-outline-danger">Checkout</button> 
                     </div>
                 </form>
+                    <div class="form-group">
+                        <button class="btn btn-outline-danger" id="closeButton" style="position:fixed; bottom:201px; right:770px;" onclick="closeCreditInput()">Close</button>
+
+
+                    </div>
+                
             </div>
 
             <!-- [End] credit card popup-->
 
-            <!-- [Start] succees popup-->
+            <!-- [Start] success popup-->
             <div class="success-popUp" id="success-popUp-id">
                 <div class="row">
                     <div class="col">
@@ -292,7 +297,22 @@
                 </div>   
             </div>
 
-            <!-- [End] succees popup-->
+            <!-- [End] success popup-->
+
+            <!-- [Start] unsuccess popup-->
+            <div class="unsuccess-popUp" id="unsuccess-popUp-id">
+                    <div class="row">
+                        <div class="col">
+                            <h2>กรุณากรอกฟอร์มให้ครบ</h2>
+    
+                            <div class="form-group">
+                                <button class="btn btn-outline-danger" onclick="closeUnsuccessText()">Close</button>
+                            </div>
+                        </div>
+                    </div>   
+                </div>
+    
+                <!-- [End] unsuccess popup-->
 
 
 
@@ -374,6 +394,36 @@
             }
         </script>
         <!-- [End] success text popup -->
+
+        <!-- [Start] unsuccess text popup -->
+        <script>
+            function openUnsuccessText() {
+                document.getElementById("unsuccess-popUp-id").style.display = "block";
+            }
+
+            function closeUnsuccessText() {
+                document.getElementById("unsuccess-popUp-id").style.display = "none";
+            }
+        </script>
+        <!-- [End] unsuccess text popup -->
+
+        <script type="text/javascript">
+            function fncSubmit()
+            {
+                if(document.getElementById('cardNumber').value == "" || document.getElementById('nameOnCard').value == "" || document.getElementById('expiryMonth').value == "" || document.getElementById('expiryYear').value == "" || document.getElementById('securityCode').value == "")
+                {
+                    openUnsuccessText();
+                }
+                else
+                {
+                    openSuccessText();
+                    closeCreditInput();
+                }
+                    
+                    
+            }
+        </script>
+        
 
 
     </body>

@@ -111,7 +111,7 @@ input:disabled{
 }
 
 .card img{
-    border: 1px solid ##f1f1f1;
+    border: 1px solid #f1f1f1;
     border-radius: .25rem;
 }
 
@@ -172,5 +172,32 @@ input:disabled{
     margin-right: 10px;
     margin-top: 20px;
 }
+
+.unsuccess-popUp {
+    display: none;
+    position: fixed;
+    bottom: 650px;
+    right: 620px;
+    z-index: 9;
+    border: 1px solid #f1f1f1;
+    border-radius: 0.5rem;
+    background-color: #f1f1f1;
+}
+
+.unsuccess-popUp .form {
+    width: 50px;
+    margin-left: 18px;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    text-align: center;
+}
+
+.unsuccess-popUp .row{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 20px;
+}
+
+
 
 
