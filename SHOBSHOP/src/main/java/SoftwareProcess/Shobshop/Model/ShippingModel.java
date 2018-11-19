@@ -28,42 +28,42 @@ public class ShippingModel{
     @JoinColumn(name = "product_id", nullable = false)
     private ProductModel productId;
 
-	public int getShippingid()
+	public int getShippingId()
 	{
 		return this.shippingId;
 	}
 
-	public void setShippingid(int shippingId)
+	public void setShippingId(int shippingId)
 	{
 		this.shippingId = shippingId;
 	}
 
-	public double getShippingprice()
+	public double getShippingPrice()
 	{
 		return this.shippingPrice;
 	}
 
-	public void setShippingprice(double shippingPrice)
+	public void setShippingPrice(double shippingPrice)
 	{
 		this.shippingPrice = shippingPrice;
 	}
 
-	public TypeofshippingModel getTypeofshippingid()
+	public TypeofshippingModel getTypeOfShippingId()
 	{
 		return this.typeOfShippingId;
 	}
 
-	public void setTypeofshippingid(TypeofshippingModel typeOfShippingId)
+	public void setTypeOfShippingId(TypeofshippingModel typeOfShippingId)
 	{
 		this.typeOfShippingId = typeOfShippingId;
 	}
 
-	public ProductModel getProductid()
+	public ProductModel getProductId()
 	{
 		return this.productId;
 	}
 
-	public void setProductid(ProductModel productId)
+	public void setProductId(ProductModel productId)
 	{
 		this.productId = productId;
 	}

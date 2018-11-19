@@ -35,8 +35,9 @@ public class OrderModel {
 	private Double totalPrice;
 
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "type_of_shipping_id", nullable = false)
-    private TypeofshippingModel typeOfShippingId;
+    @JoinColumn(name = "shipping_id", nullable = false)
+    private ShippingModel shippingId;
+
 
 	
 	@ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -46,16 +47,16 @@ public class OrderModel {
     //@JsonIgnore
 
 
-
-	public TypeofshippingModel getTypeOfShippingId()
+	public ShippingModel getShippinId()
 	{
-		return this.typeOfShippingId;
+		return this.shippingId;
 	}
 
-	public void setTypeOfShippingId(TypeofshippingModel typeOfShippingId)
+	public void setShippingId(ShippingModel shippingId)
 	{
-		this.typeOfShippingId = typeOfShippingId;
+		this.shippingId = shippingId;
 	}
+
 	public int getOrderId()
 	{
 		return this.orderId;

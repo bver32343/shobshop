@@ -148,8 +148,26 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="delivery mt-4 mb-5">
+                    <div class="row">
+                        <div class="col mr-3" th:each="shipping : ${allShipping}">
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="shippingId" th:value="${shipping.shippingId}" checked>
+                                    <div class="row">
+                                        <div class="col-6">
+                                            <img th:src="@{/img/cargo-truck.png}" alt="จัดส่ง" width="100px" height="100px">
+                                        </div>
+                                        <div class="col-6 d-flex align-items-center">
+                                            <h2><span th:text="${shipping.typeOfShippingId.typeOfShippingName}">ThaiPost-EMS</span><br><span th:text="${shipping.shippingPrice}+' THB / 3-4 วัน'">50 THB / 3-4 วัน</span></h2>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+             <!--<div class="delivery mt-4 mb-5">
                     <div class="row">
                         <div class="col">
                             <div class="form-check">
@@ -183,7 +201,7 @@
                         </div>
                     </div>
                 </div>
-
+-->
                 <hr>
 
                 <h2 class="mt-5">วิธีการชำระเงิน</h2>

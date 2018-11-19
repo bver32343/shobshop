@@ -1,6 +1,7 @@
 package SoftwareProcess.Shobshop.Controller;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -17,6 +18,7 @@ import SoftwareProcess.Shobshop.Model.CreditCardModel;
 import SoftwareProcess.Shobshop.Model.OrderDetailModel;
 import SoftwareProcess.Shobshop.Model.OrderModel;
 import SoftwareProcess.Shobshop.Model.ProductModel;
+import SoftwareProcess.Shobshop.Model.ShippingModel;
 import SoftwareProcess.Shobshop.Model.TypeofshippingModel;
 import SoftwareProcess.Shobshop.Model.UserModel;
 import SoftwareProcess.Shobshop.Service.AddressService;
@@ -25,6 +27,7 @@ import SoftwareProcess.Shobshop.Service.OrderDetailService;
 import SoftwareProcess.Shobshop.Service.OrderService;
 import SoftwareProcess.Shobshop.Service.ProductService;
 import SoftwareProcess.Shobshop.Service.UserService;
+import SoftwareProcess.Shobshop.Service.ShippingService;
 import co.omise.ClientException;
 import co.omise.models.OmiseException;
 import java.io.IOException;
@@ -49,6 +52,10 @@ public class OrderController{
     @Autowired
     CreditCardService creditCardService;
 
+
+    @Autowired
+    ShippingService shippingService;
+
     @GetMapping("/confirmorder")//for test
     public String ConfirmOrdertestder(
         HttpServletRequest request,
@@ -64,6 +71,12 @@ public class OrderController{
 
     @GetMapping("confirmorder/{id}")
     public String ConfirmOrder(@PathVariable("id") int id,ModelMap modelMap){
+        ProductModel productModel = new ProductModel();
+        productModel.setProductId(id);
+        List<ShippingModel> allShipping = shippingService.getByProductId(productModel);
+        
+        modelMap.addAttribute("allShipping",allShipping);
+//        ProductModel productModel = productService.getById(id);
         modelMap.addAttribute("product",productService.getById(id));
         return "shopping";
     }
@@ -89,7 +102,7 @@ public class OrderController{
         String subDistrict = request.getParameter("subDistrict");
         System.out.println("save success address");
 
-        String typeOfShippingId = request.getParameter("typeOfShipping");
+        String shippingId = request.getParameter("shippingId");
         String totalPrice = request.getParameter("totalPrice");
         String quantity = request.getParameter("quantity");	
         System.out.println("save success order");
@@ -118,11 +131,11 @@ public class OrderController{
         addressService.save(addressModel);
         System.out.println("save success address");
 
-        TypeofshippingModel tosp = new TypeofshippingModel();
-        tosp.setTypeOfShippingId(Integer.parseInt(typeOfShippingId));
+        ShippingModel shoppingModel = new ShippingModel();
+        shoppingModel.setShippingId(Integer.parseInt(shippingId));
         OrderModel orderModel = new OrderModel();
         orderModel.setTotalprice(Double.parseDouble(totalPrice));
-        orderModel.setTypeOfShippingId(tosp);
+        orderModel.setShippingId(shoppingModel);
         orderModel.setUserId(userModel);
         orderModel.setDate(java.time.LocalDate.now());
         orderService.save(orderModel);
@@ -159,7 +172,7 @@ public class OrderController{
 
         System.out.println("user: id"+userModel.getUserId()+" "+email+" "+ phonenumber+" "+firstname+" "+ lastname);
         System.out.println("address: id "+userModel.getUserId()+" "+alley+" "+ city+" "+country+" "+ district+" "+ homeNo+" "+road+" "+ subDistrict);
-        System.out.println("order: id "+userModel.getUserId()+" total price: "+totalPrice+" type ship : "+ typeOfShippingId+" "+java.time.LocalDate.now()+" quantity : ");
+        System.out.println("order: id "+userModel.getUserId()+" total price: "+totalPrice+" type ship : "+ shippingId+" "+java.time.LocalDate.now()+" quantity : ");
         System.out.println("orderdetail: quantity "+" order id:  "+ orderModel.getOrderId());
         
         return "Summary";

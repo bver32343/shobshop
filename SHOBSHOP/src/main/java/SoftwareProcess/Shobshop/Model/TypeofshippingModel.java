@@ -28,7 +28,7 @@ public class TypeofshippingModel{
 		this.typeOfShippingId = typeOfShippingId;
 	}
 
-	public String getTypeOfNhippingName()
+	public String getTypeOfShippingName()
 	{
 		return this.typeOfShippingName;
 	}
