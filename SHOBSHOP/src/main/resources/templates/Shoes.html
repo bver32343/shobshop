@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" th:href="@{/css/Shoes.css}" />
+
+    <title>SHOBSHOP</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-light bg-light justify-content-between">
+      <a class="navbar-brand ml-5" href="#"
+        ><img th:src="@{/img/shobshop.png}" alt="shobshop" width="60px" height="60px"
+      /></a>
+      <div class="container">
+        <form class="form-inline">
+          <input
+            class="form-control mr-4"
+            type="search"
+            placeholder="ค้นหาสินค้าหรือร้านค้า"
+            aria-label="Search"
+          />
+          <button class="btn btn-outline-danger" type="submit">ค้นหา</button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container">
+      <div class="topic mt-5">
+        <div class="row">
+          <div class="col">
+            <a href="index.html">หน้าแรก ></a>
+            <span> รองเท้า</span>
+            <hr />
+          </div>
+        </div>
+      </div>
+
+      <div class="slideshow-container" style="margin-top: 20px">
+
+        <div class="mySlides fade">
+            <div class="numbertext">1 / 3</div>
+            <img th:src="@{/img/banner-1.png}" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">2 / 3</div>
+            <img th:src="@{/img/banner-2.png}" style="width:100%">
+        </div>
+
+        <div class="mySlides fade">
+            <div class="numbertext">3 / 3</div>
+            <img th:src="@{/img/banner-3.png}" style="width:100%">
+        </div>
+
+    </div>
+    <br>
+    <div style="text-align:center">
+        <span class="dot"></span>
+        <span class="dot"></span>
+        <span class="dot"></span>
+    </div>
+    <br>
+
+
+    <script>
+        var slideIndex = 0;
+        showSlides();
+
+        function showSlides() {
+            var i;
+            var slides = document.getElementsByClassName("mySlides");
+            var dots = document.getElementsByClassName("dot");
+            for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";
+            }
+            slideIndex++;
+            if (slideIndex > slides.length) { slideIndex = 1 }
+            for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+            }
+            slides[slideIndex - 1].style.display = "block";
+            dots[slideIndex - 1].className += " active";
+            setTimeout(showSlides, 2000); // Change image every 2 seconds
+        }
+    </script>
+
+      <div class="product-main-box">
+        <div class="row">
+            <div class="col-2" th:each="product : ${allProducts}">
+                <div class="product-box" style="width: 160px ; height: 300px; margin-top: 20px">
+                    <a th:href="${'/productDetail/'+product.productId}" id="product-n
+                    ame-link">
+                        <img id="product-pic" th:src="${product.productURL}" alt="productPicture">
+                        <p id="productname" th:text="${product.productName}">productname</p>
+                    </a>
+                    <p id="price" th:text="${product.productPrice} + ' THB'" style="font-weight: bold">
+                        <b>ราคา THB</b>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+      
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
