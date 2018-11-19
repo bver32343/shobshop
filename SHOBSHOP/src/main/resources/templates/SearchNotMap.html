@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>search no product</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <nav class="navbar navbar-light bg-light justify-content-between">
+        <a class="navbar-brand ml-5" href="/index">
+            <img th:src="@{/img/shobshop.png}" alt="shobshop" width="60px" height="60px">
+        </a>
+        <div class="container">
+                <form class="form-inline" th:action="@{/search}">
+                    <input class="form-control mr-4" id="search" type="search" name="search" placeholder="ค้นหาสินค้าหรือร้านค้า" aria-label="Search" required>
+                    <button class="btn btn-outline-danger" id="btn-search" type="submit">ค้นหา</button>
+                    
+                </form>
+            </div>
+            <h2>กรุณากรอกชื่อสินค้าให้ถูกต้อง</h2>
+    </nav>
+
+    </body>
+</html>
