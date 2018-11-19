@@ -1,6 +1,7 @@
 body{
     background-color: white;
     color: gray;
+    margin-bottom: 30px;
  }
 
 .form-inline .form-control {
@@ -198,7 +199,6 @@ input:disabled{
     margin-top: 20px;
 }
 
-}
 .confirmBuyProduct{
     color : white;
     background-color: rgb(255, 124, 124);
@@ -206,6 +206,8 @@ input:disabled{
     border-radius: 6px;
     padding: 6px 50px;
     font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 10px;
 }
 
 span {
