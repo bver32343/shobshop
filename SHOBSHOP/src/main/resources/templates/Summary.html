@@ -50,7 +50,7 @@
         <div class="row">
           <div class="col">
             <a href="index.html">หน้าแรก ></a>
-            <a href="ProductDetail.html"> สั่งซื้อสินค้า ></a
+            <a href="/productDetail/"> สั่งซื้อสินค้า ></a
             ><span> สรุปการสั่งซื้อ</span>
             <hr />
           </div>
@@ -65,7 +65,7 @@
               alt="productPicture"
               width="200px"
               height="230px"
-            />
+            /> 
           </div>
 
           <div class="col">
@@ -77,15 +77,13 @@
             <br />
             <br />
             <br />
-            <p
+            <!-- <p
               class="quantity"
-              th:text="'จำนวน     '+${orderDetail.quantity}+'     ชิ้น'"
+              th:text="'จำนวน'+' '+${orderDetail.quantity}+' '+'ชิ้น'+${product.productPrice} + ' THB'"
             >
-              <span
-                class="price"
-                th:text="${product.productPrice} + ' THB'"
-              ></span>
-            </p>
+            </p> -->
+            <span class="quan" th:text="'จำนวน '+'  '+${orderDetail.quantity}+'  '+' ชิ้น'"></span>
+            <span class="price" th:text="${product.productPrice} + ' THB'"></span>
           </div>
         </div>
       </div>
@@ -152,7 +150,7 @@
             <p th:text="'ที่อยู่ : '+'บ้านเลขที่ '+${address.homeNo}+' '+'ซอย '+${address.alley}+' ถนน '+${address.road}
             +' '+${address.district}+' '+${address.subDistrict}+' '+${address.city}+' '+${address.country}+' '+${address.postCode}"></p>
             <p th:text="'วันที่สั่งซื้อ : '+${order.date}"></p>
-            <p th:text="'รูปแบบการจัดส่ง : '+${order.typeOfShipping}"></p>
+            <p th:text="'รูปแบบการจัดส่ง : '+${shipping.typeOfShippingId.typeOfShippingName}"></p>
             <p th:text="'ค่าการจัดส่ง : 50 บาท'"></p>
             <p th:text="'ราคาสินค้า : '+${product.productPrice}"></p>
             <!-- <p th:text="'ราคารวม :'+${order.totalPrice}+${50}"></p> -->
