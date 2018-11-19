@@ -29,22 +29,22 @@ public class ShobshopOmiseAccountModel{
 		this.shobshopOmiseAccountId = shobshopOmiseAccountId;
 	}
 
-	public String getPublicKey()
+	public String getPublickey()
 	{
 		return this.publicKey;
 	}
 
-	public void setPublicKey(String publicKey)
+	public void setPublickey(String publicKey)
 	{
 		this.publicKey = publicKey;
 	}
 
-	public String getSecretKey()
+	public String getSecretkey()
 	{
 		return this.secretKey;
 	}
 
-	public void setSecretKey(String secretKey)
+	public void setSecretkey(String secretKey)
 	{
 		this.secretKey = secretKey;
 	}

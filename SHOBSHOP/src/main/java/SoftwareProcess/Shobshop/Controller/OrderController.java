@@ -19,7 +19,6 @@ import SoftwareProcess.Shobshop.Model.OrderDetailModel;
 import SoftwareProcess.Shobshop.Model.OrderModel;
 import SoftwareProcess.Shobshop.Model.ProductModel;
 import SoftwareProcess.Shobshop.Model.ShippingModel;
-import SoftwareProcess.Shobshop.Model.ShobshopOmiseAccountModel;
 import SoftwareProcess.Shobshop.Model.TypeofshippingModel;
 import SoftwareProcess.Shobshop.Model.UserModel;
 import SoftwareProcess.Shobshop.Service.AddressService;
@@ -29,17 +28,12 @@ import SoftwareProcess.Shobshop.Service.OrderService;
 import SoftwareProcess.Shobshop.Service.ProductService;
 import SoftwareProcess.Shobshop.Service.UserService;
 import SoftwareProcess.Shobshop.Service.ShippingService;
-import SoftwareProcess.Shobshop.Service.ShobshopOmiseAccountService;
 import co.omise.ClientException;
 import co.omise.models.OmiseException;
 import java.io.IOException;
 
 @Controller
-public class OrderController {
-    
-    @Autowired
-    ShobshopOmiseAccountService shobshopOmiseAccountService;
-
+public class OrderController{
     @Autowired
     OrderService orderService;
 
@@ -54,43 +48,43 @@ public class OrderController {
 
     @Autowired
     ProductService productService;
-
+    
     @Autowired
     CreditCardService creditCardService;
+
 
     @Autowired
     ShippingService shippingService;
 
     @GetMapping("/confirmorder")//for test
     public String ConfirmOrdertestder(
-            HttpServletRequest request,
-            ModelMap modelMap) {
-        //   String productIdParam = request.getParameter("productId");
-        //  int productId = Integer.parseInt(productIdParam);
+        HttpServletRequest request,
+        ModelMap modelMap){
+     //   String productIdParam = request.getParameter("productId");
+      //  int productId = Integer.parseInt(productIdParam);
         //ProductModel productModel = new ProductModel();
         //productModel.setProductId(1);
-        modelMap.addAttribute("product", productService.getById(1));
+        modelMap.addAttribute("product",productService.getById(1));
         return "shopping";
     }
 
+
     @GetMapping("confirmorder/{id}")
-    public String ConfirmOrder(@PathVariable("id") int id, ModelMap modelMap) {
+    public String ConfirmOrder(@PathVariable("id") int id,ModelMap modelMap){
         ProductModel productModel = new ProductModel();
         productModel.setProductId(id);
-        List<ShippingModel> allShipping = shippingService.getByProductId(productModel);
-        ShobshopOmiseAccountModel shobshopAccount = shobshopOmiseAccountService.getShobshopOmiseAccountModel(1);
-        modelMap.addAttribute("shobshopAccount", shobshopAccount);
-        modelMap.addAttribute("allShipping", allShipping);
-        System.out.println("Success all1");
-        modelMap.addAttribute("product", productService.getById(id));
-        System.out.println("Success all2");
+        List<ShippingModel> allShipping = shippingService.getByProductId(productModel);        
+        modelMap.addAttribute("allShipping",allShipping);
+
+        modelMap.addAttribute("product",productService.getById(id));
         return "shopping";
     }
+ 
 
     @GetMapping("/summary")
     public String bill(ModelMap modelmap,
-            HttpServletRequest request) throws ClientException, IOException, OmiseException {
-
+            HttpServletRequest request) throws ClientException, IOException, OmiseException{
+        
         String firstname = request.getParameter("firstname");
         String lastname = request.getParameter("lastname");
         String email = request.getParameter("email");
@@ -109,10 +103,11 @@ public class OrderController {
 
         String shippingId = request.getParameter("shippingId");
         String totalPrice = request.getParameter("totalPrice");
-        String quantity = request.getParameter("quantity");
+        String quantity = request.getParameter("quantity");	
         System.out.println("save success order");
 
         String productIdParam = request.getParameter("productId");
+        
 
         UserModel userModel = new UserModel();
         userModel.setEmail(email);
@@ -155,29 +150,31 @@ public class OrderController {
         orderDetailModel.setOrderId(orderModel);
         orderDetailService.save(orderDetailModel);
         System.out.println("save success orderdetail");
-
+        
         CreditCardModel creditCardModel = new CreditCardModel();
         creditCardModel.setCreditCardName(request.getParameter("creditCardName"));
+        //System.out.println(request.getParameter("creditCardName"));
         creditCardModel.setCreditCardNumber(request.getParameter("creditCardNumber"));
+        //System.out.println(request.getParameter("creditCardNumber"));
         creditCardModel.setUserId(userModel);
-        ShobshopOmiseAccountModel shobshopOmiseAccountModel = shobshopOmiseAccountService.getShobshopOmiseAccountModel(Integer.parseInt(request.getParameter("shobshopAccountId")));
-        creditCardService.creditCardPayment(request.getParameter("omiseToken"), request.getParameter("totalPrice"),shobshopOmiseAccountModel.getPublicKey(),shobshopOmiseAccountModel.getSecretKey());
+        creditCardService.creditCardPayment(request.getParameter("omiseToken"),request.getParameter("totalPrice"));
         creditCardService.save(creditCardModel);
         System.out.println("credit naja");
 
-        modelmap.addAttribute("product", productService.getById(productModel.getProductId()));
-        modelmap.addAttribute("user", userService.getById(userModel.getUserId()));
-        modelmap.addAttribute("address", addressService.getById(addressModel.getAddressId()));
-        modelmap.addAttribute("order", orderService.getById(orderModel.getOrderId()));
-        modelmap.addAttribute("orderDetail", orderDetailService.getById(orderDetailModel.getOrderdetailId()));
+        modelmap.addAttribute("product",productService.getById(productModel.getProductId()));
+        modelmap.addAttribute("user",userService.getById(userModel.getUserId()));
+        modelmap.addAttribute("address",addressService.getById(addressModel.getAddressId()));
+        modelmap.addAttribute("order",orderService.getById(orderModel.getOrderId()));
+        modelmap.addAttribute("shipping",shippingService.getByShippingId(Integer.parseInt(shippingId)));
+        modelmap.addAttribute("orderDetail",orderDetailService.getById(orderDetailModel.getOrderdetailId()));
 
-        System.out.println("ID USER: " + userModel.getUserId() + " ADDRESS ID: " + addressModel.getAddressId() + " ORDER ID : " + orderModel.getOrderId() + " ORDER DETAIL ID : " + orderDetailModel.getOrderdetailId());
+        System.out.println("ID USER: "+userModel.getUserId()+" ADDRESS ID: "+addressModel.getAddressId()+" ORDER ID : "+orderModel.getOrderId()+" ORDER DETAIL ID : "+orderDetailModel.getOrderdetailId());
 
-        System.out.println("user: id" + userModel.getUserId() + " " + email + " " + phonenumber + " " + firstname + " " + lastname);
-        System.out.println("address: id " + userModel.getUserId() + " " + alley + " " + city + " " + country + " " + district + " " + homeNo + " " + road + " " + subDistrict);
-        System.out.println("order: id " + userModel.getUserId() + " total price: " + totalPrice + " type ship : " + shippingId + " " + java.time.LocalDate.now() + " quantity : ");
-        System.out.println("orderdetail: quantity " + " order id:  " + orderModel.getOrderId());
-
+        System.out.println("user: id"+userModel.getUserId()+" "+email+" "+ phonenumber+" "+firstname+" "+ lastname);
+        System.out.println("address: id "+userModel.getUserId()+" "+alley+" "+ city+" "+country+" "+ district+" "+ homeNo+" "+road+" "+ subDistrict);
+        System.out.println("order: id "+userModel.getUserId()+" total price: "+totalPrice+" type ship : "+ shippingId+" "+java.time.LocalDate.now()+" quantity : ");
+        System.out.println("orderdetail: quantity "+" order id:  "+ orderModel.getOrderId());
+        
         return "Summary";
     }
 }

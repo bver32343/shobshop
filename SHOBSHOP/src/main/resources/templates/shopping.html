@@ -25,7 +25,7 @@
                 <div class="row">
                     <div class="col">
                         <a class="home" href="/index">หน้าแรก</a><a> ></a>
-                        <a th:text="${product.productName}">productName</a><a> ></a>
+                        <a th:text="${productDetail.productName}">productName</a><a> ></a>
                              <span>สั่งซื้อสินค้า</span>
                         <hr>
                     </div>
@@ -36,7 +36,6 @@
                 <input type="hidden" id="omiseTokenId" name="omiseToken" value="omiseToken" />
                 <input type="hidden" id="creditCardNumberId" name="creditCardNumber" value="" />
                 <input type="hidden" id="creditCardNameId" name="creditCardName" value="" />
-                <input type="hidden" name="shobshopAccountId" th:value="${shobshopAccount.shobshopomiseaccountid}" />
                 <div class="name-and-address mt-3">
                     <div class="row">
                         <div class="col">
@@ -126,8 +125,8 @@
                             <img th:src="${product.productURL}" alt="รูปสินค้า" width="200px" height="200px" id="productImage">
                         </div>
                         <div class="col-6">
-                            <h2 id="productName" th:text="${product.productName}">productName</h2>
-                            <h2 id="shopName" th:text="'โดย ' + ${product.shopId}">byWho</h2>
+                            <h2 id="productName" th:text="${product.productName}">ชุดเดรสยาวสีขาว</h2>
+                            <h2 id="shopName">โดย dressdressShop</h2>
                             <h2 class="price" id="price" th:text="${product.productPrice}+' THB'">20,000 THB</h2>
                         </div>
                         <div class="col-2">
@@ -258,17 +257,17 @@
                             <h2>รวม <span id="sumPriceAndDelivery" th:text="${product.productPrice}+${50}+' THB'">70,090 THB</span></h2> 
                             <input type="hidden" value="1" name="totalPrice">
                             <input type="hidden" th:value="${product.productId}" name="productId">
-                            <button class="confirmBuyProduct" type="submit" style="float:right">สั่งซื้อสินค้า</button> 
+                            <button class="btn btn-outline-danger mt-5 mb-5" type="submit" style="float:right">สั่งซื้อสินค้า</button> 
                         </div>
                     </div>
                 </div>
+
             </form>
 
             <!-- [Start] credit card popup-->
             <div class="creditCard-popUp" id="creditCard-popUp-id">
 
                 <form id="checkout-form" class="checkout-form" method="GET" onSubmit="JavaScript:return fncSubmit();">
-                    <input type="hidden" th:value="${shobshopAccount.publicKey}" id="shobshopPublicKey"/>
                     <div class="form-group">
                         <label>Card Number</label>
                         <input type="text" data-name="cardNumber" id="cardNumber" name="cardNumber" value="" class="form-control" placeholder="••••••••••••••••" />
@@ -352,7 +351,7 @@
         <script>
                             (function () {
                                 'use strict';
-                                Omise.setPublicKey(document.getElementById('shobshopPublicKey').value);
+                                Omise.setPublicKey('pkey_test_5dxu0b1vxc7ui06csew');
                                 var checkoutForm = document.getElementById('checkout-form')
                                 checkoutForm.addEventListener('submit', submitHandler, false);
                                 // Submit handler for checkout form.
