@@ -30,13 +30,13 @@ and open the template in the editor.
         </nav>
         
        <div class="container">
-            <p class="text-home" style="margin-top: 20px;font-size: 15px; color: #FF735D">สินค้า</p>
+            <p class="text-home" style="margin-top: 20px; color: #FF735D">สินค้า</p>
             <br>
             <hr class="line" style="margin-top: -30px; color: darkgray;"></hr>
        <div class="product-main-box">
                 <div class="row">
                     <div class="col-2" th:each="product : ${output}">
-                        <div class="product-box" style="width: 160px ; height: 270px; margin-top: 20px">
+                        <div class="product-box" style="width: 160px ; height: 300px; margin-top: 20px">
                             <a th:href="${'/productDetail/'+product.productId}" id="product-name-link">
                                 <img id="product-pic" th:src="${product.productURL}" alt="productPicture" width="140px" height="170px">
                                 <p id="productname" th:text="${product.productName}">productname</p>
@@ -49,5 +49,8 @@ and open the template in the editor.
                 </div>
             </div>
        </div>
+       <div class="footer">
+
+    </div>
     </body>
 </html>
