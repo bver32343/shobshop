@@ -47,6 +47,7 @@ body{
 
     span {
         color : rgb(255, 124, 124);
+        font-size: 20px;
     }
     
   
@@ -82,4 +83,10 @@ body{
     border-radius: 6px;
     padding: 6px 50px;
     font-size: 20px;
+    }
+    
+    .home {
+        font-size: 20px;
+        text-decoration: none;
+        color: gray;
     }
