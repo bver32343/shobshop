@@ -257,7 +257,7 @@
                             <h2>รวม <span id="sumPriceAndDelivery" th:text="${product.productPrice}+${50}+' THB'">70,090 THB</span></h2> 
                             <input type="hidden" value="1" name="totalPrice">
                             <input type="hidden" th:value="${product.productId}" name="productId">
-                            <button class="btn btn-outline-danger mt-5 mb-5" type="submit" style="float:right">สั่งซื้อสินค้า</button> 
+                            <button class="confirmProduct" type="submit" style="float:right">สั่งซื้อสินค้า</button> 
                         </div>
                     </div>
                 </div>

@@ -219,6 +219,14 @@ input:disabled{
     text-decoration: none;
     color: gray;
 }
+.confirmProduct{
+    color : white;
+    background-color: rgb(255, 124, 124);
+    border-color: rgb(255, 124, 124) ;
+    border-radius: 6px;
+    padding: 6px 50px;
+    font-size: 20px;
+}
 
 
 
