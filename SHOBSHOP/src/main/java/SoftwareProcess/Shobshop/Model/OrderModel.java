@@ -47,7 +47,7 @@ public class OrderModel {
     //@JsonIgnore
 
 
-	public ShippingModel getShippinId()
+	public ShippingModel getShippingId()
 	{
 		return this.shippingId;
 	}

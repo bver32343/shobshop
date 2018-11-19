@@ -8,4 +8,5 @@ import java.util.List;
 
 public interface ShippingRepository extends JpaRepository<ShippingModel, Integer> {
     List<ShippingModel> findByProductId(ProductModel productId);
+    ShippingModel findByShippingId(int shippingId);
 }

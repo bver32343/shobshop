@@ -17,5 +17,8 @@ public class ShippingService{
     public List<ShippingModel>getByProductId(ProductModel productId){
         return shippingRepository.findByProductId(productId);
     }
+    public ShippingModel getByShippingId(int shippingId){
+        return shippingRepository.findByShippingId(shippingId);
+    }
 
 }

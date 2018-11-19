@@ -165,6 +165,7 @@ public class OrderController{
         modelmap.addAttribute("user",userService.getById(userModel.getUserId()));
         modelmap.addAttribute("address",addressService.getById(addressModel.getAddressId()));
         modelmap.addAttribute("order",orderService.getById(orderModel.getOrderId()));
+        modelmap.addAttribute("shipping",shippingService.getByShippingId(Integer.parseInt(shippingId)));
         modelmap.addAttribute("orderDetail",orderDetailService.getById(orderDetailModel.getOrderdetailId()));
 
         System.out.println("ID USER: "+userModel.getUserId()+" ADDRESS ID: "+addressModel.getAddressId()+" ORDER ID : "+orderModel.getOrderId()+" ORDER DETAIL ID : "+orderDetailModel.getOrderdetailId());
