@@ -6,7 +6,9 @@
 package SoftwareProcess.Shobshop.Controller;
 
 import SoftwareProcess.Shobshop.Model.ProductModel;
+import SoftwareProcess.Shobshop.Model.ShobshopOmiseAccountModel;
 import SoftwareProcess.Shobshop.Service.ProductService;
+import SoftwareProcess.Shobshop.Service.ShobshopOmiseAccountService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,7 +29,10 @@ public class ProductController {
 
     @Autowired
     ProductService productService;
-
+    
+    @Autowired
+    ShobshopOmiseAccountService shobshopOmiseAccountService;
+    
     @GetMapping("/")
     public String getAllProduct(ModelMap model) {
         List<ProductModel> allProducts = productService.getAllProducts();
@@ -49,7 +54,7 @@ public class ProductController {
     }
 
     @GetMapping("/productDetail/{id}")
-    public String getProductDetailById(@PathVariable("id") int id, Model model) {
+    public String getProductDetailById(@PathVariable("id") int id ,Model model){
         ProductModel productId = productService.getById(id);
         model.addAttribute("productDetail", productId);
         return "ProductDetail";
