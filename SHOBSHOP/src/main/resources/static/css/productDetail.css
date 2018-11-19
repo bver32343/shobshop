@@ -85,7 +85,7 @@ body{
     font-size: 20px;
     }
     
-    .home {
+    .home:link , .home:active , .home:visited {
         font-size: 20px;
         text-decoration: none;
         color: gray;
@@ -97,13 +97,4 @@ body{
         color: rgb(255, 124, 124);
     }
 
-    .home:visited{
-        font-size: 20px;
-        text-decoration: none;
-        color: gray;
-    }
-    .home:active{
-        font-size: 20px;
-        text-decoration: none;
-        color: gray;
-    }
+    
