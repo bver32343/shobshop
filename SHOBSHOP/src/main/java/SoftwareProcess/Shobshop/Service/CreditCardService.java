@@ -30,13 +30,13 @@ public class CreditCardService {
         return creditCardRepository.save(creditCardModel);
     }
 
-    public String creditCardPayment(String customerToken,String amountInStringType) throws ClientException, IOException, OmiseException {
+    public String creditCardPayment(String customerToken,String amountInStringType,String publicKey,String secretKey) throws ClientException, IOException, OmiseException {
         Double amountInDoubleType = Double.parseDouble(amountInStringType) * 100;
         Long amountInLongType = amountInDoubleType.longValue();
 
-        Client shobShopAccount = new Client("pkey_test_5dxu0b1vxc7ui06csew", "skey_test_5dxu0b1w7j96qyz5447");
+        Client shobShopAccount = new Client(publicKey,secretKey);
         Charge charge = shobShopAccount.charges().create(new Charge.Create()
-                .amount(2000)
+                .amount(amountInLongType)
                 .currency("THB")
                 .card(customerToken));
         return "index";
