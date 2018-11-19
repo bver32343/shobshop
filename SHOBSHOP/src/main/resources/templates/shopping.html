@@ -24,8 +24,9 @@
             <div class="topic mt-5">
                 <div class="row">
                     <div class="col">
-                        <a class="home" href="/index">หน้าแรก</a><a> ></a>
-                        <a th:text="${productDetail.productName}">productName</a><a> ></a>
+                        <a class="home" href="/index">หน้าแรก</a><a style="font-size: 20px"> ></a>
+                        <a class="nameOfProduct" th:text="${product.productName}" th:href="${'/productDetail/'+product.productId}">productName</a>
+                        <a style="font-size: 20px"> ></a>
                              <span>สั่งซื้อสินค้า</span>
                         <hr>
                     </div>
@@ -125,8 +126,8 @@
                             <img th:src="${product.productURL}" alt="รูปสินค้า" width="200px" height="200px" id="productImage">
                         </div>
                         <div class="col-6">
-                            <h2 id="productName" th:text="${product.productName}">ชุดเดรสยาวสีขาว</h2>
-                            <h2 id="shopName">โดย dressdressShop</h2>
+                            <h2 id="productName" th:text="${product.productName}">productName</h2>
+                            <h2 id="shopName" th:text="'โดย ' + ${product.shopId}">byWho</h2>
                             <h2 class="price" id="price" th:text="${product.productPrice}+' THB'">20,000 THB</h2>
                         </div>
                         <div class="col-2">
@@ -257,7 +258,7 @@
                             <h2>รวม <span id="sumPriceAndDelivery" th:text="${product.productPrice}+${50}+' THB'">70,090 THB</span></h2> 
                             <input type="hidden" value="1" name="totalPrice">
                             <input type="hidden" th:value="${product.productId}" name="productId">
-                            <button class="btn btn-outline-danger mt-5 mb-5" type="submit" style="float:right">สั่งซื้อสินค้า</button> 
+                            <button class="confirmBuyProduct" type="submit" style="float:right">สั่งซื้อสินค้า</button> 
                         </div>
                     </div>
                 </div>
@@ -267,7 +268,7 @@
             <!-- [Start] credit card popup-->
             <div class="creditCard-popUp" id="creditCard-popUp-id">
 
-                <form id="checkout-form" class="checkout-form" method="GET" onSubmit="JavaScript:return fncSubmit();">
+                <form id="checkout-form" class="checkout-form" method="GET">
                     <div class="form-group">
                         <label>Card Number</label>
                         <input type="text" data-name="cardNumber" id="cardNumber" name="cardNumber" value="" class="form-control" placeholder="••••••••••••••••" />
@@ -296,8 +297,6 @@
                 </form>
                     <div class="form-group">
                         <button class="btn btn-outline-danger" id="closeButton" style="position:fixed; bottom:201px; right:770px;" onclick="closeCreditInput()">Close</button>
-
-
                     </div>
                 
             </div>
@@ -323,7 +322,7 @@
             <div class="unsuccess-popUp" id="unsuccess-popUp-id">
                     <div class="row">
                         <div class="col">
-                            <h2>กรุณากรอกฟอร์มให้ครบ</h2>
+                            <h2>กรุณากรอกฟอร์มให้ครบ/กรอกให้ถูกต้อง</h2>
     
                             <div class="form-group">
                                 <button class="btn btn-outline-danger" onclick="closeUnsuccessText()">Close</button>
@@ -379,10 +378,12 @@
                                             order.creditCardNumber.value = document.getElementById('cardNumber').value;
                                             order.creditCardName.value = document.getElementById('nameOnCard').value;
                                             document.getElementById("creditCard-popUp-id").style.display = "none";
+                                            openSuccessText();
                                         } else {
                                             // Error: display an error message. Note that `response.message` contains
                                             // a preformatted error message. Also note that `response.code` will be
                                             // "invalid_card" in case of validation error on the card.
+                                            openUnsuccessText();
                                         }
                                     });
                                 }
@@ -427,7 +428,7 @@
         </script>
         <!-- [End] unsuccess text popup -->
 
-        <script type="text/javascript">
+        <!-- <script type="text/javascript">
             function fncSubmit()
             {
                 if(document.getElementById('cardNumber').value == "" || document.getElementById('nameOnCard').value == "" || document.getElementById('expiryMonth').value == "" || document.getElementById('expiryYear').value == "" || document.getElementById('securityCode').value == "")
@@ -442,7 +443,9 @@
                     
                     
             }
-        </script>
+        </script> -->
+
+        <!-- onSubmit="JavaScript:return fncSubmit(); -->
         
 
 
