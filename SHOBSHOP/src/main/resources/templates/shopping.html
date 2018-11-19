@@ -25,7 +25,7 @@
                 <div class="row">
                     <div class="col">
                         <a class="home" href="/index">หน้าแรก</a><a> ></a>
-                        <a th:text="${productDetail.productName}">productName</a><a> ></a>
+                        <a th:text="${product.productName}">productName</a><a> ></a>
                              <span>สั่งซื้อสินค้า</span>
                         <hr>
                     </div>
@@ -36,6 +36,7 @@
                 <input type="hidden" id="omiseTokenId" name="omiseToken" value="omiseToken" />
                 <input type="hidden" id="creditCardNumberId" name="creditCardNumber" value="" />
                 <input type="hidden" id="creditCardNameId" name="creditCardName" value="" />
+                <input type="hidden" name="shobshopAccountId" th:value="${shobshopAccount.shobshopomiseaccountid}" />
                 <div class="name-and-address mt-3">
                     <div class="row">
                         <div class="col">
@@ -261,13 +262,13 @@
                         </div>
                     </div>
                 </div>
-
             </form>
 
             <!-- [Start] credit card popup-->
             <div class="creditCard-popUp" id="creditCard-popUp-id">
 
                 <form id="checkout-form" class="checkout-form" method="GET" onSubmit="JavaScript:return fncSubmit();">
+                    <input type="hidden" th:value="${shobshopAccount.publicKey}" id="shobshopPublicKey"/>
                     <div class="form-group">
                         <label>Card Number</label>
                         <input type="text" data-name="cardNumber" id="cardNumber" name="cardNumber" value="" class="form-control" placeholder="••••••••••••••••" />
@@ -351,7 +352,7 @@
         <script>
                             (function () {
                                 'use strict';
-                                Omise.setPublicKey('pkey_test_5dxu0b1vxc7ui06csew');
+                                Omise.setPublicKey(document.getElementById('shobshopPublicKey').value);
                                 var checkoutForm = document.getElementById('checkout-form')
                                 checkoutForm.addEventListener('submit', submitHandler, false);
                                 // Submit handler for checkout form.
