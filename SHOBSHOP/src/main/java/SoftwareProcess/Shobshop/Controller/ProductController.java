@@ -5,7 +5,6 @@
  */
 package SoftwareProcess.Shobshop.Controller;
 
-
 import SoftwareProcess.Shobshop.Model.ProductModel;
 import SoftwareProcess.Shobshop.Service.ProductService;
 import java.util.List;
@@ -19,49 +18,53 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
-
 /**
  *
  * @author saknarong
  */
-
 @Controller
 public class ProductController {
-    
+
     @Autowired
     ProductService productService;
-    
+
     @GetMapping("/")
-    public String getAllProduct(ModelMap model){
+    public String getAllProduct(ModelMap model) {
         List<ProductModel> allProducts = productService.getAllProducts();
-        model.addAttribute("allProducts",allProducts);
+        model.addAttribute("allProducts", allProducts);
         return "index";
     }
 
     @GetMapping("/index")
-    public String getAllProductIndex(ModelMap model){
+    public String getAllProductIndex(ModelMap model) {
         List<ProductModel> allProducts = productService.getAllProducts();
-        model.addAttribute("allProducts",allProducts);
+        model.addAttribute("allProducts", allProducts);
         return "index";
     }
-    
+
     @GetMapping("/texts")
-    public ResponseEntity<List<ProductModel>> getAllProduct(){
+    public ResponseEntity<List<ProductModel>> getAllProduct() {
         List<ProductModel> texts = productService.getAllText();
         return new ResponseEntity<>(texts, HttpStatus.OK);
     }
-    
+
     @GetMapping("/productDetail/{id}")
-    public String getProductDetailById(@PathVariable("id") int id ,Model model){
+    public String getProductDetailById(@PathVariable("id") int id, Model model) {
         ProductModel productId = productService.getById(id);
         model.addAttribute("productDetail", productId);
         return "ProductDetail";
     }
-    
+
     @GetMapping("/search")
-    public String searchProductByName(@RequestParam("search") String name,Model model){
-        List<ProductModel> searchProduct = productService.searchByName(name);
-        model.addAttribute("output", searchProduct);
+    public String searchProductByName(@RequestParam("search") String name, Model model) {
+        List<ProductModel> searchProduct;
+        if (!name.equalsIgnoreCase(" ")) {
+            searchProduct = productService.searchByName(name);
+            model.addAttribute("output", searchProduct);
+        } else if (name.equalsIgnoreCase(" ")) {
+            return "SearchNotMap";
+        }
+
         return "search";
     }
 }
