@@ -10,7 +10,7 @@
 
         <!-- CSS -->
         <link rel="stylesheet" th:href="@{/css/shopping.css}"/>
-       
+
         <title>SHOBSHOP</title>
     </head>
     <body>
@@ -27,7 +27,7 @@
                         <a class="home" href="/index">หน้าแรก</a><a style="font-size: 20px"> ></a>
                         <a class="nameOfProduct" th:text="${product.productName}" th:href="${'/productDetail/'+product.productId}">productName</a>
                         <a style="font-size: 20px"> ></a>
-                             <span>สั่งซื้อสินค้า</span>
+                        <span>สั่งซื้อสินค้า</span>
                         <hr>
                     </div>
                 </div>
@@ -37,6 +37,7 @@
                 <input type="hidden" id="omiseTokenId" name="omiseToken" value="omiseToken" />
                 <input type="hidden" id="creditCardNumberId" name="creditCardNumber" value="" />
                 <input type="hidden" id="creditCardNameId" name="creditCardName" value="" />
+                <input type="hidden" name="shobshopAccountId" th:value="${shobshopAccount.shobshopomiseaccountid}" />
                 <div class="name-and-address mt-3">
                     <div class="row">
                         <div class="col">
@@ -156,7 +157,7 @@
                         <div class="col mr-3" th:each="shipping : ${allShipping}">
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="shippingId" th:value="${shipping.shippingId}" checked>
+                                    <input type="radio" class="form-check-input" name="shippingId" th:value="${shipping.shippingId}" th:onclick="'getShippingPrice(${shipping.shippingPrice})'" checked>    
                                     <div class="row">
                                         <div class="col-6">
                                             <img th:src="@{/img/cargo-truck.png}" alt="จัดส่ง" width="100px" height="100px">
@@ -170,41 +171,41 @@
                         </div>
                     </div>
                 </div>
-             <!--<div class="delivery mt-4 mb-5">
-                    <div class="row">
-                        <div class="col">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="typeOfShipping" value="1" checked>
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <img th:src="@{/img/cargo-truck.png}" alt="จัดส่ง" width="100px" height="100px">
-                                        </div>
-                                        <div class="col-6 d-flex align-items-center">
-                                            <h2>ThaiPost - EMS <br> 50 THB / 3-4 วัน</h2>
-                                        </div>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="col mr-3">
-                            <div class="form-check">
-                                <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="typeOfShipping" value="2">
-                                    <div class="row">
-                                        <div class="col-6">
-                                            <img th:src="@{/img/cargo-truck.png}" alt="จัดส่ง" width="100px" height="100px">
-                                        </div>
-                                        <div class="col-6 d-flex align-items-center">
-                                            <h2>Kerry <br> 50 THB / 3-4 วัน</h2>
-                                        </div>
-                                    </div>
-                                </label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
--->
+                <!--<div class="delivery mt-4 mb-5">
+                       <div class="row">
+                           <div class="col">
+                               <div class="form-check">
+                                   <label class="form-check-label">
+                                       <input type="radio" class="form-check-input" name="typeOfShipping" value="1" checked>
+                                       <div class="row">
+                                           <div class="col-6">
+                                               <img th:src="@{/img/cargo-truck.png}" alt="จัดส่ง" width="100px" height="100px">
+                                           </div>
+                                           <div class="col-6 d-flex align-items-center">
+                                               <h2>ThaiPost - EMS <br> 50 THB / 3-4 วัน</h2>
+                                           </div>
+                                       </div>
+                                   </label>
+                               </div>
+                           </div>
+                           <div class="col mr-3">
+                               <div class="form-check">
+                                   <label class="form-check-label">
+                                       <input type="radio" class="form-check-input" name="typeOfShipping" value="2">
+                                       <div class="row">
+                                           <div class="col-6">
+                                               <img th:src="@{/img/cargo-truck.png}" alt="จัดส่ง" width="100px" height="100px">
+                                           </div>
+                                           <div class="col-6 d-flex align-items-center">
+                                               <h2>Kerry <br> 50 THB / 3-4 วัน</h2>
+                                           </div>
+                                       </div>
+                                   </label>
+                               </div>
+                           </div>
+                       </div>
+                   </div>
+                -->
                 <hr>
 
                 <h2 class="mt-5">วิธีการชำระเงิน</h2>
@@ -253,10 +254,10 @@
                         </div>
                         <div class="col-4">
                             <h2>รวมการสั่งซื้อ <span id="totalPrice" th:text="${product.productPrice}+' THB'">69,790 THB</span></h2> 
-                            <h2>จัดส่ง <span id="sumDelivery">50 THB</span></h2> 
+                            <h2>จัดส่ง <span id="selectedShippingValue" value="" th:text="50"></span></h2> 
                             <hr>
                             <h2>รวม <span id="sumPriceAndDelivery" th:text="${product.productPrice}+${50}+' THB'">70,090 THB</span></h2> 
-                            <input type="hidden" value="1" name="totalPrice">
+                            <input type="hidden" value="20" name="totalPrice">
                             <input type="hidden" th:value="${product.productId}" name="productId">
                             <button class="confirmBuyProduct" type="submit" style="float:right">สั่งซื้อสินค้า</button> 
                         </div>
@@ -269,6 +270,7 @@
             <div class="creditCard-popUp" id="creditCard-popUp-id">
 
                 <form id="checkout-form" class="checkout-form" method="GET">
+                    <input type="hidden" id="shobshopPublicKey" th:value="${shobshopAccount.publickey}" />
                     <div class="form-group">
                         <label>Card Number</label>
                         <input type="text" data-name="cardNumber" id="cardNumber" name="cardNumber" value="" class="form-control" placeholder="••••••••••••••••" />
@@ -295,10 +297,10 @@
                         <button class="btn btn-outline-danger">Checkout</button> 
                     </div>
                 </form>
-                    <div class="form-group">
-                        <button class="btn btn-outline-danger" id="closeButton" style="position:fixed; bottom:201px; right:770px;" onclick="closeCreditInput()">Close</button>
-                    </div>
-                
+                <div class="form-group">
+                    <button class="btn btn-outline-danger" id="closeButton" style="position:fixed; bottom:201px; right:770px;" onclick="closeCreditInput()">Close</button>
+                </div>
+
             </div>
 
             <!-- [End] credit card popup-->
@@ -320,18 +322,18 @@
 
             <!-- [Start] unsuccess popup-->
             <div class="unsuccess-popUp" id="unsuccess-popUp-id">
-                    <div class="row">
-                        <div class="col">
-                            <h2>กรุณากรอกฟอร์มให้ครบ/กรอกให้ถูกต้อง</h2>
-    
-                            <div class="form-group">
-                                <button class="btn btn-outline-danger" onclick="closeUnsuccessText()">Close</button>
-                            </div>
+                <div class="row">
+                    <div class="col">
+                        <h2>กรุณากรอกฟอร์มให้ครบ/กรอกให้ถูกต้อง</h2>
+
+                        <div class="form-group">
+                            <button class="btn btn-outline-danger" onclick="closeUnsuccessText()">Close</button>
                         </div>
-                    </div>   
-                </div>
-    
-                <!-- [End] unsuccess popup-->
+                    </div>
+                </div>   
+            </div>
+
+            <!-- [End] unsuccess popup-->
 
 
 
@@ -348,47 +350,47 @@
         <!-- [Start] Credit card script -->
         <script src="https://cdn.omise.co/omise.js.gz"></script>
         <script>
-                            (function () {
-                                'use strict';
-                                Omise.setPublicKey('pkey_test_5dxu0b1vxc7ui06csew');
-                                var checkoutForm = document.getElementById('checkout-form')
-                                checkoutForm.addEventListener('submit', submitHandler, false);
-                                // Submit handler for checkout form.
-                                function submitHandler(event) {
-                                    event.preventDefault();
+                                (function () {
+                                    'use strict';
+                                    Omise.setPublicKey(document.getElementById('shobshopPublicKey').value);
+                                    var checkoutForm = document.getElementById('checkout-form')
+                                    checkoutForm.addEventListener('submit', submitHandler, false);
+                                    // Submit handler for checkout form.
+                                    function submitHandler(event) {
+                                        event.preventDefault();
 
-                                    /*
-                                     NOTE: Using `data-name` to prevent sending credit card information fields to the backend server via HTTP Post
-                                     (according to the security best practice https://www.omise.co/security-best-practices#never-send-card-data-through-your-servers).
-                                     */
-                                    var cardInformation = {
-                                        name: document.querySelector('[data-name="nameOnCard"]').value,
-                                        number: document.querySelector('[data-name="cardNumber"]').value,
-                                        expiration_month: document.querySelector('[data-name="expiryMonth"]').value,
-                                        expiration_year: document.querySelector('[data-name="expiryYear"]').value,
-                                        security_code: document.querySelector('[data-name="securityCode"]').value
-                                    };
+                                        /*
+                                         NOTE: Using `data-name` to prevent sending credit card information fields to the backend server via HTTP Post
+                                         (according to the security best practice https://www.omise.co/security-best-practices#never-send-card-data-through-your-servers).
+                                         */
+                                        var cardInformation = {
+                                            name: document.querySelector('[data-name="nameOnCard"]').value,
+                                            number: document.querySelector('[data-name="cardNumber"]').value,
+                                            expiration_month: document.querySelector('[data-name="expiryMonth"]').value,
+                                            expiration_year: document.querySelector('[data-name="expiryYear"]').value,
+                                            security_code: document.querySelector('[data-name="securityCode"]').value
+                                        };
 
-                                    Omise.createToken('card', cardInformation, function (statusCode, response) {
-                                        if (statusCode === 200) {
-                                            // Success: send back the TOKEN_ID to your server. The TOKEN_ID can be
-                                            // found in `response.id`.
-                 
-                                            order.omiseToken.value = response.id;
-                                            order.creditCardNumber.value = document.getElementById('cardNumber').value;
-                                            order.creditCardName.value = document.getElementById('nameOnCard').value;
-                                            document.getElementById("creditCard-popUp-id").style.display = "none";
-                                            openSuccessText();
-                                        } else {
-                                            // Error: display an error message. Note that `response.message` contains
-                                            // a preformatted error message. Also note that `response.code` will be
-                                            // "invalid_card" in case of validation error on the card.
-                                            openUnsuccessText();
-                                        }
-                                    });
-                                }
+                                        Omise.createToken('card', cardInformation, function (statusCode, response) {
+                                            if (statusCode === 200) {
+                                                // Success: send back the TOKEN_ID to your server. The TOKEN_ID can be
+                                                // found in `response.id`.
 
-                            })();
+                                                order.omiseToken.value = response.id;
+                                                order.creditCardNumber.value = document.getElementById('cardNumber').value;
+                                                order.creditCardName.value = document.getElementById('nameOnCard').value;
+                                                document.getElementById("creditCard-popUp-id").style.display = "none";
+                                                openSuccessText();
+                                            } else {
+                                                // Error: display an error message. Note that `response.message` contains
+                                                // a preformatted error message. Also note that `response.code` will be
+                                                // "invalid_card" in case of validation error on the card.
+                                                openUnsuccessText();
+                                            }
+                                        });
+                                    }
+
+                                })();
         </script>
         <!-- [End] Credit card script -->
 
@@ -425,6 +427,10 @@
             function closeUnsuccessText() {
                 document.getElementById("unsuccess-popUp-id").style.display = "none";
             }
+            function getShippingPrice(price) {
+                document.getElementById("selectedShippingValue").text = price;
+            }
+
         </script>
         <!-- [End] unsuccess text popup -->
 
@@ -446,7 +452,7 @@
         </script> -->
 
         <!-- onSubmit="JavaScript:return fncSubmit(); -->
-        
+
 
 
     </body>
