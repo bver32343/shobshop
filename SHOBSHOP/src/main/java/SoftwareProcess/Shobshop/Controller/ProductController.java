@@ -43,12 +43,6 @@ public class ProductController {
         return "index";
     }
 
-    @GetMapping("/texts")
-    public ResponseEntity<List<ProductModel>> getAllProduct() {
-        List<ProductModel> texts = productService.getAllText();
-        return new ResponseEntity<>(texts, HttpStatus.OK);
-    }
-
     @GetMapping("/productDetail/{id}")
     public String getProductDetailById(@PathVariable("id") int id, Model model) {
         ProductModel productId = productService.getById(id);
@@ -59,11 +53,18 @@ public class ProductController {
     @GetMapping("/search")
     public String searchProductByName(@RequestParam("search") String name, Model model) {
         List<ProductModel> searchProduct;
-        if (!name.equalsIgnoreCase(" ")) {
+        if (!name.contains(" ")) {
             searchProduct = productService.searchByName(name);
-            model.addAttribute("output", searchProduct);
-        } else if (name.equalsIgnoreCase(" ")) {
+            
+            if(searchProduct.isEmpty()){
+                return "SearchNotMap";
+            }
+                model.addAttribute("output", searchProduct);
+        
+        } else if (name.contains(" ")) {
+            
             return "SearchNotMap";
+            
         }
 
         return "search";
