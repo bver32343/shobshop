@@ -183,6 +183,7 @@ public class OrderController {
         modelmap.addAttribute("order", orderService.getById(orderModel.getOrderId()));
         modelmap.addAttribute("shipping", shippingService.getByShippingId(Integer.parseInt(shippingId)));
         modelmap.addAttribute("orderDetail", orderDetailService.getById(orderDetailModel.getOrderdetailId()));
+        modelmap.addAttribute("totalPrice",totalPrice);
 
         System.out.println("ID USER: " + userModel.getUserId() + " ADDRESS ID: " + addressModel.getAddressId() + " ORDER ID : " + orderModel.getOrderId() + " ORDER DETAIL ID : " + orderDetailModel.getOrderdetailId());
 
