@@ -52,23 +52,14 @@ public class ProductController {
 
     @GetMapping("/search")
     public String searchProductByName(@RequestParam("search") String name, Model model) {
-        List<ProductModel> searchProduct;
-        if (!name.contains(" ")) {
-            searchProduct = productService.searchByName(name);
-            
-            if(searchProduct.isEmpty()){
-                return "SearchNotMap";
-            }
-                model.addAttribute("output", searchProduct);
-        
-        } else if (name.contains(" ")) {
-            
+        List<ProductModel> searchProduct = productService.searchByName(name);
+        if (!searchProduct.isEmpty() && !name.startsWith(" ")) {
+             model.addAttribute("output", searchProduct);
+             return "search";
+        }
             return "SearchNotMap";
-            
         }
 
-        return "search";
-    }
     @GetMapping("category/{id}")
     public String getAllProductCategory(ModelMap model,@PathVariable("id") int id) {
         CategoryModel categoryModel = new CategoryModel();
