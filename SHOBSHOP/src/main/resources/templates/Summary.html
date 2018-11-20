@@ -36,7 +36,7 @@
       <div class="topic mt-5">
         <div class="row">
           <div class="col">
-            <a href="index.html">หน้าแรก </a>>
+            <a class="home" href="index.html">หน้าแรก </a>>
             <span> สรุปการสั่งซื้อ</span>
             <hr />
           </div>
@@ -82,7 +82,8 @@
             <p th:text="'E-mail :'+' '+${user.email}"></p>
             <p th:text="'Tel :'+' '+${user.phonenumber}"></p>
             <p th:text="'ที่อยู่ : '+'บ้านเลขที่ '+${address.homeNo}+' '+'ซอย '+${address.alley}+' ถนน '+${address.road}
-            +' '+${address.district}+' '+${address.subDistrict}+' '+${address.city}+' '+${address.country}+' '+${address.postCode}"></p>
+            +' แขวง/ตำบล '+${address.district}+' เขต/อำเภอ '+${address.subDistrict}+' จังหวัด '+${address.city}+' '
+            +${address.country}+' '+${address.postCode}"></p>
             <p th:text="'วันที่สั่งซื้อ : '+${order.date}"></p>
             <p th:text="'รูปแบบการจัดส่ง : '+${shipping.typeOfShippingId.typeOfShippingName}"></p>
             <p th:text="'ค่าการจัดส่ง : 50 บาท'"></p>
@@ -97,9 +98,7 @@
     
     <br />
     <center>
-      <a href="index.html"
-        ><button class="backhome" type="submit">กลับสู่หน้าหลัก</button></a
-      >
+      <a href="index.html"><button class="backhome" type="submit">กลับสู่หน้าหลัก</button></a>
     </center>
     <br />
     <!-- Optional JavaScript -->

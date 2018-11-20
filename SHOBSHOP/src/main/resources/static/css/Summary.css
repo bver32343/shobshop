@@ -37,30 +37,6 @@ body {
   box-shadow: 0 0 0 0.2rem rgb(255, 195, 195);
 }
 
-a {
-  font-size: 20px;
-}
-
-/* unvisited link */
-a:link {
-  color: gray;
-}
-
-/* visited link */
-a:visited {
-  color: gray;
-}
-
-/* mouse over link */
-a:hover {
-  color: rgb(255, 124, 124);
-}
-
-/* selected link */
-a:active {
-  color: gray;
-}
-
 .topic span {
   font-size: 20px;
   color: rgb(255, 124, 124);
@@ -84,6 +60,12 @@ a:active {
   text-align: left;
 }
 
+.quan {
+  font-size: 20px;
+  font-weight: bold;
+  color: rgb(255, 124, 124);
+  float: left;
+}
 .price {
   font-size: 20px;
   font-weight: bold;
@@ -160,7 +142,6 @@ a:active {
   color: rgb(255, 124, 124);
 }
 
-
 .home:link , .home:active , .home:visited {
   font-size: 20px;
   text-decoration: none;
@@ -174,3 +155,14 @@ a:active {
 }
 
 
+.backhome {
+  color: white;
+  background-color: rgb(255, 124, 124);
+  border-color: rgb(255, 124, 124);
+  border-radius: 6px;
+  padding: 6px 50px;
+  font-size: 20px;
+}
+.test p{
+  color:rgb(255, 124, 124);
+}
