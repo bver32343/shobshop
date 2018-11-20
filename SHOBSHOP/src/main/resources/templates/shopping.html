@@ -33,7 +33,7 @@
                 </div>
             </div>
 
-            <form id="order" th:action="@{/summary}" method ="GET">
+            <form id="order" th:action="@{/summary}" method ="POST">
                 <input type="hidden" id="omiseTokenId" name="omiseToken" value="omiseToken" />
                 <input type="hidden" id="creditCardNumberId" name="creditCardNumber" value="" />
                 <input type="hidden" id="creditCardNameId" name="creditCardName" value="" />
@@ -212,7 +212,7 @@
 
                 <h2 class="mt-5">วิธีการชำระเงิน</h2>
                 <div class="detail mt-4 mb-5" style="cursor:pointer">
-                    <div class="row" onclick="openCreditInput()">  
+                    <div class="row" onclick="openCreditInput(),checkInputCreditCard()">  
                         <div class="col-2">
                             <img th:src="@{/img/credit-card.png}" alt="cardImage" width="100px" height="100px">
                         </div>
@@ -268,7 +268,7 @@
                             <h2>รวม <span id="sumPriceAndDelivery" name="sumPriceAndDelivery" th:text="${product.productPrice}+' THB'">70,090 THB</span></h2> 
                             <input type="hidden" value="20" id="total" name="totalPrice">
                             <input type="hidden" th:value="${product.productId}" name="productId">
-                            <button class="confirmBuyProduct" type="submit" style="float:right">สั่งซื้อสินค้า</button> 
+                            <button class="confirmBuyProduct" id="confirmBuyProduct" type="submit" style="float:right" >สั่งซื้อสินค้า</button> 
                         </div>
                     </div>
                 </div>
@@ -469,6 +469,18 @@
             document.getElementById("nameCard").innerHTML=nameCard;
             document.getElementById("numberCard").innerHTML=numberCard;
         }
+        </script>
+
+        <script>
+
+            function checkInputCreditCard(){
+                var textNumberCard = document.getElementById("creditCardNumberId").value;
+                var textNameCard = document.getElementById("creditCardNumberId").value;
+                if(textNumberCard==""&&textNameCard==""){
+                    document.getElementById("confirmBuyProduct").hidden;
+                }
+            }
+
         </script>
         <!-- [End] unsuccess text popup -->
 
