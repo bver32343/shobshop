@@ -150,7 +150,7 @@ public class OrderController {
         ShippingModel shoppingModel = new ShippingModel();
         shoppingModel.setShippingId(Integer.parseInt(shippingId));
         OrderModel orderModel = new OrderModel();
-        orderModel.setTotalprice(Double.parseDouble(totalPrice));
+        orderModel.setTotalPrice(Double.parseDouble(totalPrice));
         orderModel.setShippingId(shoppingModel);
         orderModel.setUserId(userModel);
         orderModel.setDate(java.time.LocalDate.now());

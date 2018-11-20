@@ -77,12 +77,12 @@ public class OrderModel {
 		this.date = localDate;
 	}
 
-	public Double getTotalprice()
+	public Double getTotalPrice()
 	{
 		return this.totalPrice;
 	}
 
-	public void setTotalprice(Double totalPrice)
+	public void setTotalPrice(Double totalPrice)
 	{
 		this.totalPrice = totalPrice;
 	}
