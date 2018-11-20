@@ -1,6 +1,7 @@
 body{
     background-color: white;
     color: gray;
+    margin-bottom: 30px;
  }
 
 .form-inline .form-control {
@@ -198,6 +199,41 @@ input:disabled{
     margin-top: 20px;
 }
 
+.confirmBuyProduct{
+    color : white;
+    background-color: rgb(255, 124, 124);
+    border-color: rgb(255, 124, 124) ;
+    border-radius: 6px;
+    padding: 6px 50px;
+    font-size: 20px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
 
+span {
+    color : rgb(255, 124, 124);
+    font-size: 20px;
+}
 
+.nameOfProduct:active , .nameOfProduct:visited , .nameOfProduct:link{
+    font-size: 20px;
+    text-decoration: none;
+    color: gray;
+}
 
+.nameOfProduct:hover{
+    font-size: 20px;
+    text-decoration: none;
+    color: rgb(255, 124, 124);
+}
+.home:link , .home:active , .home:visited {
+    font-size: 20px;
+    text-decoration: none;
+    color: gray;
+}
+
+.home:hover{
+    font-size: 20px;
+    text-decoration: none;
+    color: rgb(255, 124, 124);
+}

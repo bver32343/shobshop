@@ -222,15 +222,15 @@
 
                 <h2>บัตรเดบิต/เครดิตของฉัน</h2>
                 <div class="card mt-4 mb-5">
-                    <div class="row">
+                    <div class="row mt-2">
                         <div class="col-2">
                             <img th:src="@{/img/visa.png}" alt="visa" width="90px" height="60px">
                         </div>
                         <div class="col-8 d-flex align-items-center">
                             <div class="row">
                                 <div class="col-12">
-                                    <h2 id="nameCard">น.ส. สินีนาฏ จั่นxxxx</h2>
-                                    <h2 id="numberCard">4732-52xx-xxxx-xxxx</h2>
+                                    <h2 id="nameCard">ชื่อบัตร</h2>
+                                    <h2 id="numberCard">เลขบัตร</h2>
                                 </div>
                             </div>
                         </div>
@@ -381,6 +381,7 @@
                                                 order.creditCardName.value = document.getElementById('nameOnCard').value;
                                                 document.getElementById("creditCard-popUp-id").style.display = "none";
                                                 openSuccessText();
+                                                getCard();
                                             } else {
                                                 // Error: display an error message. Note that `response.message` contains
                                                 // a preformatted error message. Also note that `response.code` will be
@@ -432,6 +433,17 @@
             }
 
         </script>
+
+        <script type="text/javascript">
+            function getCard(){
+            var numberCard=document.getElementById("creditCardNumberId").value;
+            var nameCard=document.getElementById("creditCardNameId").value;
+            document.getElementById("nameCard").innerHTML=nameCard;
+            document.getElementById("numberCard").innerHTML=numberCard;
+        }
+        </script>
+
+
         <!-- [End] unsuccess text popup -->
 
         <!-- <script type="text/javascript">
