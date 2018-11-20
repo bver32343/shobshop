@@ -107,7 +107,7 @@
           </div>
           <p th:text="'วันที่สั่งซื้อ : '+${order.date}"></p>
           <p th:text="'รูปแบบการจัดส่ง : '+${shipping.typeOfShippingId.typeOfShippingName}"></p>
-          <p th:text="'ค่าการจัดส่ง : 50 บาท'"></p>
+          <p th:text="'ค่าการจัดส่ง : '+${shipping.shippingPrice}+' บาท'"></p>
           <p th:text="'ราคาสินค้า : '+${product.productPrice}*${orderDetail.quantity}"></p>
           <p th:text="'รวมทั้งสื้น : '+${order.totalPrice}"></p>
           <p th:text="'วิธีการชำระเงิน : บัตรเครดิต/เดบิต'"></p>
