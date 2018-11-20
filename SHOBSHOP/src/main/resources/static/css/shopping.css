@@ -131,7 +131,7 @@ input:disabled{
     bottom: 180px;
     right: 520px;
     z-index: 9;
-    border: 1px solid #f1f1f1;
+    border: 1px solid gray;
     border-radius: 0.5rem;
     background-color: #f1f1f1;
 }
@@ -152,10 +152,10 @@ input:disabled{
 .success-popUp {
     display: none;
     position: fixed;
-    bottom: 550px;
+    bottom: 300px;
     right: 620px;
     z-index: 9;
-    border: 1px solid #f1f1f1;
+    border: 1px solid gray;
     border-radius: 0.5rem;
     background-color: #f1f1f1;
 }
@@ -177,10 +177,10 @@ input:disabled{
 .unsuccess-popUp {
     display: none;
     position: fixed;
-    bottom: 650px;
-    right: 620px;
+    bottom: 350px;
+    right: 580px;
     z-index: 9;
-    border: 1px solid #f1f1f1;
+    border: 1px solid gray;
     border-radius: 0.5rem;
     background-color: #f1f1f1;
 }
