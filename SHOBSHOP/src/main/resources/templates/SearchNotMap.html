@@ -5,25 +5,91 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <head>
-        <title>search no product</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-    <body>
-        <nav class="navbar navbar-light bg-light justify-content-between">
-        <a class="navbar-brand ml-5" href="/index">
-            <img th:src="@{/img/shobshop.png}" alt="shobshop" width="60px" height="60px">
-        </a>
-        <div class="container">
-                <form class="form-inline" th:action="@{/search}">
-                    <input class="form-control mr-4" id="search" type="search" name="search" placeholder="ค้นหาสินค้าหรือร้านค้า" aria-label="Search" required>
-                    <button class="btn btn-outline-danger" id="btn-search" type="submit">ค้นหา</button>
-                    
-                </form>
-            </div>
-            <h2>กรุณากรอกชื่อสินค้าให้ถูกต้อง</h2>
-    </nav>
 
-    </body>
+<head>
+    <title>search no product</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link th:href="@{/css/styles.css}" type="text/css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+</head>
+
+<nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand ml-5" href="/index">
+        <img th:src="@{/img/shobshop.png}" alt="shobshop" width="60px" height="60px">
+    </a>
+    <div class="container">
+        <form class="form-inline" th:action="@{/search}">
+            <input class="form-control mr-4" id="search" type="search" name="search" placeholder="ค้นหาสินค้าหรือร้านค้า"
+                aria-label="Search" required>
+            <button class="btn btn-outline-danger" id="btn-search" type="submit">ค้นหา</button>
+
+        </form>
+    </div>
+
+</nav>
+
+<body>
+    <div class="container">
+        <div class="slideshow-container" style="margin-top: 20px">
+
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 3</div>
+                <img th:src="@{/img/banner-1.png}" style="width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 3</div>
+                <img th:src="@{/img/banner-2.png}" style="width:100%">
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 3</div>
+                <img th:src="@{/img/banner-3.png}" style="width:100%">
+            </div>
+
+        </div>
+        <br>
+        <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+        </div>
+        <br>
+
+
+        <script>
+            var slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                var dots = document.getElementsByClassName("dot");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) { slideIndex = 1 }
+                for (i = 0; i < dots.length; i++) {
+                    dots[i].className = dots[i].className.replace(" active", "");
+                }
+                slides[slideIndex - 1].style.display = "block";
+                dots[slideIndex - 1].className += " active";
+                setTimeout(showSlides, 2000); // Change image every 2 seconds
+            }
+        </script>
+        <p class="text-home" style="margin-top: 20px; color: #FF735D">สินค้า</p>
+        <br>
+        <hr class="line" style="margin-top: -30px; color: darkgray;">
+        </hr>
+        <h2 class="warn-text">ไม่พบสินค้า</h2>
+
+        <h2 class="warn-text2">กรุณากรอกชื่อสินค้าให้ถูกต้อง</h2>
+</body>
+<div class="footer2">
+
+</div>
+
 </html>

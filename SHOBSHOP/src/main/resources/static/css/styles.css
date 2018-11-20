@@ -70,13 +70,20 @@ body{
         font-weight: bold; 
     }
     
-    #product-pic{
+    .img{
         display: table;
         margin: 0 auto;
         width: 140px;
         height: 170px;
         margin-top: 10px;
         margin-bottom: 10px;
+    }
+    #product-pic{
+        display: table;
+        margin: 0 auto;
+        width: 140px;
+        max-height: 170px;
+        align-self: auto;
     }
     #productname{
         font-size: 16px;
@@ -112,6 +119,10 @@ body{
     .footer{
         height: 100px;;
     }
+    .footer2{
+        height: 400px;;
+    }
+
 
     .mySlides {display: none}
 
@@ -176,7 +187,18 @@ body{
 
       .warn-text{
           color: #FF735D;
+          text-align: center;
+          margin: 100px;
+          font-size: 20px;
+
       }
+      .warn-text2{
+        color: #FF735D;
+        text-align: center;
+        margin-top: -70px;
+        font-size: 15px;
+
+    }
 
       .category-box{
           transition: 0.3s;
