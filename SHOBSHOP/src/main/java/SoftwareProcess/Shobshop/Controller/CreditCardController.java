@@ -24,7 +24,7 @@ public class CreditCardController {
 
     @GetMapping("/testOmise")
     public String testOmise() {
-        return "testOmiseReal";
+        return "testOmise";
     }
 
     @GetMapping("/testOmiseInProgress")
