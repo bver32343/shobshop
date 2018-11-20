@@ -16,21 +16,17 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-/**
- *
- * @author saknarong
- */
 @Service
 public class CreditCardService {
 
     @Autowired
     CreditCardRepository creditCardRepository;
-    
-    public CreditCardModel save(CreditCardModel creditCardModel){
+
+    public CreditCardModel save(CreditCardModel creditCardModel) {
         return creditCardRepository.save(creditCardModel);
     }
 
-    public String creditCardPayment(String customerToken,String amountInStringType,String publicKey,String secretKey) throws ClientException, IOException, OmiseException {
+    public String creditCardPayment(String customerToken, String amountInStringType, String publicKey, String secretKey) throws ClientException, IOException, OmiseException {
         Double amountInDoubleType = Double.parseDouble(amountInStringType) * 100;
         Long amountInLongType = amountInDoubleType.longValue();
 

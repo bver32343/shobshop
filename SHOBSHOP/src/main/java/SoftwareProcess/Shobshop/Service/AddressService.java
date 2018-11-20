@@ -7,14 +7,16 @@ import SoftwareProcess.Shobshop.Model.AddressModel;
 import SoftwareProcess.Shobshop.Repository.AddressRepository;
 
 @Service
-public class AddressService{
-@Autowired
-AddressRepository AddressRepository;
+public class AddressService {
 
-    public AddressModel save(AddressModel address){
+    @Autowired
+    AddressRepository AddressRepository;
+
+    public AddressModel save(AddressModel address) {
         return AddressRepository.save(address);
     }
-    public AddressModel getById(int addressId){
+
+    public AddressModel getById(int addressId) {
         return AddressRepository.findByAddressId(addressId);
     }
 }

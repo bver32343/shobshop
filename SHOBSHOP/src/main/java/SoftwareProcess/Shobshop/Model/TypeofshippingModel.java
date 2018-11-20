@@ -10,32 +10,29 @@ import javax.validation.constraints.NotBlank;
 @Entity
 @Table(name = "typeofshipping")
 
-public class TypeofshippingModel{
+public class TypeofshippingModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int typeOfShippingId;
-    
+
     @NotBlank
     private String typeOfShippingName;
 
-	public int getTypeOfShippingId()
-	{
-		return this.typeOfShippingId;
-	}
+    public int getTypeOfShippingId() {
+        return this.typeOfShippingId;
+    }
 
-	public void setTypeOfShippingId(int typeOfShippingId)
-	{
-		this.typeOfShippingId = typeOfShippingId;
-	}
+    public void setTypeOfShippingId(int typeOfShippingId) {
+        this.typeOfShippingId = typeOfShippingId;
+    }
 
-	public String getTypeOfShippingName()
-	{
-		return this.typeOfShippingName;
-	}
+    public String getTypeOfShippingName() {
+        return this.typeOfShippingName;
+    }
 
-	public void setTypeOfShippingName(String typeOfShippingName)
-	{
-		this.typeOfShippingName = typeOfShippingName;
-	}
+    public void setTypeOfShippingName(String typeOfShippingName) {
+        this.typeOfShippingName = typeOfShippingName;
+    }
 
 }

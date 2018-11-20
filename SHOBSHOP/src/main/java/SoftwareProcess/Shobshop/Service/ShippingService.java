@@ -10,14 +10,16 @@ import SoftwareProcess.Shobshop.Repository.ShippingRepository;
 import java.util.List;
 
 @Service
-public class ShippingService{
+public class ShippingService {
+
     @Autowired
     ShippingRepository shippingRepository;
 
-    public List<ShippingModel>getByProductId(ProductModel productId){
+    public List<ShippingModel> getByProductId(ProductModel productId) {
         return shippingRepository.findByProductId(productId);
     }
-    public ShippingModel getByShippingId(int shippingId){
+
+    public ShippingModel getByShippingId(int shippingId) {
         return shippingRepository.findByShippingId(shippingId);
     }
 

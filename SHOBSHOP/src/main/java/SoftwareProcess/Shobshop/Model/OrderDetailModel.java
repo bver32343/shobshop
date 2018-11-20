@@ -12,14 +12,13 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-@Table(name ="orderdetail")
+@Table(name = "orderdetail")
 public class OrderDetailModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderDetailId;
 
-    //@NotBlank
     private int quantity;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
@@ -30,45 +29,36 @@ public class OrderDetailModel {
     @JoinColumn(name = "order_id", nullable = false)
     private OrderModel orderId;
 
+    public int getOrderdetailId() {
+        return this.orderDetailId;
+    }
 
-	public int getOrderdetailId()
-	{
-		return this.orderDetailId;
-	}
+    public void setOrderdetailId(int orderDetailId) {
+        this.orderDetailId = orderDetailId;
+    }
 
-	public void setOrderdetailId(int orderDetailId)
-	{
-		this.orderDetailId = orderDetailId;
-	}
+    public int getQuantity() {
+        return this.quantity;
+    }
 
-	public int getQuantity()
-	{
-		return this.quantity;
-	}
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
-	public void setQuantity(int quantity)
-	{
-		this.quantity = quantity;
-	}
+    public ProductModel getProductId() {
+        return this.productId;
+    }
 
-	public ProductModel getProductId()
-	{
-		return this.productId;
-	}
+    public void setProductId(ProductModel productId) {
+        this.productId = productId;
+    }
 
-	public void setProductId(ProductModel productId)
-	{
-		this.productId = productId;
-	}
+    public OrderModel getOrderid() {
+        return this.orderId;
+    }
 
-	public OrderModel getOrderid()
-	{
-		return this.orderId;
-	}
-
-	public void setOrderId(OrderModel orderId)
-	{
-		this.orderId = orderId;
-	}
+    public void setOrderId(OrderModel orderId) {
+        this.orderId = orderId;
+    }
 
 }

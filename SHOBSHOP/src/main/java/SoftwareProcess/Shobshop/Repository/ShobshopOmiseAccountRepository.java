@@ -15,6 +15,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author saknarong
  */
 public interface ShobshopOmiseAccountRepository extends JpaRepository<ShobshopOmiseAccountModel, Integer> {
-
     ShobshopOmiseAccountModel findByShobshopOmiseAccountId(int shobshopOmiseAccountId);
 }

@@ -6,8 +6,9 @@ import org.springframework.stereotype.Service;
 import SoftwareProcess.Shobshop.Repository.ShopRepository;
 
 @Service
-public class ShopService{
+public class ShopService {
+
     @Autowired
     ShopRepository shopRepository;
-    
+
 }

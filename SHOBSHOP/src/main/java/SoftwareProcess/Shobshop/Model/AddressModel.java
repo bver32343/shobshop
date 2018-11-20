@@ -13,10 +13,11 @@ import javax.validation.constraints.NotBlank;
 @Entity
 @Table(name = "address")
 public class AddressModel {
+
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int addressId;
-    
+
     @NotBlank
     private String homeNo;
 
@@ -35,7 +36,6 @@ public class AddressModel {
     @NotBlank
     private String city;
 
-    
     private int postCode;
 
     @NotBlank
@@ -45,104 +45,84 @@ public class AddressModel {
     @JoinColumn(name = "user_id", nullable = false)
     private UserModel userId;
 
-	public int getAddressId()
-	{
-		return this.addressId;
-	}
+    public int getAddressId() {
+        return this.addressId;
+    }
 
-	public void setAddressId(int addressId)
-	{
-		this.addressId = addressId;
-	}
+    public void setAddressId(int addressId) {
+        this.addressId = addressId;
+    }
 
-	public String getHomeNo()
-	{
-		return this.homeNo;
-	}
+    public String getHomeNo() {
+        return this.homeNo;
+    }
 
-	public void setHomeNo(String homeNo)
-	{
-		this.homeNo = homeNo;
-	}
+    public void setHomeNo(String homeNo) {
+        this.homeNo = homeNo;
+    }
 
-	public String getAlley()
-	{
-		return this.alley;
-	}
+    public String getAlley() {
+        return this.alley;
+    }
 
-	public void setAlley(String alley)
-	{
-		this.alley = alley;
-	}
+    public void setAlley(String alley) {
+        this.alley = alley;
+    }
 
-	public String getRoad()
-	{
-		return this.road;
-	}
+    public String getRoad() {
+        return this.road;
+    }
 
-	public void setRoad(String road)
-	{
-		this.road = road;
-	}
+    public void setRoad(String road) {
+        this.road = road;
+    }
 
-	public String getDistrict()
-	{
-		return this.district;
-	}
+    public String getDistrict() {
+        return this.district;
+    }
 
-	public void setDistrict(String district)
-	{
-		this.district = district;
-	}
+    public void setDistrict(String district) {
+        this.district = district;
+    }
 
-	public String getSubDistrict()
-	{
-		return this.subDistrict;
-	}
+    public String getSubDistrict() {
+        return this.subDistrict;
+    }
 
-	public void setSubDistrict(String subDistrict)
-	{
-		this.subDistrict = subDistrict;
-	}
+    public void setSubDistrict(String subDistrict) {
+        this.subDistrict = subDistrict;
+    }
 
-	public String getCity()
-	{
-		return this.city;
-	}
+    public String getCity() {
+        return this.city;
+    }
 
-	public void setCity(String city)
-	{
-		this.city = city;
-	}
+    public void setCity(String city) {
+        this.city = city;
+    }
 
-	public int getPostCode()
-	{
-		return this.postCode;
-	}
+    public int getPostCode() {
+        return this.postCode;
+    }
 
-	public void setPostCode(int postCode)
-	{
-		this.postCode = postCode;
-	}
+    public void setPostCode(int postCode) {
+        this.postCode = postCode;
+    }
 
-	public String getCountry()
-	{
-		return this.country;
-	}
+    public String getCountry() {
+        return this.country;
+    }
 
-	public void setCountry(String country)
-	{
-		this.country = country;
-	}
+    public void setCountry(String country) {
+        this.country = country;
+    }
 
-	public UserModel getUserId()
-	{
-		return this.userId;
-	}
+    public UserModel getUserId() {
+        return this.userId;
+    }
 
-	public void setUserId(UserModel userId)
-	{
-		this.userId = userId;
-	}
+    public void setUserId(UserModel userId) {
+        this.userId = userId;
+    }
 
 }

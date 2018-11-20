@@ -7,13 +7,16 @@ import SoftwareProcess.Shobshop.Model.OrderDetailModel;
 import SoftwareProcess.Shobshop.Repository.OrderDetailRepository;
 
 @Service
-public class OrderDetailService{
+public class OrderDetailService {
+
     @Autowired
     OrderDetailRepository OrderDetailRepository;
-    public OrderDetailModel save(OrderDetailModel orderdetail){
+
+    public OrderDetailModel save(OrderDetailModel orderdetail) {
         return OrderDetailRepository.save(orderdetail);
     }
-    public OrderDetailModel getById(int orderDetailId){
+
+    public OrderDetailModel getById(int orderDetailId) {
         return OrderDetailRepository.findByOrderDetailId(orderDetailId);
     }
 

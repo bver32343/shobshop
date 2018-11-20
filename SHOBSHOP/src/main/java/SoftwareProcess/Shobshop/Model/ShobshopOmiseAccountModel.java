@@ -1,6 +1,5 @@
 package SoftwareProcess.Shobshop.Model;
 
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,7 +9,8 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "shobshopomiseaccount")
-public class ShobshopOmiseAccountModel{
+public class ShobshopOmiseAccountModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int shobshopOmiseAccountId;
@@ -19,34 +19,28 @@ public class ShobshopOmiseAccountModel{
     @NotBlank
     private String secretKey;
 
-	public int getShobshopomiseaccountid()
-	{
-		return this.shobshopOmiseAccountId;
-	}
+    public int getShobshopomiseaccountid() {
+        return this.shobshopOmiseAccountId;
+    }
 
-	public void setShobshopomiseaccountid(int shobshopOmiseAccountId)
-	{
-		this.shobshopOmiseAccountId = shobshopOmiseAccountId;
-	}
+    public void setShobshopomiseaccountid(int shobshopOmiseAccountId) {
+        this.shobshopOmiseAccountId = shobshopOmiseAccountId;
+    }
 
-	public String getPublickey()
-	{
-		return this.publicKey;
-	}
+    public String getPublickey() {
+        return this.publicKey;
+    }
 
-	public void setPublickey(String publicKey)
-	{
-		this.publicKey = publicKey;
-	}
+    public void setPublickey(String publicKey) {
+        this.publicKey = publicKey;
+    }
 
-	public String getSecretkey()
-	{
-		return this.secretKey;
-	}
+    public String getSecretkey() {
+        return this.secretKey;
+    }
 
-	public void setSecretkey(String secretKey)
-	{
-		this.secretKey = secretKey;
-	}
+    public void setSecretkey(String secretKey) {
+        this.secretKey = secretKey;
+    }
 
 }

@@ -21,81 +21,61 @@ import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
 @Entity
-@Table(name ="orders")
+@Table(name = "orders")
 public class OrderModel {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int orderId;
-	
-	//@NotBlank
-	private LocalDate date;
-	
-	//@NotBlank
-	private Double totalPrice;
+    private LocalDate date;
+    private Double totalPrice;
 
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "shipping_id", nullable = false)
     private ShippingModel shippingId;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    private UserModel userId;
 
-	
-	@ManyToOne(fetch = FetchType.LAZY, optional = false)
-	@JoinColumn(name = "user_id", nullable = false)
-	private UserModel userId;
-   // @OnDelete(action = OnDeleteAction.CASCADE)
-    //@JsonIgnore
+    public ShippingModel getShippingId() {
+        return this.shippingId;
+    }
 
+    public void setShippingId(ShippingModel shippingId) {
+        this.shippingId = shippingId;
+    }
 
-	public ShippingModel getShippingId()
-	{
-		return this.shippingId;
-	}
+    public int getOrderId() {
+        return this.orderId;
+    }
 
-	public void setShippingId(ShippingModel shippingId)
-	{
-		this.shippingId = shippingId;
-	}
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
+    }
 
-	public int getOrderId()
-	{
-		return this.orderId;
-	}
+    public LocalDate getDate() {
+        return this.date;
+    }
 
-	public void setOrderId(int orderId)
-	{
-		this.orderId = orderId;
-	}
+    public void setDate(LocalDate localDate) {
+        this.date = localDate;
+    }
 
-	public LocalDate getDate()
-	{
-		return this.date;
-	}
+    public Double getTotalPrice() {
+        return this.totalPrice;
+    }
 
-	public void setDate(LocalDate localDate)
-	{
-		this.date = localDate;
-	}
+    public void setTotalPrice(Double totalPrice) {
+        this.totalPrice = totalPrice;
+    }
 
-	public Double getTotalPrice()
-	{
-		return this.totalPrice;
-	}
+    public UserModel getUserId() {
+        return this.userId;
+    }
 
-	public void setTotalPrice(Double totalPrice)
-	{
-		this.totalPrice = totalPrice;
-	}
+    public void setUserId(UserModel userId) {
+        this.userId = userId;
+    }
 
-	public UserModel getUserId()
-	{
-		return this.userId;
-	}
-
-	public void setUserId(UserModel userId)
-	{
-		this.userId = userId;
-	}
-
-    
 }

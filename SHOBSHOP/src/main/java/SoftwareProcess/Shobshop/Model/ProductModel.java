@@ -16,10 +16,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
-/**
- *
- * @author saknarong
- */
 @Entity
 @Table(name = "product")
 public class ProductModel {
@@ -34,14 +30,12 @@ public class ProductModel {
     @NotBlank
     private String productDetail;
 
-
     @NotBlank
     private String productURL;
 
     @NotBlank
     private int quantity;
 
-    //@NotBlank
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "category_id", nullable = false)
     private CategoryModel categoryId;

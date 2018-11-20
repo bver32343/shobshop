@@ -11,7 +11,8 @@ import javax.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "user")
-public class UserModel{
+public class UserModel {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int userId;
@@ -28,60 +29,48 @@ public class UserModel{
     @NotBlank
     private String phoneNumber;
 
-
-    public UserModel(){
+    public UserModel() {
 
     }
 
-	public int getUserId()
-	{
-		return this.userId;
-	}
+    public int getUserId() {
+        return this.userId;
+    }
 
-	public void setUserId(int userId)
-	{
-		this.userId = userId;
-	}
+    public void setUserId(int userId) {
+        this.userId = userId;
+    }
 
-	public String getFirstname()
-	{
-		return this.firstName;
-	}
+    public String getFirstname() {
+        return this.firstName;
+    }
 
-	public void setFirstname(String firstName)
-	{
-		this.firstName = firstName;
-	}
+    public void setFirstname(String firstName) {
+        this.firstName = firstName;
+    }
 
-	public String getLastname()
-	{
-		return this.lastName;
-	}
+    public String getLastname() {
+        return this.lastName;
+    }
 
-	public void setLastname(String lastName)
-	{
-		this.lastName = lastName;
-	}
+    public void setLastname(String lastName) {
+        this.lastName = lastName;
+    }
 
-	public String getEmail()
-	{
-		return this.email;
-	}
+    public String getEmail() {
+        return this.email;
+    }
 
-	public void setEmail(String email)
-	{
-		this.email = email;
-	}
+    public void setEmail(String email) {
+        this.email = email;
+    }
 
-	public String getPhonenumber()
-	{
-		return this.phoneNumber;
-	}
+    public String getPhonenumber() {
+        return this.phoneNumber;
+    }
 
-	public void setPhonenumber(String phoneNumber)
-	{
-		this.phoneNumber = phoneNumber;
-	}
-
+    public void setPhonenumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
 
 }

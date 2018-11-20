@@ -9,10 +9,9 @@ import SoftwareProcess.Shobshop.Model.UserModel;
 import SoftwareProcess.Shobshop.Service.UserService;
 
 @Controller
-    public class UserController {
-        @Autowired
-        UserService userService;
+public class UserController {
 
-        
-        
+    @Autowired
+    UserService userService;
+
 }
