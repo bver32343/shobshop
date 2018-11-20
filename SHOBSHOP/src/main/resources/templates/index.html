@@ -71,6 +71,49 @@
             setTimeout(showSlides, 2000); // Change image every 2 seconds
         }
     </script>
+    <p class="text-home" style="margin-top: 20px; color: #FF735D">ประเภทของสินค้า</p>
+    <br>
+    <hr class="line" style="margin-top: -30px; color: darkgray;">
+    </hr>
+    <div class="category" style="margin-left: 10%">
+        <div class="row">
+            <div class="col-2">
+                <div class="category-box" style="width: 160px; height: 160px;">
+                    <a class="category-clothes" th:href="${'/category/'+ Category}" id="clothes-link">
+                        <img th:src="@{/img/cargo-truck.png}" style="width: 160px; height: 160px" />
+                    </a>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="category-box" style="width: 160px; height: 160px;">
+                    <a class="category-shoes" th:href="${'/category/'+ Category}" id="shoes-link">
+                        <img th:src="@{/img/2.png}" style="width: 160px; height: 160px" />
+                    </a>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="category-box" style="width: 160px; height: 160px;">
+                    <a class="category-accessories" th:href="${'/category/'+ Category}" id="accessories-link">
+                        <img th:src="@{/img/2.png}" style="width: 160px; height: 160px" />
+                    </a>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="category-box" style="width: 160px; height: 160px;">
+                    <a class="category-bags" th:href="${'/category/'+ Category}" id="bags-link">
+                        <img th:src="@{/img/2.png}" style="width: 160px; height: 160px" />
+                    </a>
+                </div>
+            </div>
+            <div class="col-2">
+                <div class="category-box" style="width: 160px; height: 160px;">
+                    <a class="category-cosmetics" th:href="${'/category/'+ Category}" id="cosmetics-link">
+                        <img th:src="@{/img/2.png}" style="width: 160px; height: 160px" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
     <p class="text-home" style="margin-top: 20px; color: #FF735D">สินค้าทั้งหมด</p>
@@ -82,7 +125,7 @@
         <div class="row">
             <div class="col-2" th:each="product : ${allProducts}">
                 <div class="product-box" style="width: 160px ; height: 300px; margin-top: 20px">
-                    <a th:href="${'/productDetail/'+product.productId}" id="product-n
+                    <a class="name" th:href="${'/productDetail/'+product.productId}" id="product-n
                     ame-link">
                         <img id="product-pic" th:src="${product.productURL}" alt="productPicture">
                         <p id="productname" th:text="${product.productName}">productname</p>
