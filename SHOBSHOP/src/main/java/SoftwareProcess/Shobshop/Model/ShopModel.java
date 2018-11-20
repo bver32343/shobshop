@@ -19,7 +19,7 @@ public class ShopModel {
     private int shopId;
 
     @NotBlank
-    private String shoppName;
+    private String shopName;
     
     @NotBlank
     private String shopDetail;
@@ -28,35 +28,35 @@ public class ShopModel {
     @JoinColumn(name = "user_id", nullable = false)
     private UserModel userId;
 
-    public int getShopid() {
+    public int getShopId() {
         return this.shopId;
     }
 
-    public void setShopid(int shopId) {
+    public void setShopId(int shopId) {
         this.shopId = shopId;
     }
 
-    public String getShoppname() {
-        return this.shoppName;
+    public String getShopName() {
+        return this.shopName;
     }
 
-    public void setShoppname(String shoppName) {
-        this.shoppName = shoppName;
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
     }
 
-    public String getShopdetail() {
+    public String getShopDetail() {
         return this.shopDetail;
     }
 
-    public void setShopdetail(String shopDetail) {
+    public void setShopDetail(String shopDetail) {
         this.shopDetail = shopDetail;
     }
 
-    public UserModel getUserid() {
+    public UserModel getUserId() {
         return this.userId;
     }
 
-    public void setUserid(UserModel userId) {
+    public void setUserId(UserModel userId) {
         this.userId = userId;
     }
 

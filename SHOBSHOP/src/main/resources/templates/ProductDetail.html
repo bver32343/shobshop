@@ -65,7 +65,7 @@
 
                     <h1 th:text="${productDetail.productName}">productName</h1>
                     <h1 style="margin-top: 15px"><span th:text="${productDetail.productPrice} + ' THB'">price</span></h1>
-                    <p class="p1">โดย <span class="c1" th:text="${productDetail.shopId}">ShopName</span></p>
+                    <p class="p1">โดย <span class="c1" th:text="${productDetail.shopId.shopName}">ShopName</span></p>
                     <br>
                     <p style="margin-bottom: 10px" th:text="${productDetail.productDetail}">productDetail</p>
 
