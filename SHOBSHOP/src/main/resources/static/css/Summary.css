@@ -163,6 +163,6 @@ body {
   padding: 6px 50px;
   font-size: 20px;
 }
-.test p{
-  color:rgb(255, 124, 124);
+.test{
+  padding-left: 45px;
 }

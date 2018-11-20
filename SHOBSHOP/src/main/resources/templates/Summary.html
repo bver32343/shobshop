@@ -51,20 +51,32 @@
               alt="productPicture"
               width="200px"
               height="230px"
-            /> 
+            />
           </div>
 
           <div class="col">
             <br />
-            <h4 th:text="${product.productName}"></h4><br>
-            <h6 class="by">โดย <span class="c1" th:text="${product.shopId.shopName}">ShopName</span></h6>
+            <h4 th:text="${product.productName}"></h4>
+            <br />
+            <h6 class="by">
+              โดย
+              <span class="c1" th:text="${product.shopId.shopName}"
+                >ShopName</span
+              >
+            </h6>
             <br />
             <br />
             <br />
             <br />
             <br />
-            <span class="quan" th:text="'จำนวน '+'  '+${orderDetail.quantity}+'  '+' ชิ้น'"></span>
-            <span class="price" th:text="${product.productPrice} + ' THB'"></span>
+            <span
+              class="quan"
+              th:text="'จำนวน '+'  '+${orderDetail.quantity}+'  '+' ชิ้น'"
+            ></span>
+            <span
+              class="price"
+              th:text="${product.productPrice} + ' THB'"
+            ></span>
           </div>
         </div>
       </div>
@@ -78,27 +90,36 @@
       </div>
       <div class="information3">
         <div class="detail">
-            <p th:text="'ชื่อผู้สั่งซื้อ :'+' '+' '+${user.firstname}+' '+${user.lastname}"></p>
-            <p th:text="'E-mail :'+' '+${user.email}"></p>
-            <p th:text="'Tel :'+' '+${user.phonenumber}"></p>
+          <p
+            th:text="'ชื่อผู้สั่งซื้อ :'+' '+' '+${user.firstname}+' '+${user.lastname}"
+          ></p>
+          <p th:text="'E-mail :'+' '+${user.email}"></p>
+          <p th:text="'Tel :'+' '+${user.phonenumber}"></p>
+          <!--
             <p th:text="'ที่อยู่ : '+'บ้านเลขที่ '+${address.homeNo}+' '+'ซอย '+${address.alley}+' ถนน '+${address.road}
             +' แขวง/ตำบล '+${address.district}+' เขต/อำเภอ '+${address.subDistrict}+' จังหวัด '+${address.city}+' '
             +${address.country}+' '+${address.postCode}"></p>
-            <p th:text="'วันที่สั่งซื้อ : '+${order.date}"></p>
-            <p th:text="'รูปแบบการจัดส่ง : '+${shipping.typeOfShippingId.typeOfShippingName}"></p>
-            <p th:text="'ค่าการจัดส่ง : 50 บาท'"></p>
-            <p th:text="'ราคาสินค้า : '+${product.productPrice}"></p>
-            <p th:text="'วิธีการชำระเงิน : บัตรเครดิต/เดบิต'"></p>
+          -->
+          <p th:text="'ที่อยู่ : '+'บ้านเลขที่ '+${address.homeNo}+' '+'ซอย '+${address.alley}+' ถนน '+${address.road}"></p>
+          <div class="test">
+          <p th:text="' แขวง/ตำบล '+${address.district}+' เขต/อำเภอ '+${address.subDistrict}"></p>
+          <p th:text="' จังหวัด '+${address.city}+' '+${address.country}+' '+${address.postCode}"></p>
           </div>
-          
+          <p th:text="'วันที่สั่งซื้อ : '+${order.date}"></p>
+          <p th:text="'รูปแบบการจัดส่ง : '+${shipping.typeOfShippingId.typeOfShippingName}"></p>
+          <p th:text="'ค่าการจัดส่ง : 50 บาท'"></p>
+          <p th:text="'ราคาสินค้า : '+${product.productPrice}"></p>
+          <p th:text="'วิธีการชำระเงิน : บัตรเครดิต/เดบิต'"></p>
         </div>
       </div>
-      <br />
+    </div>
+    <br />
 
-    
     <br />
     <center>
-      <a href="index.html"><button class="backhome" type="submit">กลับสู่หน้าหลัก</button></a>
+      <a href="index.html"
+        ><button class="backhome" type="submit">กลับสู่หน้าหลัก</button></a
+      >
     </center>
     <br />
     <!-- Optional JavaScript -->
