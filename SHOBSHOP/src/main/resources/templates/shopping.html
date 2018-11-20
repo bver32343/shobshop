@@ -130,6 +130,7 @@
                             <h2 id="productName" th:text="${product.productName}">productName</h2>
                             <h2 id="shopName" th:text="'โดย ' + ${product.shopId.shopName}">byWho</h2>
                             <h2 class="price" id="price" th:text="${product.productPrice}+' THB'">20,000 THB</h2>
+                            <input type="hidden" id="prodPrice" th:value="${product.productPrice}">
                         </div>
                         <div class="col-2">
                             <div class="row">
@@ -142,7 +143,7 @@
                                     <div class="form-inline">
                                         <div class="row mr-5">
                                             <span class="mr-2 mt-2">จำนวน</span>
-                                            <input class="form-control" type="number" value="1" name="quantity" required>
+                                            <input class="form-control" type="number" id="quantity" text="1" value="1" name="quantity" onkeyup="sendQuantityValue(this.value)" required>
                                             <span class="ml-2 mt-2">ชิ้น</span>
                                         </div>
                                     </div>
@@ -157,7 +158,8 @@
                         <div class="col mr-3" th:each="shipping : ${allShipping}">
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="radio" class="form-check-input" name="shippingId" th:value="${shipping.shippingId}" th:onclick="'getShippingPrice(${shipping.shippingPrice})'" checked>    
+                                    <input type="hidden" name="shippingId" th:value="${shipping.shippingId}">
+                                    <input type="radio" class="form-check-input"  name="shipping" th:value="${shipping.shippingPrice}" onclick="sendValue(this.value)" required>    
                                     <div class="row">
                                         <div class="col-6">
                                             <img th:src="@{/img/cargo-truck.png}" alt="จัดส่ง" width="100px" height="100px">
@@ -229,15 +231,15 @@
 
                 <!-- <h2>บัตรเดบิต/เครดิตของฉัน</h2>
                 <div class="card mt-4 mb-5">
-                    <div class="row mt-2">
+                    <div class="row">
                         <div class="col-2">
                             <img th:src="@{/img/visa.png}" alt="visa" width="90px" height="60px">
                         </div>
                         <div class="col-8 d-flex align-items-center">
                             <div class="row">
                                 <div class="col-12">
-                                    <h2 id="nameCard">ชื่อบัตร</h2>
-                                    <h2 id="numberCard">เลขบัตร</h2>
+                                    <h2 id="nameCard">น.ส. สินีนาฏ จั่นxxxx</h2>
+                                    <h2 id="numberCard">4732-52xx-xxxx-xxxx</h2>
                                 </div>
                             </div>
                         </div>
@@ -260,11 +262,11 @@
 
                         </div>
                         <div class="col-4">
-                            <h2>รวมการสั่งซื้อ <span id="totalPrice" th:text="${product.productPrice}+' THB'">69,790 THB</span></h2> 
-                            <h2>จัดส่ง <span id="selectedShippingValue" value="" th:text="50"></span></h2> 
+                            <h2>รวมการสั่งซื้อ <span id="totalPrice" th:value="${product.productPrice}" th:text="${product.productPrice}+' THB'">69,790 THB</span></h2> 
+                            <h2>จัดส่ง <span id="selectedShippingValue" value="" th:text="${allShipping[0].shippingPrice}+' THB'"></span></h2> 
                             <hr>
-                            <h2>รวม <span id="sumPriceAndDelivery" th:text="${product.productPrice}+${50}+' THB'">70,090 THB</span></h2> 
-                            <input type="hidden" value="20" name="totalPrice">
+                            <h2>รวม <span id="sumPriceAndDelivery" name="sumPriceAndDelivery" th:text="${product.productPrice}+' THB'">70,090 THB</span></h2> 
+                            <input type="hidden" value="20" id="total" name="totalPrice">
                             <input type="hidden" th:value="${product.productId}" name="productId">
                             <button class="confirmBuyProduct" type="submit" style="float:right">สั่งซื้อสินค้า</button> 
                         </div>
@@ -388,7 +390,6 @@
                                                 order.creditCardName.value = document.getElementById('nameOnCard').value;
                                                 document.getElementById("creditCard-popUp-id").style.display = "none";
                                                 openSuccessText();
-                                                getCard();
                                             } else {
                                                 // Error: display an error message. Note that `response.message` contains
                                                 // a preformatted error message. Also note that `response.code` will be
@@ -428,29 +429,37 @@
 
         <!-- [Start] unsuccess text popup -->
         <script>
+            
             function openUnsuccessText() {
                 document.getElementById("unsuccess-popUp-id").style.display = "block";
             }
-
             function closeUnsuccessText() {
                 document.getElementById("unsuccess-popUp-id").style.display = "none";
             }
-            function getShippingPrice(price) {
-                document.getElementById("selectedShippingValue").text = price;
+            function sendValue(value) {
+                document.getElementById("selectedShippingValue").textContent = value;
+                var shippingPrice = document.getElementById("selectedShippingValue").textContent = value+" THB"; 
+                console.log(shippingPrice);
+                var productPrice = document.getElementById("totalPrice").textContent;
+                var quantity = document.getElementById("quantity").textContent = value;
+                document.getElementById("sumPriceAndDelivery").textContent = (parseFloat(productPrice) + parseFloat(shippingPrice))+" THB";
+                document.getElementById("sumPriceAndDelivery").value = parseFloat(document.getElementById("totalPrice").textContent) + parseFloat(shippingPrice);
+                document.getElementById("total").value = parseFloat(document.getElementById("totalPrice").textContent) + parseFloat(shippingPrice);
+            }
+            
+            function sendQuantityValue(value) {
+                var quantity = document.getElementById("quantity").textContent = value;
+                console.log(quantity);
+                var totalProductPrice = document.getElementById("prodPrice").value;
+                console.log(totalProductPrice);
+                var shippingPrice = document.getElementById("selectedShippingValue").textContent;
+                document.getElementById("totalPrice").textContent = parseFloat(totalProductPrice) * parseFloat(quantity);
+                document.getElementById("sumPriceAndDelivery").textContent = ((parseFloat(totalProductPrice) * parseFloat(quantity))+parseFloat(shippingPrice))+" THB";
+                document.getElementById("sumPriceAndDelivery").value = (parseFloat(totalProductPrice) * parseFloat(quantity))+parseFloat(shippingPrice);
+                document.getElementById("total").value = (parseFloat(totalProductPrice) * parseFloat(quantity))+parseFloat(shippingPrice);
             }
 
         </script>
-
-        <script type="text/javascript">
-            function getCard(){
-            var numberCard=document.getElementById("creditCardNumberId").value;
-            var nameCard=document.getElementById("creditCardNameId").value;
-            document.getElementById("nameCard").innerHTML=nameCard;
-            document.getElementById("numberCard").innerHTML=numberCard;
-        }
-        </script>
-
-
         <!-- [End] unsuccess text popup -->
 
         <!-- <script type="text/javascript">
@@ -465,8 +474,6 @@
                     openSuccessText();
                     closeCreditInput();
                 }
-                    
-                    
             }
         </script> -->
 
