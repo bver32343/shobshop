@@ -34,8 +34,6 @@ public class ProductModel {
     @NotBlank
     private String productDetail;
 
-    @NotBlank
-    private String productPicture;
 
     @NotBlank
     private String productURL;
@@ -72,14 +70,6 @@ public class ProductModel {
 
     public void setProductDetail(String productDetail) {
         this.productDetail = productDetail;
-    }
-
-    public String getProductPicture() {
-        return productPicture;
-    }
-
-    public void setProductPicture(String productPicture) {
-        this.productPicture = productPicture;
     }
 
     public int getQuantity() {
