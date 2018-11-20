@@ -7,9 +7,12 @@ package SoftwareProcess.Shobshop.Model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
@@ -40,11 +43,14 @@ public class ProductModel {
     @NotBlank
     private int quantity;
 
-    @NotBlank
-    private int category;
+    //@NotBlank
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "category_id", nullable = false)
+    private CategoryModel categoryId;
 
-    @NotBlank
-    private int shopId;
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "shop_id", nullable = false)
+    private ShopModel shopId;
 
     @NotBlank
     private int productPrice;
@@ -92,19 +98,19 @@ public class ProductModel {
         this.productId = productId;
     }
 
-    public int getCategory() {
-        return category;
+    public CategoryModel getCategoryId() {
+        return categoryId;
     }
 
-    public void setCategory(int category) {
-        this.category = category;
+    public void setCategory(CategoryModel categoryId) {
+        this.categoryId = categoryId;
     }
 
-    public int getShopId() {
+    public ShopModel getShopId() {
         return shopId;
     }
 
-    public void setShopId(int shopId) {
+    public void setShopId(ShopModel shopId) {
         this.shopId = shopId;
     }
 

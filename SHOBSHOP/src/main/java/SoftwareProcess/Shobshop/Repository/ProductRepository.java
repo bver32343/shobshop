@@ -5,6 +5,7 @@
  */
 package SoftwareProcess.Shobshop.Repository;
 
+import SoftwareProcess.Shobshop.Model.CategoryModel;
 import SoftwareProcess.Shobshop.Model.ProductModel;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -16,4 +17,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface ProductRepository extends JpaRepository<ProductModel, Integer> {
     ProductModel findByProductId(int productId);
     List<ProductModel> findByProductNameContaining(String productname);
+    List<ProductModel> findByCategoryId(CategoryModel categoryId);
 }

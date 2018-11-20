@@ -5,6 +5,7 @@
  */
 package SoftwareProcess.Shobshop.Controller;
 
+import SoftwareProcess.Shobshop.Model.CategoryModel;
 import SoftwareProcess.Shobshop.Model.ProductModel;
 import SoftwareProcess.Shobshop.Service.ProductService;
 import java.util.List;
@@ -66,5 +67,13 @@ public class ProductController {
         }
 
         return "search";
+    }
+    @GetMapping("category/{id}")
+    public String getAllProductCategory(ModelMap model,@PathVariable("id") int id) {
+        CategoryModel categoryModel = new CategoryModel();
+        categoryModel.setCategoryId(id);
+        List<ProductModel> allProducts = productService.getByCategory(categoryModel);
+        model.addAttribute("allProducts", allProducts);
+        return "index";
     }
 }
