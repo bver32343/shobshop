@@ -85,7 +85,7 @@ a:active {
 }
 
 .price {
-  font-size: 30px;
+  font-size: 20px;
   font-weight: bold;
   color: rgb(255, 124, 124);
   float: right;
@@ -161,11 +161,16 @@ a:active {
 }
 
 
-.home{
-  color : white;
-  background-color: rgb(255, 124, 124);
-  border-color: rgb(255, 124, 124) ;
-  border-radius: 6px;
+.home:link , .home:active , .home:visited {
   font-size: 20px;
-  vertical-align: middle;
-  }
+  text-decoration: none;
+  color: gray;
+}
+
+.home:hover{
+  font-size: 20px;
+  text-decoration: none;
+  color: rgb(255, 124, 124);
+}
+
+

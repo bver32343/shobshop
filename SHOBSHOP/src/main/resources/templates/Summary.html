@@ -30,28 +30,14 @@
           width="60px"
           height="60px"
       /></a>
-      <div class="container">
-        <!--
-          <form class="form-inline">
-            <input
-              class="form-control mr-4"
-              type="search"
-              placeholder="ค้นหาสินค้าหรือร้านค้า"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-danger" type="submit">ค้นหา</button>
-          </form>
-        -->
-      </div>
     </nav>
 
     <div class="container">
       <div class="topic mt-5">
         <div class="row">
           <div class="col">
-            <a href="index.html">หน้าแรก ></a>
-            <a href="/productDetail/"> สั่งซื้อสินค้า ></a
-            ><span> สรุปการสั่งซื้อ</span>
+            <a href="index.html">หน้าแรก </a>>
+            <span> สรุปการสั่งซื้อ</span>
             <hr />
           </div>
         </div>
@@ -70,71 +56,19 @@
 
           <div class="col">
             <br />
-            <h4 th:text="${product.productName}"></h4>
-            <p class="by">โดย dressdressShop</p>
+            <h4 th:text="${product.productName}"></h4><br>
+            <h6 class="by">โดย <span class="c1" th:text="${product.shopId.shopName}">ShopName</span></h6>
             <br />
             <br />
             <br />
             <br />
             <br />
-            <!-- <p
-              class="quantity"
-              th:text="'จำนวน'+' '+${orderDetail.quantity}+' '+'ชิ้น'+${product.productPrice} + ' THB'"
-            >
-            </p> -->
             <span class="quan" th:text="'จำนวน '+'  '+${orderDetail.quantity}+'  '+' ชิ้น'"></span>
             <span class="price" th:text="${product.productPrice} + ' THB'"></span>
           </div>
         </div>
       </div>
       <br />
-
-      <!-- <div class="headBuyer">
-        <img
-          th:src="@{/img/user.png}"
-          width="30px"
-          height="30px"
-        />&nbsp;&nbsp;ข้อมูลผู้รับ<br /><br />
-      </div>
-      <div class="information1">
-        <div class="buyer">
-          <p th:text="${user.firstname}+' '+${user.lastname}"></p>
-        </div>
-      </div>
-      <br />
-      <div class="headShipping">
-        <img
-          th:src="@{/img/cargo-truck.png}"
-          width="30px"
-          height="30px"
-        />&nbsp;&nbsp;ข้อมูลการจัดส่ง<br /><br />
-      </div>
-      <div class="information2">
-        <div class="shipping">
-          <p th:text="'จัดส่งแบบ'+' '+' '+${order.typeOfShipping}"></p>
-          ชื่อร้านค้า<br />
-          เลขที่การจัดส่ง<br />
-        </div>
-      </div>
-      <br /> --> 
-
-      <!-- <div class="headDetail">
-        <img
-          th:src="@{/img/detail.png}"
-          width="30px"
-          height="30px"
-        />&nbsp;&nbsp;รายละเอียดการสั่งซื้อ<br /><br />
-      </div>
-      <div class="information3">
-        <div class="detail">
-          <p>
-            หมายเลขการสั่งซื้อ<br />
-            วันที่สั่ง<br />
-          </p>
-        </div>
-      </div>
-      <br /> -->
-
       <div class="headDetail">
         <img
           th:src="@{/img/detail.png}"
@@ -153,7 +87,6 @@
             <p th:text="'รูปแบบการจัดส่ง : '+${shipping.typeOfShippingId.typeOfShippingName}"></p>
             <p th:text="'ค่าการจัดส่ง : 50 บาท'"></p>
             <p th:text="'ราคาสินค้า : '+${product.productPrice}"></p>
-            <!-- <p th:text="'ราคารวม :'+${order.totalPrice}+${50}"></p> -->
             <p th:text="'วิธีการชำระเงิน : บัตรเครดิต/เดบิต'"></p>
           </div>
           
@@ -161,29 +94,11 @@
       </div>
       <br />
 
-      <!-- รายละเอียดการชำระเงิน -->
-      <!-- <div class="headPayment">
-        <img
-          th:src="@{/img/credit-card.png}"
-          width="30px"
-          height="30px"
-        />&nbsp;&nbsp;รายละเอียดการชำระเงิน<br /><br />
-      </div>
-      <div class="information4">
-        <div class="payment">
-          <p>
-            รวมราคาสินค้า <br />
-            ค่าจัดส่ง <br />
-            ช่องทางการชำระเงิน <br />
-            สรุปราคาการสั่งซื้อ<br />
-          </p>
-        </div>
-      </div>
-    </div> -->
+    
     <br />
     <center>
       <a href="index.html"
-        ><button class="home" type="submit">กลับสู่หน้าหลัก</button></a
+        ><button class="backhome" type="submit">กลับสู่หน้าหลัก</button></a
       >
     </center>
     <br />
