@@ -1,4 +1,4 @@
-package SoftwareProcess.Shobshop.Model;
+    package SoftwareProcess.Shobshop.Model;
 
 
 import javax.persistence.Entity;
