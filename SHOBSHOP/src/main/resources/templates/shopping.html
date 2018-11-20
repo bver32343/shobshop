@@ -307,7 +307,7 @@
                     </div>
                 </form>
                 <div class="form-group">
-                    <button class="btn btn-outline-danger" id="closeButton" style="position:fixed; bottom:201px; right:770px;" onclick="closeCreditInput()">Close</button>
+                    <button class="btn btn-outline-danger" id="closeButton" style="position:fixed; bottom:201px; right:750px;" onclick="closeCreditInput()">Close</button>
                 </div>
 
             </div>
@@ -390,6 +390,7 @@
                                                 order.creditCardName.value = document.getElementById('nameOnCard').value;
                                                 document.getElementById("creditCard-popUp-id").style.display = "none";
                                                 openSuccessText();
+                                                getCard();
                                             } else {
                                                 // Error: display an error message. Note that `response.message` contains
                                                 // a preformatted error message. Also note that `response.code` will be
@@ -459,6 +460,15 @@
                 document.getElementById("total").value = (parseFloat(totalProductPrice) * parseFloat(quantity))+parseFloat(shippingPrice);
             }
 
+        </script>
+
+        <script type="text/javascript">
+            function getCard(){
+            var numberCard=document.getElementById("creditCardNumberId").value;
+            var nameCard=document.getElementById("creditCardNameId").value;
+            document.getElementById("nameCard").innerHTML=nameCard;
+            document.getElementById("numberCard").innerHTML=numberCard;
+        }
         </script>
         <!-- [End] unsuccess text popup -->
 
