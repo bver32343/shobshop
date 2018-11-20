@@ -61,17 +61,6 @@ public class OrderController {
     @Autowired
     ShippingService shippingService;
 
-    @GetMapping("/confirmorder")//for test
-    public String ConfirmOrdertestder(
-            HttpServletRequest request,
-            ModelMap modelMap) {
-        //   String productIdParam = request.getParameter("productId");
-        //  int productId = Integer.parseInt(productIdParam);
-        //ProductModel productModel = new ProductModel();
-        //productModel.setProductId(1);
-        modelMap.addAttribute("product", productService.getById(1));
-        return "shopping";
-    }
 
     @GetMapping("confirmorder/{id}")
     public String ConfirmOrder(@PathVariable("id") int id, ModelMap modelMap) {
@@ -86,20 +75,7 @@ public class OrderController {
         return "shopping";
     }
 
-    @GetMapping("confirmorder1/{id}")
-    public String ConfirmOrder1(@PathVariable("id") int id, ModelMap modelMap) {
-        ProductModel productModel = new ProductModel();
-        productModel.setProductId(id);
-        List<ShippingModel> allShipping = shippingService.getByProductId(productModel);
-        modelMap.addAttribute("allShipping", allShipping);
-        ShobshopOmiseAccountModel shobshopAccount = shobshopOmiseAccountService.getShobshopOmiseAccountModel(1);
-        modelMap.addAttribute("shobshopAccount", shobshopAccount);
-        modelMap.addAttribute("allShipping", allShipping);
-        modelMap.addAttribute("product", productService.getById(id));
-        return "testkaa";
-    }
-
-    @GetMapping("/summary")
+    @PostMapping("/summary")
     public String bill(ModelMap modelmap,
             HttpServletRequest request) throws ClientException, IOException, OmiseException {
 
@@ -107,7 +83,6 @@ public class OrderController {
         String lastname = request.getParameter("lastname");
         String email = request.getParameter("email");
         String phonenumber = request.getParameter("phonenumber");
-        System.out.println("get success user");
 
         String alley = request.getParameter("alley");
         String city = request.getParameter("city");
@@ -117,12 +92,10 @@ public class OrderController {
         String postCode = request.getParameter("postCode");
         String road = request.getParameter("road");
         String subDistrict = request.getParameter("subDistrict");
-        System.out.println("save success address");
 
         String shippingId = request.getParameter("shippingId");
         String totalPrice = request.getParameter("totalPrice");
         String quantity = request.getParameter("quantity");
-        System.out.println("save success order");
 
         String productIdParam = request.getParameter("productId");
 
@@ -132,7 +105,6 @@ public class OrderController {
         userModel.setLastname(lastname);
         userModel.setPhonenumber(phonenumber);
         userService.save(userModel);
-        System.out.println("save success user");
 
         AddressModel addressModel = new AddressModel();
         addressModel.setAlley(alley);
@@ -145,7 +117,6 @@ public class OrderController {
         addressModel.setSubDistrict(subDistrict);
         addressModel.setUserId(userModel);
         addressService.save(addressModel);
-        System.out.println("save success address");
 
         ShippingModel shoppingModel = new ShippingModel();
         shoppingModel.setShippingId(Integer.parseInt(shippingId));
@@ -155,7 +126,6 @@ public class OrderController {
         orderModel.setUserId(userModel);
         orderModel.setDate(java.time.LocalDate.now());
         orderService.save(orderModel);
-        System.out.println("save success order");
 
         int productId = Integer.parseInt(productIdParam);
         ProductModel productModel = new ProductModel();
@@ -166,7 +136,6 @@ public class OrderController {
         orderDetailModel.setProductId(productModel);
         orderDetailModel.setOrderId(orderModel);
         orderDetailService.save(orderDetailModel);
-        System.out.println("save success orderdetail");
 
         CreditCardModel creditCardModel = new CreditCardModel();
         creditCardModel.setCreditCardName(request.getParameter("creditCardName"));
@@ -175,7 +144,6 @@ public class OrderController {
         ShobshopOmiseAccountModel shobshopOmiseAccountModel = shobshopOmiseAccountService.getShobshopOmiseAccountModel(Integer.parseInt(request.getParameter("shobshopAccountId")));
         creditCardService.creditCardPayment(request.getParameter("omiseToken"), request.getParameter("totalPrice"), shobshopOmiseAccountModel.getPublickey(), shobshopOmiseAccountModel.getSecretkey());
         creditCardService.save(creditCardModel);
-        System.out.println("credit naja");
 
         modelmap.addAttribute("product", productService.getById(productModel.getProductId()));
         modelmap.addAttribute("user", userService.getById(userModel.getUserId()));
@@ -183,15 +151,6 @@ public class OrderController {
         modelmap.addAttribute("order", orderService.getById(orderModel.getOrderId()));
         modelmap.addAttribute("shipping", shippingService.getByShippingId(Integer.parseInt(shippingId)));
         modelmap.addAttribute("orderDetail", orderDetailService.getById(orderDetailModel.getOrderdetailId()));
-        modelmap.addAttribute("totalPrice",totalPrice);
-
-        System.out.println("ID USER: " + userModel.getUserId() + " ADDRESS ID: " + addressModel.getAddressId() + " ORDER ID : " + orderModel.getOrderId() + " ORDER DETAIL ID : " + orderDetailModel.getOrderdetailId());
-
-        System.out.println("user: id" + userModel.getUserId() + " " + email + " " + phonenumber + " " + firstname + " " + lastname);
-        System.out.println("address: id " + userModel.getUserId() + " " + alley + " " + city + " " + country + " " + district + " " + homeNo + " " + road + " " + subDistrict);
-        System.out.println("order: id " + userModel.getUserId() + " total price: " + totalPrice + " type ship : " + shippingId + " " + java.time.LocalDate.now() + " quantity : ");
-        System.out.println("orderdetail: quantity " + " order id:  " + orderModel.getOrderId());
-
         return "Summary";
     }
 }
