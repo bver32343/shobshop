@@ -94,6 +94,7 @@ public class OrderController {
         String subDistrict = request.getParameter("subDistrict");
 
         String shippingId = request.getParameter("shippingId");
+        String shippingPrice = request.getParameter("shipping");
         String totalPrice = request.getParameter("totalPrice");
         String quantity = request.getParameter("quantity");
 
@@ -151,6 +152,7 @@ public class OrderController {
         modelmap.addAttribute("order", orderService.getById(orderModel.getOrderId()));
         modelmap.addAttribute("shipping", shippingService.getByShippingId(Integer.parseInt(shippingId)));
         modelmap.addAttribute("orderDetail", orderDetailService.getById(orderDetailModel.getOrderdetailId()));
+        modelmap.addAttribute("shippingPrice",shippingPrice);
         return "Summary";
     }
 }

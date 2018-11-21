@@ -158,8 +158,8 @@
                         <div class="col mr-3" th:each="shipping : ${allShipping}">
                             <div class="form-check">
                                 <label class="form-check-label">
-                                    <input type="hidden" name="shippingId" th:value="${shipping.shippingId}">
                                     <input type="radio" class="form-check-input"  name="shipping" th:value="${shipping.shippingPrice}" onclick="sendValue(this.value)" required>    
+                                    <input type="hidden" name="shippingId" th:value="${shipping.shippingId}">
                                     <div class="row">
                                         <div class="col-6">
                                             <img th:src="@{/img/cargo-truck.png}" alt="จัดส่ง" width="100px" height="100px">
